@@ -71,19 +71,16 @@ public class Player extends Entity{
 
         if(keyH.upPressed == true){
             direction="up";
-            spriteCounter++;
         }
         if(keyH.downPressed){
             direction="down";
-            spriteCounter++;
         }
         if(keyH.leftPressed){
             direction="left";
-            spriteCounter++;
         }
         if(keyH.rightPressed){
             direction="right";
-            spriteCounter++;
+            
         }
 
         // Check player collision
@@ -96,18 +93,18 @@ public class Player extends Entity{
             
             switch (direction) {
                 case "up":
-                    if(keyH.upPressed){worldY -= speed;}
+                    if(keyH.upPressed){worldY -= speed;spriteCounter++;}
                     break;
             
                 case "down":
-                    if(keyH.downPressed){worldY += speed;}
+                    if(keyH.downPressed){worldY += speed;spriteCounter++;}
                     break;
                 case "left":
-                    if (keyH.leftPressed){worldX -= speed;}
+                    if (keyH.leftPressed){worldX -= speed;spriteCounter++;}
                     break;
     
                 case "right":
-                    if(keyH.rightPressed){worldX += speed;}
+                    if(keyH.rightPressed){worldX += speed;spriteCounter++;}
                     break;
             }
 
