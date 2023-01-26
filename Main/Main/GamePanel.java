@@ -28,17 +28,18 @@ public class GamePanel extends JPanel implements Runnable{
     public final int maxWorldWidht = tileSize*maxScreenRow;
 
     //FPS
-    int FPS = 40;
+    int FPS = 60;
 
     Thread gameThread;
 
     public Player player = new Player(this, keyH);
     TileManager tileManager = new TileManager(this);
+    public CollisionChecker cChecker = new CollisionChecker(this);
 
     public GamePanel(){
 
         this.setPreferredSize(new Dimension(screenWhidth, screenHeight));
-        this.setBackground(Color.black);
+        this.setBackground(Color.decode("#c4d474"));
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);

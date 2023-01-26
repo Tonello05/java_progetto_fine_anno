@@ -11,8 +11,8 @@ import Main.GamePanel;
 public class TileManager {
     
     GamePanel gp;
-    Tile[] tiles;
-    int tileMapNum[][];
+    public Tile[] tiles;
+    public int tileMapNum[][];
 
     public TileManager(GamePanel gp){ 
 
@@ -37,8 +37,19 @@ public class TileManager {
             tiles[1].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/grass2.png"));
             tiles[2].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/grass3.png"));
             tiles[3].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/water1.png"));
+            tiles[3].collision=true;
             tiles[4].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/water2.png"));
+            tiles[4].collision=true;
             tiles[5].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/water3.png"));
+            tiles[5].collision=true;
+            tiles[6].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/path1.png"));
+            tiles[7].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/path2.png"));
+            tiles[8].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/path3.png"));
+            tiles[9].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/treeTop.png"));
+            tiles[9].collision=true;
+            tiles[10].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/treeBottom.png"));
+            tiles[10].collision=true;
+
 
         } catch (Exception e) {
             e.printStackTrace();

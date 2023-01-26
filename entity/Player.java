@@ -1,15 +1,14 @@
 package entity;
 
 import javax.imageio.ImageIO;
-import javax.management.monitor.GaugeMonitor;
 import java.awt.Graphics2D;
-import java.awt.Color;
 import java.awt.image.BufferedImage;
+import java.awt.Rectangle;
 
 import Main.GamePanel;
 import Main.KeyHadler;
 
-public class Player extends entity{
+public class Player extends Entity{
     
     GamePanel gp;
     KeyHadler keyH;
@@ -23,15 +22,22 @@ public class Player extends entity{
         this.keyH=keyH;
         screenX = gp.screenWhidth/2 - (gp.tileSize/2);
         screenY = gp.screenHeight/2 - (gp.tileSize/2);
+
+        solidArea = new Rectangle();
+        solidArea.x=8;
+        solidArea.y=16;
+        solidArea.width=32;
+        solidArea.height=32;
+
         setDefaultValues();
         getPlayerImage();
     }
 
     public void setDefaultValues(){
 
-        worldX=gp.tileSize * 25;
-        worldY=gp.tileSize * 25;
-        speed=6;
+        worldX=gp.tileSize * 5;
+        worldY=gp.tileSize * 5;
+        speed=4;
         direction="down";
     }
 
@@ -61,28 +67,52 @@ public class Player extends entity{
 
     public void update(){
 
+        
+
         if(keyH.upPressed == true){
-            worldY -= speed;
             direction="up";
             spriteCounter++;
         }
         if(keyH.downPressed){
-            worldY += speed;
             direction="down";
             spriteCounter++;
         }
         if(keyH.leftPressed){
-            worldX -= speed;
             direction="left";
             spriteCounter++;
         }
         if(keyH.rightPressed){
-            worldX += speed;
             direction="right";
             spriteCounter++;
         }
 
-        
+        // Check player collision
+        collisionIsOn = false;
+        gp.cChecker.checkTile(this);
+
+        //if collision is false player can move
+
+        if (collisionIsOn == false) {
+            
+            switch (direction) {
+                case "up":
+                    if(keyH.upPressed){worldY -= speed;}
+                    break;
+            
+                case "down":
+                    if(keyH.downPressed){worldY += speed;}
+                    break;
+                case "left":
+                    if (keyH.leftPressed){worldX -= speed;}
+                    break;
+    
+                case "right":
+                    if(keyH.rightPressed){worldX += speed;}
+                    break;
+            }
+
+        }
+
         if(spriteCounter>10){
             if(spriteNum==1){spriteNum=2;}
             else if(spriteNum==2){spriteNum=3;}
