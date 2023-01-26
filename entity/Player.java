@@ -138,7 +138,7 @@ public class Player extends Entity{
                 if (spriteNum==3) {
                     image=up3;
                 }
-                
+                if(keyH.upPressed == false){image=up3;}
                 break;
             case "down":
                 if (spriteNum==1) {
@@ -150,6 +150,7 @@ public class Player extends Entity{
                 if (spriteNum==3) {
                     image=down3;
                 }
+                if(keyH.downPressed == false){image=down2;}
                 break;
             case "left":
                 if (spriteNum==1) {
@@ -161,6 +162,7 @@ public class Player extends Entity{
                 if (spriteNum==3) {
                     image=left3;
                 }
+                if(keyH.leftPressed == false){image=left2;}
                 break;
             case "right":
                 if (spriteNum==1) {
@@ -172,6 +174,7 @@ public class Player extends Entity{
                 if (spriteNum==3) {
                     image=right3;
                 }
+                if(keyH.rightPressed == false){image=right2;}
                 break;
         }
         g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
