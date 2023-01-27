@@ -8,7 +8,7 @@ public class Main {
         JFrame window = new JFrame();
         GamePanel gamePanel = new GamePanel();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setResizable(false);
+        window.setResizable(true);
         window.setTitle("2D Adventure");
 
         window.add(gamePanel);

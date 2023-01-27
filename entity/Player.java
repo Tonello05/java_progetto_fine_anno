@@ -13,8 +13,8 @@ public class Player extends Entity{
     GamePanel gp;
     KeyHadler keyH;
 
-    public final int screenX;
-    public final int screenY;
+    public int screenX;
+    public int screenY;
 
     public Player(GamePanel gp, KeyHadler keyH){
 
@@ -65,9 +65,12 @@ public class Player extends Entity{
 
     }
 
+    
+
     public void update(){
 
-        
+        screenX = gp.getWidth()/2 - (gp.tileSize/2);
+        screenY = gp.getHeight()/2 - (gp.tileSize/2);
 
         if(keyH.upPressed == true){
             direction="up";
@@ -91,6 +94,8 @@ public class Player extends Entity{
 
         if (collisionIsOn == false) {
             
+            if(keyH.shiftPressed){speed=speed*2;}
+
             switch (direction) {
                 case "up":
                     if(keyH.upPressed){worldY -= speed;spriteCounter++;}
@@ -107,6 +112,7 @@ public class Player extends Entity{
                     if(keyH.rightPressed){worldX += speed;spriteCounter++;}
                     break;
             }
+            if(keyH.shiftPressed){speed=speed/2;spriteCounter++;}
 
         }
 
