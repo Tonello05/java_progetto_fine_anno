@@ -16,6 +16,8 @@ public class Player extends Entity{
     public int screenX;
     public int screenY;
 
+    int hasKey= 0 ;
+
     public Player(GamePanel gp, KeyHadler keyH){
 
         this.gp=gp;
@@ -26,6 +28,8 @@ public class Player extends Entity{
         solidArea = new Rectangle();
         solidArea.x=8;
         solidArea.y=16;
+        solidAreaDefaultX = solidArea.x;
+        solidAreaDefaultY = solidArea.y;
         solidArea.width=32;
         solidArea.height=32;
 
@@ -35,8 +39,8 @@ public class Player extends Entity{
 
     public void setDefaultValues(){
 
-        worldX=gp.tileSize * 5;
-        worldY=gp.tileSize * 5;
+        worldX=gp.tileSize * 10;
+        worldY=gp.tileSize * 10;
         speed=4;
         direction="down";
     }
@@ -90,6 +94,9 @@ public class Player extends Entity{
         collisionIsOn = false;
         gp.cChecker.checkTile(this);
 
+        //Check object collision
+        int object_index = gp.cChecker.checkObject(this, true);
+        pickUpObject(object_index);
         //if collision is false player can move
 
         if (collisionIsOn == false) {
@@ -122,6 +129,35 @@ public class Player extends Entity{
             else if(spriteNum==3){spriteNum=1;}
             spriteCounter=0;
             
+        }
+
+    }
+
+    public void pickUpObject(int index){
+
+        if(index!=999){
+
+            String objectName = gp.obj[index].name;
+
+            switch (objectName) {
+                case "key":
+                        hasKey ++;
+                        gp.obj[index] = null;
+                    break;
+            
+                case "door":
+                    if (hasKey>0 && gp.obj[index].collision) {
+                        hasKey--;
+                        try {
+                            gp.obj[index].image = ImageIO.read(getClass().getResourceAsStream("/res/objects/openedDoor.png"));
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        gp.obj[index].collision=false;
+                    }
+                    break;
+            }
+
         }
 
     }
