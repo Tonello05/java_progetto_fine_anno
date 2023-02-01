@@ -16,7 +16,9 @@ public class Player extends Entity{
     public int screenX;
     public int screenY;
 
-    int hasKey= 0 ;
+    //GAME ITEMS VARIABLES
+    int hasKey = 0;
+    boolean hasShoes = false;
 
     public Player(GamePanel gp, KeyHadler keyH){
 
@@ -99,9 +101,9 @@ public class Player extends Entity{
         pickUpObject(object_index);
         //if collision is false player can move
 
-        if (collisionIsOn == false) {
+        if (collisionIsOn == false ) {
             
-            if(keyH.shiftPressed){speed=speed*2;}
+            if(keyH.shiftPressed && this.hasShoes){speed=speed*2;}
 
             switch (direction) {
                 case "up":
@@ -119,7 +121,7 @@ public class Player extends Entity{
                     if(keyH.rightPressed){worldX += speed;spriteCounter++;}
                     break;
             }
-            if(keyH.shiftPressed){speed=speed/2;spriteCounter++;}
+            if(keyH.shiftPressed && this.hasShoes){speed=speed/2;spriteCounter++;}
 
         }
 
@@ -155,6 +157,10 @@ public class Player extends Entity{
                         }
                         gp.obj[index].collision=false;
                     }
+                    break;
+                case "shoes":
+                    gp.obj[index] = null;
+                    this.hasShoes = true;
                     break;
             }
 
