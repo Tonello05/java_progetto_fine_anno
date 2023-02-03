@@ -1,3 +1,7 @@
+/*
+ * Classe che gestisce l'input da tastiera
+ */
+
 package Main;
 
 import java.awt.event.KeyEvent;
@@ -13,7 +17,7 @@ public class KeyHadler implements KeyListener{
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {
+    public void keyPressed(KeyEvent e) {    //controlla quando un tasto ciene premuto
 
         int code = e.getKeyCode();
 
@@ -36,7 +40,7 @@ public class KeyHadler implements KeyListener{
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {
+    public void keyReleased(KeyEvent e) {   //controlla quando un tasto viene rilasciato
         
         int code = e.getKeyCode();
 

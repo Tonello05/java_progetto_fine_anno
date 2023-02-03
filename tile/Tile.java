@@ -1,3 +1,7 @@
+/*
+ * Classe contenente una tile
+ */
+
 package tile;
 
 import java.awt.image.BufferedImage;

@@ -1,3 +1,7 @@
+/*
+ * Classe che gestisce il player
+ */
+
 package entity;
 
 import javax.imageio.ImageIO;
@@ -17,10 +21,9 @@ public class Player extends Entity{
     public int screenY;
 
     //GAME ITEMS VARIABLES
-    int hasKey = 0;
-    boolean hasShoes = false;
+    public int hasKey = 0;
 
-    public Player(GamePanel gp, KeyHadler keyH){
+    public Player(GamePanel gp, KeyHadler keyH){    //contruttore e setup del player
 
         this.gp=gp;
         this.keyH=keyH;
@@ -39,7 +42,7 @@ public class Player extends Entity{
         getPlayerImage();
     }
 
-    public void setDefaultValues(){
+    public void setDefaultValues(){     //imposta alcuni valori predefiniti
 
         worldX=gp.tileSize * 10;
         worldY=gp.tileSize * 10;
@@ -47,7 +50,7 @@ public class Player extends Entity{
         direction="down";
     }
 
-    public void getPlayerImage(){
+    public void getPlayerImage(){       //legge le immagini del player
 
         try {
             
@@ -73,7 +76,7 @@ public class Player extends Entity{
 
     
 
-    public void update(){
+    public void update(){       //aggiorna la posizione del player
 
         screenX = gp.getWidth()/2 - (gp.tileSize/2);
         screenY = gp.getHeight()/2 - (gp.tileSize/2);
@@ -102,8 +105,6 @@ public class Player extends Entity{
         //if collision is false player can move
 
         if (collisionIsOn == false ) {
-            
-            if(keyH.shiftPressed && this.hasShoes){speed=speed*2;}
 
             switch (direction) {
                 case "up":
@@ -121,8 +122,6 @@ public class Player extends Entity{
                     if(keyH.rightPressed){worldX += speed;spriteCounter++;}
                     break;
             }
-            if(keyH.shiftPressed && this.hasShoes){speed=speed/2;spriteCounter++;}
-
         }
 
         if(spriteCounter>10){
@@ -135,7 +134,7 @@ public class Player extends Entity{
 
     }
 
-    public void pickUpObject(int index){
+    public void pickUpObject(int index){    //gestisce le interazioni con gli oggetti
 
         if(index!=999){
 
@@ -145,22 +144,40 @@ public class Player extends Entity{
                 case "key":
                         hasKey ++;
                         gp.obj[index] = null;
+                        gp.playSE(1);
+                        gp.ui.showMessage("you got a key!");
                     break;
             
                 case "door":
-                    if (hasKey>0 && gp.obj[index].collision) {
+
+                    if (hasKey > 0 && gp.obj[index].collision) {
                         hasKey--;
+                        gp.playSE(3);
+                        gp.ui.showMessage("you opened a door!");
                         try {
                             gp.obj[index].image = ImageIO.read(getClass().getResourceAsStream("/res/objects/openedDoor.png"));
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
                         gp.obj[index].collision=false;
+                        
                     }
+                    if(hasKey < 1 && gp.obj[index].collision){
+                        gp.ui.showMessage("you need a key!");
+                    }
+
                     break;
                 case "shoes":
                     gp.obj[index] = null;
-                    this.hasShoes = true;
+                    this.speed +=2;
+                    gp.playSE(2);
+                    gp.ui.showMessage("speed up!");
+                    break;
+
+                case "chest":
+                    gp.ui.gamefinished = true;
+                    gp.stopMusic();
+                    gp.playSE(4);
                     break;
             }
 
@@ -168,10 +185,7 @@ public class Player extends Entity{
 
     }
 
-    public void draw(Graphics2D g2){
-
-        //g2.setColor(Color.white);
-        //g2.fillRect(x, y, gp.tileSize, gp.tileSize);
+    public void draw(Graphics2D g2){    //disegna il player sullo schermo
 
         BufferedImage image = null;
 

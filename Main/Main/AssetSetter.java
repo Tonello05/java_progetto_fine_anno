@@ -1,3 +1,7 @@
+/*
+ * Classe che imposta tutti gli oggetti
+ */
+
 package Main;
 
 import object.OBJ_Chest;
@@ -15,10 +19,10 @@ public class AssetSetter {
 
     }
 
-    public void setObject(){
+    public void setObject(){        //cre gli oggetti e li posiziona
 
-        gp.obj[0] = new OBJ_Key();
-        gp.obj[0].worldX = 15 * gp.tileSize;
+        gp.obj[0] = new OBJ_Key();  //oggetto crearo
+        gp.obj[0].worldX = 15 * gp.tileSize;    //coordinate dell'oggetto creato
         gp.obj[0].worldY = 10 * gp.tileSize;
 
         gp.obj[1] = new OBJ_Door(); 
@@ -28,6 +32,10 @@ public class AssetSetter {
         gp.obj[2] = new OBJ_Shoes();
         gp.obj[2].worldX = 15 * gp.tileSize;
         gp.obj[2].worldY = 14 * gp.tileSize;
+ 
+        gp.obj[3] = new OBJ_Chest();
+        gp.obj[3].worldX = 20 *gp.tileSize;
+        gp.obj[3].worldY = 14 * gp.tileSize;
 
     }
 

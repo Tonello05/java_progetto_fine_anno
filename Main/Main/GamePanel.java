@@ -1,3 +1,7 @@
+/*
+ * Classe principale del gioco
+ */
+
 package Main;
 
 import java.awt.Color;
@@ -20,26 +24,30 @@ public class GamePanel extends JPanel implements Runnable{
     public final int maxScreenRow = 12;
     public final int screenWhidth = tileSize * maxScreenCol;
     public final int screenHeight = tileSize * maxScreenRow;
-    KeyHadler keyH = new KeyHadler();
+
 
     //WORLD SETTINGS
     public final int maxWorldCol = 50;
     public final int maxWorldRow = 50;
-    public final int maxWorldSize = tileSize*maxScreenCol;
-    public final int maxWorldWidht = tileSize*maxScreenRow;
 
     //FPS
     int FPS = 60;
 
+    //SYSTEM
+    Sound music = new Sound();
+    Sound soundEffect = new Sound();
     Thread gameThread;
-
-    public Player player = new Player(this, keyH);
+    KeyHadler keyH = new KeyHadler();
     public TileManager tileManager = new TileManager(this);
     public CollisionChecker cChecker = new CollisionChecker(this);
     public AssetSetter aSetter = new AssetSetter(this);
+    public UI ui = new UI(this);
+
+    //ENTITY AND OBJECT
+    public Player player = new Player(this, keyH);
     public SuperObject obj[] = new SuperObject[50];
 
-    public GamePanel(){
+    public GamePanel(){     //crea il pannello di gioco
 
         this.setPreferredSize(new Dimension(screenWhidth, screenHeight));
         this.setBackground(Color.decode("#9cd4c4"));
@@ -49,13 +57,14 @@ public class GamePanel extends JPanel implements Runnable{
 
     }
 
-    public void setUpGame(){
+    public void setUpGame(){        //setup di vari componenti
 
         aSetter.setObject();
+        playMusic(0);
 
     }
 
-    public void startGameThread(){
+    public void startGameThread(){      //fa partire il thread che serve a gestirr la grafica
 
         gameThread = new Thread(this);
         gameThread.start();
@@ -63,7 +72,7 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     @Override
-    public void run() {
+    public void run() {         //metodo (thread) che si occupa di disegnare
 
         double drawInterval = 1000000000/FPS;
         double nextDrawTime = System.nanoTime() + drawInterval;
@@ -93,11 +102,11 @@ public class GamePanel extends JPanel implements Runnable{
 
     }
 
-    public void update(){
+    public void update(){   //aggiorna gli elementi da disegnare
         player.update();
     }
 
-    public void paintComponent(Graphics g){
+    public void paintComponent(Graphics g){     //disegna sullo schermo
 
         super.paintComponent(g);
 
@@ -114,8 +123,32 @@ public class GamePanel extends JPanel implements Runnable{
         //PLAYER
         player.draw(g2);
 
+        //UI
+        ui.draw(g2);
 
         g2.dispose();
 
     }
+
+    public void playMusic(int i){       //riproduce la musica
+
+        music.setFile(i);
+        music.play();
+        music.loop();;
+
+    }
+
+    public void stopMusic(){            //ferma la musica
+
+        music.stop();
+
+    }
+
+    public void playSE(int i){          //riproduce un effetto sonoro
+
+        soundEffect.setFile(i);
+        soundEffect.play();
+
+    }
+
 }

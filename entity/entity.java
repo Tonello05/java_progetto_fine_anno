@@ -1,3 +1,7 @@
+/*
+ * Classe Padre di tuttle entita (NPC, Player, Nemici)
+ */
+
 package entity;
 
 import java.awt.image.BufferedImage;

@@ -1,3 +1,7 @@
+/*
+ * Classe che gestisce le collisioni
+ */
+
 package Main;
 
 import entity.Entity;
@@ -10,7 +14,7 @@ public class CollisionChecker {
         this.gp=gp;
     }
 
-    public void checkTile(Entity entity){
+    public void checkTile(Entity entity){   //controlla le collisioni con la mappa
 
         int entityLeftWorldX = entity.worldX + entity.solidArea.x;
         int entityRightWorldX = entity.worldX + entity.solidArea.x + entity.solidArea.width;
@@ -72,7 +76,7 @@ public class CollisionChecker {
 
     }
 
-    public int checkObject(Entity entity, boolean player){
+    public int checkObject(Entity entity, boolean player){  //gestisce le collisioni gon li oggetti
 
         int index = 999;
 

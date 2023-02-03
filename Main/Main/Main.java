@@ -1,5 +1,8 @@
-package Main;
+/*
+ * Classe Main (avvia il gioco e imposta la finestra)
+ */
 
+package Main;
 
 import javax.swing.*;
 

@@ -1,3 +1,7 @@
+/*
+ * Classe che gestisce la mappa
+ */
+
 package tile;
 
 import javax.imageio.ImageIO;
@@ -56,7 +60,7 @@ public class TileManager {
         }
     }
 
-    public void getTileImage(){
+    public void getTileImage(){     //legge le immagini delle tiles
 
         try {
             
@@ -83,7 +87,7 @@ public class TileManager {
 
     }
 
-    public void setuptile(int i, String fileName, boolean collision){
+    public void setuptile(int i, String fileName, boolean collision){   //legge i dati delle tiles
 
         try {
             
@@ -97,7 +101,7 @@ public class TileManager {
 
     }
 
-    public void draw(Graphics2D g2){
+    public void draw(Graphics2D g2){    //disegna le tiles
 
         int worldCol=0;
         int worldRow=0;
@@ -129,7 +133,7 @@ public class TileManager {
         }
 
     }
-    public void loadMap(String filePath){
+    public void loadMap(String filePath){   //legge la mappa
 
         try {
             
