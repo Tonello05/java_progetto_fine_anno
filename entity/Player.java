@@ -72,9 +72,7 @@ public class Player extends Entity{
             e.printStackTrace();
         }
 
-    }
-
-    
+    }    
 
     public void update(){       //aggiorna la posizione del player
 
@@ -189,8 +187,11 @@ public class Player extends Entity{
 
         BufferedImage image = null;
 
+        
+
         switch (direction) {
             case "up":
+                if(gp.gameState == gp.pauseState){spriteNum=3;}
                 if (spriteNum==1) {
                     image=up1;
                 }
@@ -203,6 +204,7 @@ public class Player extends Entity{
                 if(keyH.upPressed == false){image=up3;}
                 break;
             case "down":
+                if(gp.gameState == gp.pauseState){spriteNum=2;}
                 if (spriteNum==1) {
                     image=down1;
                 }
@@ -213,8 +215,10 @@ public class Player extends Entity{
                     image=down3;
                 }
                 if(keyH.downPressed == false){image=down2;}
+                
                 break;
             case "left":
+                if(gp.gameState == gp.pauseState){spriteNum=2;}
                 if (spriteNum==1) {
                     image=left1;
                 }
@@ -225,8 +229,10 @@ public class Player extends Entity{
                     image=left3;
                 }
                 if(keyH.leftPressed == false){image=left2;}
+                
                 break;
             case "right":
+                if(gp.gameState == gp.pauseState){spriteNum=2;}
                 if (spriteNum==1) {
                     image=right1;
                 }
@@ -237,6 +243,7 @@ public class Player extends Entity{
                     image=right3;
                 }
                 if(keyH.rightPressed == false){image=right2;}
+                
                 break;
         }
         g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);

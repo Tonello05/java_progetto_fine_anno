@@ -37,6 +37,10 @@ public class AssetSetter {
         gp.obj[3].worldX = 20 *gp.tileSize;
         gp.obj[3].worldY = 14 * gp.tileSize;
 
+        gp.obj[4] = new OBJ_Key();  //oggetto crearo
+        gp.obj[4].worldX = 12 * gp.tileSize;    //coordinate dell'oggetto creato
+        gp.obj[4].worldY = 10 * gp.tileSize;
+
     }
 
 }

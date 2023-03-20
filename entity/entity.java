@@ -1,5 +1,5 @@
 /*
- * Classe Padre di tuttle entita (NPC, Player, Nemici)
+ * Classe Padre di tutte le entita (NPC, Player, Nemici)
  */
 
 package entity;
