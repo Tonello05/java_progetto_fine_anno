@@ -14,7 +14,6 @@ import Main.KeyHadler;
 
 public class Player extends Entity{
     
-    GamePanel gp;
     KeyHadler keyH;
 
     public int screenX;
@@ -26,6 +25,7 @@ public class Player extends Entity{
 
     public Player(GamePanel gp, KeyHadler keyH){    //contruttore e setup del player
 
+        super(gp);
         this.gp=gp;
         this.keyH=keyH;
         screenX = gp.screenWhidth/2 - (gp.tileSize/2);

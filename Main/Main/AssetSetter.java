@@ -4,6 +4,7 @@
 
 package Main;
 
+import entity.NPC_kolo;
 import object.OBJ_Chest;
 import object.OBJ_Door;
 import object.OBJ_Key;
@@ -50,6 +51,14 @@ public class AssetSetter {
         gp.obj[6] = new OBJ_coin();
         gp.obj[6].worldX = 17 * gp.tileSize;    //coordinate dell'oggetto creato
         gp.obj[6].worldY = 17 * gp.tileSize;
+
+    }
+
+    public void setNpc(){
+
+        gp.npc[0] = new NPC_kolo(gp);
+        gp.npc[0].worldX = 30 * gp.tileSize;
+        gp.npc[0].worldY = 15 * gp.tileSize;
 
     }
 
