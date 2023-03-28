@@ -11,6 +11,7 @@ import java.awt.image.BufferedImage;
 import java.text.DecimalFormat;
 
 import object.OBJ_Key;
+import object.OBJ_coin;
 
 public class UI {
     
@@ -22,6 +23,7 @@ public class UI {
 
     //IMAGES
     BufferedImage keyImage;
+    BufferedImage coinImage;
 
     public boolean messageOn = false;
     public String message = "";
@@ -41,7 +43,10 @@ public class UI {
         arial_80B = new Font("arial", Font.BOLD ,80);
 
         OBJ_Key key = new OBJ_Key();
+        OBJ_coin coin = new OBJ_coin();
         keyImage = key.image;
+        coinImage = coin.image;
+
     }
 
     public void draw(Graphics2D g2){        //disegna la ui
@@ -94,6 +99,11 @@ public class UI {
             g2.setColor(Color.white);
             g2.drawImage(keyImage, gp.tileSize/2, gp.tileSize/2, gp.tileSize, gp.tileSize, null);
             g2.drawString("x " + gp.player.hasKey, 100, 75);
+
+            g2.setFont(arial_40);
+            g2.setColor(Color.white);
+            g2.drawImage(coinImage, gp.tileSize/2, gp.tileSize * 2 -20, gp.tileSize, gp.tileSize, null);
+            g2.drawString("x " + gp.player.coins, 100, 150);
     
             //TIME
             playtime += (double)1/60;

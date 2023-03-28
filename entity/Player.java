@@ -22,6 +22,7 @@ public class Player extends Entity{
 
     //GAME ITEMS VARIABLES
     public int hasKey = 0;
+    public int coins = 0;
 
     public Player(GamePanel gp, KeyHadler keyH){    //contruttore e setup del player
 
@@ -176,6 +177,19 @@ public class Player extends Entity{
                     gp.ui.gamefinished = true;
                     gp.stopMusic();
                     gp.playSE(4);
+                    break;
+                case "inps":
+                    gp.obj[index] = null;
+                    this.speed = speed/2;
+                    gp.playSE(2);
+                    coins = 104;
+                    gp.ui.showMessage("hai ottenuto la 104!!!");
+
+                    break;
+                case "coin":
+                    gp.obj[index] = null;
+                    gp.playSE(1);
+                    coins++;
                     break;
             }
 
