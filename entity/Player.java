@@ -101,6 +101,11 @@ public class Player extends Entity{
         //Check object collision
         int object_index = gp.cChecker.checkObject(this, true);
         pickUpObject(object_index);
+
+        //check NPCs collision
+        int npcIndex = gp.cChecker.checEntity(this, gp.npc);
+        intercatNPC(npcIndex);
+
         //if collision is false player can move
 
         if (collisionIsOn == false ) {
@@ -128,6 +133,14 @@ public class Player extends Entity{
             else if(spriteNum==2){spriteNum=3;}
             else if(spriteNum==3){spriteNum=1;}
             spriteCounter=0;
+            
+        }
+
+    }
+
+    public void intercatNPC(int index){
+
+        if(index != 999){
             
         }
 

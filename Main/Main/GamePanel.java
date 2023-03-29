@@ -116,7 +116,17 @@ public class GamePanel extends JPanel implements Runnable{
         
 
         if(gameState == playState){
+
+            //player update
             player.update();
+
+            //NPC update
+
+            for (int i = 0; i < npc.length; i++) {
+                if(npc[i]!=null){
+                    npc[i].update();
+                }
+            }
         }
 
         if(gameState == pauseState){
@@ -140,7 +150,7 @@ public class GamePanel extends JPanel implements Runnable{
         }
         //NPC
         for (int i = 0; i < npc.length; i++) {
-            if(npc[i] != null){npc[i].draw(g2, this);}
+            if(npc[i] != null){npc[i].draw(g2);}
         }
 
         //PLAYER
