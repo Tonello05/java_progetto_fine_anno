@@ -1,5 +1,5 @@
 /*
- * Classe che imposta tutti gli oggetti
+ * Oggetto: posizionamento elementi vari (npc, oggetti, mostri...)
  */
 
 package Main;
@@ -54,11 +54,11 @@ public class AssetSetter {
 
     }
 
-    public void setNpc(){
+    public void setNpc(){   //crea npc e li posiziona
 
-        gp.npc[0] = new NPC_kolo(gp);
-        gp.npc[0].worldX = 23 * gp.tileSize;
-        gp.npc[0].worldY = 10 * gp.tileSize;
+        gp.npc[0] = new NPC_kolo(gp);   //creazione oggetto
+        gp.npc[0].worldX = 23 * gp.tileSize;    // coordinata x dell'npc
+        gp.npc[0].worldY = 10 * gp.tileSize;    // coordinata y dell'npc
 
     }
 

@@ -1,5 +1,7 @@
 /*
- * Classe che gestisce le collisioni
+ * Oggetto: collisioni
+ * Descrizione: classe che gestisce le collisioni tra tutti gli elementi del gioco
+ * (principalmente sono calcoli)
  */
 
 package Main;
@@ -14,7 +16,7 @@ public class CollisionChecker {
         this.gp=gp;
     }
 
-    public void checkTile(Entity entity){   //controlla le collisioni con la mappa
+    public void checkTile(Entity entity){   //controlla le collisioni con gli elementi della mappa
 
         int entityLeftWorldX = entity.worldX + entity.solidArea.x;
         int entityRightWorldX = entity.worldX + entity.solidArea.x + entity.solidArea.width;
@@ -152,7 +154,7 @@ public class CollisionChecker {
 
     }
 
-    //NPCs or Monsters
+    //npc o mostri
     public int checEntity(Entity entity, Entity[] target){
 
         int index = 999;

@@ -27,15 +27,15 @@ public class GamePanel extends JPanel implements Runnable{
     public final int screenHeight = tileSize * maxScreenRow;
 
 
-    //WORLD SETTINGS
-    public final int maxWorldCol = 50;
+    //WORLD SETTINGS    (dimensioni mappa)
+    public final int maxWorldCol = 50;  
     public final int maxWorldRow = 50;
 
-    //FPS
+    //FPS   (frame per second) (modificabili)
     int FPS = 60;
 
-    //SYSTEM
-    Sound music = new Sound();
+    //SYSTEM    (vari oggetti che gestiscono il gioco)
+    Sound music = new Sound();  
     Sound soundEffect = new Sound();
     Thread gameThread;
     KeyHadler keyH = new KeyHadler(this);
@@ -45,15 +45,15 @@ public class GamePanel extends JPanel implements Runnable{
     public UI ui = new UI(this);
 
     //ENTITY AND OBJECT
-    public Player player = new Player(this, keyH);
-    public SuperObject obj[] = new SuperObject[50];
-    public Entity npc[] = new Entity[50];
+    public Player player = new Player(this, keyH);  //player
+    public SuperObject obj[] = new SuperObject[50]; //array di oggetti
+    public Entity npc[] = new Entity[50];   //array di npc
 
     //GAME STATE
-    public int gameState;
-    public final int playState = 1;
-    public final int pauseState = 2;
-    public final int dialogueState = 3;
+    public int gameState;   //stato del gioco
+    public final int playState = 1;     //gioco in azione
+    public final int pauseState = 2;    //gioco in pause
+    public final int dialogueState = 3;     //sta avvendendo un dialogo
 
     public GamePanel(){     //crea il pannello di gioco
 
@@ -67,15 +67,14 @@ public class GamePanel extends JPanel implements Runnable{
 
     public void setUpGame(){        //setup di vari componenti
 
-        aSetter.setObject();
-        aSetter.setNpc();
-        playMusic(0);
-        //stopMusic();
-        gameState = playState;
+        aSetter.setObject();    //crea gli npc
+        aSetter.setNpc();       //crea gli oggetti
+        playMusic(0);         //fa partire la musica
+        gameState = playState;  //stato iniziale del gioco su in azione
 
     }
 
-    public void startGameThread(){      //fa partire il thread che serve a gestirr la grafica
+    public void startGameThread(){      //fa partire il thread che serve a gestire la grafica
 
         gameThread = new Thread(this);
         gameThread.start();
@@ -94,7 +93,7 @@ public class GamePanel extends JPanel implements Runnable{
             // 2 DRAW
             repaint();
 
-            try {
+            try {   //calcoli vari che servono a rendere gli FPS accurati
                 double remainingTime = nextDrawTime - System.nanoTime();
                 remainingTime = remainingTime/1000000;
 
@@ -133,7 +132,8 @@ public class GamePanel extends JPanel implements Runnable{
         }
 
         if(gameState == pauseState){
-            //nothing
+            //servirà in futuro
+
         }
 
     }

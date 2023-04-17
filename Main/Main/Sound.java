@@ -12,10 +12,10 @@ import javax.sound.sampled.Clip;
 
 public class Sound {
     
-    Clip clip;
-    URL soundURL[] = new URL[30];
+    Clip clip;  //classe che gestisce l'audio
+    URL soundURL[] = new URL[30];   //array di audio
 
-    public Sound(){
+    public Sound(){ //inizializzazione degli audio
 
         soundURL[0] = getClass().getResource("/res/sounds/BlueBoyAdventure.wav");
         soundURL[1] = getClass().getResource("/res/sounds/coin.wav");

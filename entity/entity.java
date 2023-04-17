@@ -13,28 +13,28 @@ import java.awt.Rectangle;
 
 public class Entity {
     
-    public int worldX, worldY;
-    public int speed;
+    public int worldX, worldY;  //posizione entità nella mapa
+    public int speed;   //velocità
 
     GamePanel gp;
-    public BufferedImage up1,up2,up3,left1,left2,left3,right1,right2,right3,down1,down2,down3;
-    public String direction;
-    public int spriteCounter = 0;
-    public int spriteNum = 1;//frame number
-    public Rectangle solidArea = new Rectangle(0,0,48,48);
-    public int solidAreaDefaultX, solidAreaDefaultY;
-    public boolean collisionIsOn = false;
-    public int actionLockCounter = 0;
-    public boolean noMovement = false;
-    public String dialogues[] = new String[20];
-    public int dialogueIndex = 0;
+    public BufferedImage up1,up2,up3,left1,left2,left3,right1,right2,right3,down1,down2,down3;  //sprites dell'entita
+    public String direction;    //direzione corrente dell'entita
+    public int spriteCounter = 0;   //contatore per gli sprite (server nel metodo draw )
+    public int spriteNum = 1;   //frame number
+    public Rectangle solidArea = new Rectangle(0,0,48,48);  //HitBox dell'entità
+    public int solidAreaDefaultX, solidAreaDefaultY;    //altre variabili per le hitbox
+    public boolean collisionIsOn = false;   //true se l'entità è in collisione con qualcosa
+    public int actionLockCounter = 0;      //contatore per far eseguire a un npc un azione
+    public boolean noMovement = false;  //se messa a true l'entità non eseguira azioni
+    public String dialogues[] = new String[20]; //array dei dialoghi dell'npc
+    public int dialogueIndex = 0;   //contatore dei dialoghi
 
     public Entity(GamePanel gp){
         this.gp=gp;
     }
-    public void setAction(){}
+    public void setAction(){}   //servirà negli oggetti npc per impostare le suo azioni predefinite
 
-    public void update(){
+    public void update(){   //calcola posizione e eventuali collisioni dell'npc
 
         if(noMovement == false){
 
@@ -76,7 +76,7 @@ public class Entity {
 
     }
 
-    public void draw(Graphics2D g2){
+    public void draw(Graphics2D g2){    //disegna l'npc
         
         BufferedImage image = null;
 
@@ -149,7 +149,7 @@ public class Entity {
 
     }
 
-    public void speak(){
+    public void speak(){    //metodo che serve per i dialoghi
 
         if(dialogues[dialogueIndex] == null){
             dialogueIndex = 0;

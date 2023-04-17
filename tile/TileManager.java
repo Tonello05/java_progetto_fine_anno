@@ -17,18 +17,18 @@ import Main.UtilityTool;
 public class TileManager {
     
     GamePanel gp;
-    public Tile[] tiles;
-    public int tileMapNum[][];
-    ArrayList<String> fileNames = new ArrayList<>();
-    ArrayList<String> collisionStatus = new ArrayList<>();
+    public Tile[] tiles;    //array di tiles
+    public int tileMapNum[][];  //mappa del gioco (una matrice di interi)
+    ArrayList<String> fileNames = new ArrayList<>();    //nome dei file tiles
+    ArrayList<String> collisionStatus = new ArrayList<>();  //collisione tiles
 
     public TileManager(GamePanel gp){ 
 
         
         this.gp=gp;
-        readTileData();
+        readTileData(); //legge tutte le tiles
 
-        tiles = new Tile[fileNames.size()];
+        tiles = new Tile[fileNames.size()]; 
         tileMapNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         loadMap("/res/maps/worldMap.txt");

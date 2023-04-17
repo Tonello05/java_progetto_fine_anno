@@ -12,12 +12,15 @@ import Main.GamePanel;
 
 public class SuperObject {
     
-    public BufferedImage image;
-    public String name;
-    public boolean collision = false;
-    public int worldX, worldY;
+    //per altre info sulla creazione di un oggetto guarda la classe OBJ_Shoes
+    //le interazioni con gli oggetti sono all'interno della classe player
+
+    public BufferedImage image;         //immagine dell'oggetto
+    public String name;                 //nome dell'oggetto
+    public boolean collision = false;   //collisioni dell'oogetto ative o no
+    public int worldX, worldY;          //posizione dell'oggetto
     public Rectangle solidArea = new Rectangle(0,0,48,48);  //hitbox dell'oggetto
-    public int solidAreaDefaultX = 0 , solidAreaDefaultY = 0;   
+    public int solidAreaDefaultX = 0 , solidAreaDefaultY = 0;       //altre variabili per l'hitbox
 
     public void draw(Graphics2D g2, GamePanel gp){  //disegna l'oggetto sullo schermo
 
