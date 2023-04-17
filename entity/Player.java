@@ -142,6 +142,10 @@ public class Player extends Entity{
 
         if(index != 999){
             
+            if(keyH.enterPressed){
+                gp.gameState = gp.dialogueState;
+                gp.npc[index].speak();
+            }
         }
 
     }

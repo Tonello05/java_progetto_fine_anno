@@ -53,6 +53,7 @@ public class GamePanel extends JPanel implements Runnable{
     public int gameState;
     public final int playState = 1;
     public final int pauseState = 2;
+    public final int dialogueState = 3;
 
     public GamePanel(){     //crea il pannello di gioco
 
@@ -69,7 +70,7 @@ public class GamePanel extends JPanel implements Runnable{
         aSetter.setObject();
         aSetter.setNpc();
         playMusic(0);
-        stopMusic();
+        //stopMusic();
         gameState = playState;
 
     }
@@ -124,7 +125,9 @@ public class GamePanel extends JPanel implements Runnable{
 
             for (int i = 0; i < npc.length; i++) {
                 if(npc[i]!=null){
+                    
                     npc[i].update();
+                    
                 }
             }
         }

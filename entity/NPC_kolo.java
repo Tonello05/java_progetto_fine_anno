@@ -14,6 +14,7 @@ public class NPC_kolo extends Entity{
         direction = "down";
         speed = 1;
         getPlayerImage();
+        setDialogue();
     }
 
     public void getPlayerImage(){       //legge le immagini del player
@@ -64,7 +65,18 @@ public class NPC_kolo extends Entity{
 
     }
 
-    
+    public void setDialogue(){
 
+        dialogues[0] = "Sono kolosiuk!";
+        dialogues[1] = "Benvenuto nell'isola 4F";
+        dialogues[2] = "se ni mondo ci fosse u poco di bene\ne ognuno si considerasse suo\nfratello...";
+        dialogues[3] = "Scoprili Tutti";
+    }
+
+    public void speak(){
+
+        super.speak();
+        
+    }
 
 }

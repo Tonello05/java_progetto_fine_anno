@@ -5,9 +5,11 @@
 package Main;
 
 import java.awt.Graphics2D;
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.image.BufferedImage;
+import java.io.InputStream;
 import java.text.DecimalFormat;
 
 import object.OBJ_Key;
@@ -20,6 +22,7 @@ public class UI {
     //Font di base
     Font arial_40;
     Font arial_80B;
+    Font pixel_font;
 
     //IMAGES
     BufferedImage keyImage;
@@ -36,11 +39,22 @@ public class UI {
     double playtime;
     DecimalFormat dFormat = new DecimalFormat("#0.00");
 
+    //DIALOGUE
+    public String currentDialogue = "";
+
     public UI(GamePanel gp){
         this.gp=gp;
 
         arial_40 = new Font("arial", 0 ,40);
         arial_80B = new Font("arial", Font.BOLD ,80);
+        
+
+        try {
+            InputStream is = getClass().getResourceAsStream("/res/font/pixel_font.ttf");
+            pixel_font = Font.createFont(Font.TRUETYPE_FONT, is);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         OBJ_Key key = new OBJ_Key();
         OBJ_coin coin = new OBJ_coin();
@@ -52,13 +66,14 @@ public class UI {
     public void draw(Graphics2D g2){        //disegna la ui
 
         this.g2=g2;
-        g2.setFont(arial_40);
+        g2.setFont(pixel_font);
+        g2.setFont(g2.getFont().deriveFont(30F));
 
         if(gp.gameState == gp.playState){
 
             if(gamefinished){   //end of the game
 
-                g2.setFont(arial_40);
+                g2.setFont(pixel_font);
                 g2.setColor(Color.white);
     
                 String text;
@@ -95,12 +110,12 @@ public class UI {
     
             }
     
-            g2.setFont(arial_40);
+            g2.setFont(g2.getFont().deriveFont(35F));
             g2.setColor(Color.white);
             g2.drawImage(keyImage, gp.tileSize/2, gp.tileSize/2, gp.tileSize, gp.tileSize, null);
             g2.drawString("x " + gp.player.hasKey, 100, 75);
 
-            g2.setFont(arial_40);
+            g2.setFont(g2.getFont().deriveFont(35F));
             g2.setColor(Color.white);
             g2.drawImage(coinImage, gp.tileSize/2, gp.tileSize * 2 -20, gp.tileSize, gp.tileSize, null);
             g2.drawString("x " + gp.player.coins, 100, 150);
@@ -112,7 +127,7 @@ public class UI {
             //MESSAGE
             if(messageOn){
     
-                g2.setFont(g2.getFont().deriveFont(30F));
+                g2.setFont(g2.getFont().deriveFont(35F));
                 g2.drawString(message, gp.tileSize/2, gp.tileSize*5);
     
                 messageCounter ++;
@@ -129,12 +144,53 @@ public class UI {
         }
 
         if(gp.gameState == gp.pauseState){
-
+            g2.setFont(g2.getFont().deriveFont(60F));
             drawPauseScreen();
 
         }
 
+        if(gp.gameState == gp.dialogueState){
+
+            drawDialogueScreen();
+
+        }
+
         
+
+    }
+
+    public void drawDialogueScreen(){
+
+        //WINDOW
+        int x = gp.tileSize*2;
+        int y = gp.tileSize/2;
+        int widht = gp.screenWhidth - (gp.tileSize*4);
+        int height = gp.tileSize*4;
+
+        drawSubWindow(x, y, widht, height);
+
+        //TEXT
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 35F));
+        x += gp.tileSize;
+        y += gp.tileSize;
+
+        for(String line : currentDialogue.split("\n")){
+            g2.drawString(line, x, y);
+            y += 40;
+        }
+    }
+
+    public void drawSubWindow(int x, int y, int widht, int height){
+
+        Color black = new Color(0, 0, 0, 200);
+        Color white = new Color(255, 255, 255);
+        g2.setColor(black);
+        g2.fillRoundRect(x, y, widht, height, 35, 35);
+
+        
+        g2.setColor(white);
+        g2.setStroke(new BasicStroke(5));
+        g2.drawRoundRect(x+5, y+5, widht-10, height-10, 25, 25);
 
     }
 
