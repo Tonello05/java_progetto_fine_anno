@@ -143,7 +143,7 @@ public class Player extends Entity{
         if(index != 999){
             
             if(keyH.enterPressed){
-                gp.gameState = gp.dialogueState;
+                gp.gameState = GamePanel.dialogueState;
                 gp.npc[index].speak();
             }
         }
@@ -222,7 +222,7 @@ public class Player extends Entity{
 
         switch (direction) {
             case "up":
-                if(gp.gameState == gp.pauseState){spriteNum=3;}
+                if(gp.gameState == GamePanel.pauseState){spriteNum=3;}
                 if (spriteNum==1) {
                     image=up1;
                 }
@@ -235,7 +235,7 @@ public class Player extends Entity{
                 if(keyH.upPressed == false){image=up3;}
                 break;
             case "down":
-                if(gp.gameState == gp.pauseState){spriteNum=2;}
+                if(gp.gameState == GamePanel.pauseState){spriteNum=2;}
                 if (spriteNum==1) {
                     image=down1;
                 }
@@ -249,7 +249,7 @@ public class Player extends Entity{
                 
                 break;
             case "left":
-                if(gp.gameState == gp.pauseState){spriteNum=2;}
+                if(gp.gameState == GamePanel.pauseState){spriteNum=2;}
                 if (spriteNum==1) {
                     image=left1;
                 }
@@ -263,7 +263,7 @@ public class Player extends Entity{
                 
                 break;
             case "right":
-                if(gp.gameState == gp.pauseState){spriteNum=2;}
+                if(gp.gameState == GamePanel.pauseState){spriteNum=2;}
                 if (spriteNum==1) {
                     image=right1;
                 }

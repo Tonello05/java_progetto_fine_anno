@@ -26,6 +26,8 @@ public class GamePanel extends JPanel implements Runnable{
     public final int screenWhidth = tileSize * maxScreenCol;
     public final int screenHeight = tileSize * maxScreenRow;
 
+    //GAME TITLE
+    public final String title = "4F ADVENTURE !!";    //titolo del gioco
 
     //WORLD SETTINGS    (dimensioni mappa)
     public final int maxWorldCol = 50;  
@@ -51,14 +53,16 @@ public class GamePanel extends JPanel implements Runnable{
 
     //GAME STATE
     public int gameState;   //stato del gioco
-    public final int playState = 1;     //gioco in azione
-    public final int pauseState = 2;    //gioco in pause
-    public final int dialogueState = 3;     //sta avvendendo un dialogo
+    public final static int playState = 1;     //gioco in azione
+    public final static int pauseState = 2;    //gioco in pause
+    public final static int dialogueState = 3;     //sta avvendendo un dialogo
+    public final static int titleState = 4;    //schermata iniziale
 
     public GamePanel(){     //crea il pannello di gioco
 
         this.setPreferredSize(new Dimension(screenWhidth, screenHeight));
-        this.setBackground(Color.decode("#9cd4c4"));
+        //this.setBackground(Color.decode("#9cd4c4"));
+        this.setBackground(Color.black);
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
@@ -66,11 +70,9 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     public void setUpGame(){        //setup di vari componenti
-
         aSetter.setObject();    //crea gli npc
         aSetter.setNpc();       //crea gli oggetti
-        playMusic(0);         //fa partire la musica
-        gameState = playState;  //stato iniziale del gioco su in azione
+        gameState = titleState;  //stato iniziale del gioco su in azione
 
     }
 
@@ -144,23 +146,30 @@ public class GamePanel extends JPanel implements Runnable{
 
         Graphics2D g2 = (Graphics2D)g;
 
-        //TILE
-        tileManager.draw(g2);
+        if(gameState == titleState){
+            ui.draw(g2);
+        }else{
 
-        //OBJECTS
-        for (int i = 0; i < obj.length; i++) {
-            if(obj[i] != null){obj[i].draw(g2, this);}
+            //TILE
+            tileManager.draw(g2);
+            //OBJECTS
+            for (int i = 0; i < obj.length; i++) {
+                if(obj[i] != null){obj[i].draw(g2, this);}
+            }
+            //NPC
+            for (int i = 0; i < npc.length; i++) {
+                if(npc[i] != null){npc[i].draw(g2);}
+            }
+            //PLAYER
+            player.draw(g2);
+
+            //UI
+            ui.draw(g2);
+
         }
-        //NPC
-        for (int i = 0; i < npc.length; i++) {
-            if(npc[i] != null){npc[i].draw(g2);}
-        }
 
-        //PLAYER
-        player.draw(g2);
+        
 
-        //UI
-        ui.draw(g2);
 
         g2.dispose();
 

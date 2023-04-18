@@ -26,8 +26,35 @@ public class KeyHadler implements KeyListener{
 
         int code = e.getKeyCode();
 
+        //TITLE STATE
+        if(gp.gameState == GamePanel.titleState){
+            if(code == KeyEvent.VK_UP){
+                gp.ui.commandNumber --;
+                if(gp.ui.commandNumber < 0 ){gp.ui.commandNumber = 2;}
+            }
+            if(code == KeyEvent.VK_DOWN){
+                gp.ui.commandNumber ++;
+                if(gp.ui.commandNumber > 2 ){gp.ui.commandNumber = 0;}
+            }
+            if(code == KeyEvent.VK_ENTER){
+                switch (gp.ui.commandNumber) {
+                    case 0:
+                        gp.gameState = GamePanel.playState;
+                        gp.playMusic(0);
+                        break;
+                
+                    case 1:
+
+                        break;
+                    case 2:
+                        System.exit(0);
+                        break;
+                }
+            }
+        }
+
         //GAME STATE
-        if(gp.gameState == gp.playState){
+        if(gp.gameState == GamePanel.playState){
 
             
             if (code == KeyEvent.VK_W) {
@@ -46,7 +73,7 @@ public class KeyHadler implements KeyListener{
                 shiftPressed = true;
             }
             if(code == KeyEvent.VK_ESCAPE){
-                gp.gameState = gp.pauseState;
+                gp.gameState = GamePanel.pauseState;
             }
             if(code == KeyEvent.VK_ENTER){
                 enterPressed = true;
@@ -55,17 +82,17 @@ public class KeyHadler implements KeyListener{
         }
 
         //PAUSE STATE
-        else if(gp.gameState == gp.pauseState){
+        else if(gp.gameState == GamePanel.pauseState){
             if(code == KeyEvent.VK_ESCAPE){
-                 gp.gameState = gp.playState;
+                 gp.gameState = GamePanel.playState;
             }
         }
 
         //DIALOGUE STATE
-        else if(gp.gameState == gp.dialogueState){
+        else if(gp.gameState == GamePanel.dialogueState){
 
             if(code == KeyEvent.VK_ENTER){
-                gp.gameState = gp.playState;
+                gp.gameState = GamePanel.playState;
             }
 
         }
@@ -96,7 +123,6 @@ public class KeyHadler implements KeyListener{
         if( code == KeyEvent.VK_ENTER) {
             enterPressed = false;
         }
-        
     }
     
     

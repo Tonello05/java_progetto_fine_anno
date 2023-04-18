@@ -15,6 +15,7 @@ public class NPC_kolo extends Entity{
         speed = 1;      //velocità dell'npc
         getPlayerImage();   
         setDialogue();
+        name = "kolosiuk";
     }
 
     public void getPlayerImage(){       //legge le immagini del player
@@ -71,12 +72,13 @@ public class NPC_kolo extends Entity{
         dialogues[1] = "Benvenuto nell'isola 4F";
         dialogues[2] = "se ni mondo ci fosse u poco di bene\ne ognuno si considerasse suo\nfratello...";
         dialogues[3] = "Scoprili Tutti";
+        dialogues[4] = "Tieni una mela";
     }
 
     public void speak(){    //dialogo con l'npc
 
         //eventuali azioni da fare durante il dialogo (per esempio curare a un certo dialogo)
-
+        
         //DIALOGO
         super.speak();
         

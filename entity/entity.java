@@ -28,6 +28,7 @@ public class Entity {
     public boolean noMovement = false;  //se messa a true l'entità non eseguira azioni
     public String dialogues[] = new String[20]; //array dei dialoghi dell'npc
     public int dialogueIndex = 0;   //contatore dei dialoghi
+    public String name;     //nome dell'npc
 
     public Entity(GamePanel gp){
         this.gp=gp;
@@ -90,7 +91,7 @@ public class Entity {
 
                 switch (direction) {
                     case "up":
-                        if(gp.gameState == gp.pauseState){spriteNum=3;}
+                        if(gp.gameState == GamePanel.pauseState){spriteNum=3;}
                         if (spriteNum==1) {
                             image=up1;
                         }
@@ -103,7 +104,7 @@ public class Entity {
                         
                         break;
                     case "down":
-                        if(gp.gameState == gp.pauseState){spriteNum=2;}
+                        if(gp.gameState == GamePanel.pauseState){spriteNum=2;}
                         if (spriteNum==1) {
                             image=down1;
                         }
@@ -116,7 +117,7 @@ public class Entity {
                         
                         break;
                     case "left":
-                        if(gp.gameState == gp.pauseState){spriteNum=2;}
+                        if(gp.gameState == GamePanel.pauseState){spriteNum=2;}
                         if (spriteNum==1) {
                             image=left1;
                         }
@@ -130,7 +131,7 @@ public class Entity {
                         
                         break;
                     case "right":
-                        if(gp.gameState == gp.pauseState){spriteNum=2;}
+                        if(gp.gameState == GamePanel.pauseState){spriteNum=2;}
                         if (spriteNum==1) {
                             image=right1;
                         }
@@ -154,7 +155,8 @@ public class Entity {
         if(dialogues[dialogueIndex] == null){
             dialogueIndex = 0;
         }
-        gp.ui.currentDialogue = dialogues[dialogueIndex];
+        gp.ui.currentDialogue =  name + ": " + dialogues[dialogueIndex];
+        
         dialogueIndex++;
         switch (gp.player.direction) {
             case "up":
