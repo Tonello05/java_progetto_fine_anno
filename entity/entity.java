@@ -30,6 +30,10 @@ public class Entity {
     public int dialogueIndex = 0;   //contatore dei dialoghi
     public String name;     //nome dell'npc
 
+    //CHARACTER STATUS
+    public int maxLife;
+    public int life;
+
     public Entity(GamePanel gp){
         this.gp=gp;
     }

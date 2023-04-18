@@ -73,6 +73,7 @@ public class GamePanel extends JPanel implements Runnable{
         aSetter.setObject();    //crea gli npc
         aSetter.setNpc();       //crea gli oggetti
         gameState = titleState;  //stato iniziale del gioco su in azione
+        playMusic(6);   //musica del menu iniziale
 
     }
 

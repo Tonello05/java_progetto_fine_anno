@@ -31,14 +31,17 @@ public class KeyHadler implements KeyListener{
             if(code == KeyEvent.VK_UP){
                 gp.ui.commandNumber --;
                 if(gp.ui.commandNumber < 0 ){gp.ui.commandNumber = 2;}
+                gp.playSE(5);
             }
             if(code == KeyEvent.VK_DOWN){
                 gp.ui.commandNumber ++;
                 if(gp.ui.commandNumber > 2 ){gp.ui.commandNumber = 0;}
+                gp.playSE(5);
             }
             if(code == KeyEvent.VK_ENTER){
                 switch (gp.ui.commandNumber) {
                     case 0:
+                        gp.stopMusic();
                         gp.gameState = GamePanel.playState;
                         gp.playMusic(0);
                         break;

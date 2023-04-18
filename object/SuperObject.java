@@ -15,7 +15,7 @@ public class SuperObject {
     //per altre info sulla creazione di un oggetto guarda la classe OBJ_Shoes
     //le interazioni con gli oggetti sono all'interno della classe player
 
-    public BufferedImage image;         //immagine dell'oggetto
+    public BufferedImage image, image2, image3;         //immagine/i dell'oggetto
     public String name;                 //nome dell'oggetto
     public boolean collision = false;   //collisioni dell'oogetto ative o no
     public int worldX, worldY;          //posizione dell'oggetto

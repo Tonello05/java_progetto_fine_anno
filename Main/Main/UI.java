@@ -15,6 +15,7 @@ import java.text.DecimalFormat;
 
 import javax.imageio.ImageIO;
 
+import object.OBJ_Heart;
 import object.OBJ_Key;
 import object.OBJ_coin;
 
@@ -30,6 +31,7 @@ public class UI {
     //IMAGES
     BufferedImage keyImage;
     BufferedImage coinImage;
+    BufferedImage heart1, heart2, heart3;
 
     public boolean messageOn = false;
     public String message = "";
@@ -64,6 +66,10 @@ public class UI {
 
         OBJ_Key key = new OBJ_Key();
         OBJ_coin coin = new OBJ_coin();
+        OBJ_Heart hearth = new OBJ_Heart();
+        heart1 = hearth.image;
+        heart2 = hearth.image2;
+        heart3 = hearth.image3;
         keyImage = key.image;
         coinImage = coin.image;
 
@@ -116,6 +122,7 @@ public class UI {
         
                 }
         
+                /*  DISEGNA TEMPO, CHIAVI E MONETE (DEPRECATO)
                 g2.setFont(g2.getFont().deriveFont(35F));
                 g2.setColor(Color.white);
                 g2.drawImage(keyImage, gp.tileSize/2, gp.tileSize/2, gp.tileSize, gp.tileSize, null);
@@ -129,7 +136,8 @@ public class UI {
                 //TIME
                 playtime += (double)1/60;
                 g2.drawString("playtime: " + dFormat.format(playtime), gp.tileSize*11, 65);
-        
+                */
+
                 //MESSAGE
                 if(messageOn){
         
@@ -144,8 +152,10 @@ public class UI {
                         messageOn = false;
         
                     }
-        
                 }
+
+                drawPlayerLife();
+
                 break;
         
             case GamePanel.pauseState:
@@ -153,12 +163,47 @@ public class UI {
                 drawPauseScreen();
                 break;
             case GamePanel.dialogueState:
+                drawPlayerLife();
                 drawDialogueScreen();
                 break;
             case GamePanel.titleState:
                 drawTitleScreen();
                 break;
         }
+
+    }
+    public void drawPlayerLife(){
+
+        int x = gp.tileSize/2;
+        int y = gp.tileSize/2;
+        int i=0;
+
+        //disegna vita massima
+        while (i < gp.player.maxLife/2) {
+            
+            g2.drawImage(heart3, x, y, gp.tileSize, gp.tileSize, null);
+            i++;
+            x += gp.tileSize;
+        }
+
+        //reset valori
+        x = gp.tileSize/2;
+        y = gp.tileSize/2;
+        i=0;
+
+        //disegna vita corrente
+        while (i < gp.player.life) {
+            
+            g2.drawImage(heart2, x, y, gp.tileSize, gp.tileSize, null);
+            i++;
+            if(i < gp.player.life){
+                g2.drawImage(heart1, x, y, gp.tileSize, gp.tileSize, null);
+            }
+            i++;
+            x += gp.tileSize;
+        }
+
+
 
     }
 
@@ -183,7 +228,7 @@ public class UI {
         x = gp.screenWhidth /2 - gp.tileSize;
         y = gp.tileSize * 4;
         try {
-            BufferedImage tmpImage = ImageIO.read(getClass().getResourceAsStream("/res/game_icon/logo_bernocchi.png"));
+            BufferedImage tmpImage = ImageIO.read(getClass().getResourceAsStream("/res/game_icon/logoBernocchi.png"));
             Image logo = new UtilityTool().scaleImage(tmpImage, gp.tileSize, gp.tileSize);
             g2.drawImage(logo, x, y, gp.tileSize *2 , gp.tileSize *2, null);
         } catch (Exception e) {

@@ -16,7 +16,7 @@ public class Main {
         window.add(gamePanel);
         window.pack();
         window.setLocationRelativeTo(null);
-        ImageIcon icon = new ImageIcon("res/game_icon/logo_bernocchi.png"); //icona della finestra
+        ImageIcon icon = new ImageIcon("res/game_icon/logoBernocchi.png"); //icona della finestra
         window.setIconImage(icon.getImage());
         window.setVisible(true);
         gamePanel.startGameThread();
