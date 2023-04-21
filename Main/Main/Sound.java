@@ -22,8 +22,9 @@ public class Sound {
         soundURL[2] = getClass().getResource("/res/sounds/powerup.wav");
         soundURL[3] = getClass().getResource("/res/sounds/unlock.wav");
         soundURL[4] = getClass().getResource("/res/sounds/fanfare.wav");
-        soundURL[5] = getClass().getResource("/res/sounds/blocked.wav");
+        soundURL[5] = getClass().getResource("/res/sounds/cursor.wav");
         soundURL[6] = getClass().getResource("/res/sounds/menuTheme.wav");
+        soundURL[7] = getClass().getResource("/res/sounds/receivedamage.wav");
 
     }
 
@@ -43,7 +44,7 @@ public class Sound {
     public void play(){     //riproduce l'audio una volta
 
         clip.start();
-
+        
     }
 
     public void loop(){     //riproduce l'audio in loop

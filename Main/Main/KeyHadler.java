@@ -57,7 +57,7 @@ public class KeyHadler implements KeyListener{
         }
 
         //GAME STATE
-        if(gp.gameState == GamePanel.playState){
+        else if(gp.gameState == GamePanel.playState){
 
             
             if (code == KeyEvent.VK_W) {

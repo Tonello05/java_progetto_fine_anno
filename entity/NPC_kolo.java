@@ -16,6 +16,7 @@ public class NPC_kolo extends Entity{
         getPlayerImage();   
         setDialogue();
         name = "kolosiuk";
+        type = 1;   //tipo di entity ( 1 = npc)
     }
 
     public void getPlayerImage(){       //legge le immagini del player

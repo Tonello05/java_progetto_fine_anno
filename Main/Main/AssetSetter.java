@@ -4,6 +4,7 @@
 
 package Main;
 
+import entity.MON_Spider;
 import entity.NPC_kolo;
 import object.OBJ_Chest;
 import object.OBJ_Door;
@@ -24,10 +25,12 @@ public class AssetSetter {
 
     public void setObject(){        //cre gli oggetti e li posiziona
 
+              //commentato per provare i nemici
         gp.obj[0] = new OBJ_Key();  //oggetto crearo
         gp.obj[0].worldX = 15 * gp.tileSize;    //coordinate dell'oggetto creato
         gp.obj[0].worldY = 10 * gp.tileSize;
-
+        
+        
         gp.obj[1] = new OBJ_Door(); 
         gp.obj[1].worldX = 18 * gp.tileSize;
         gp.obj[1].worldY = 10 * gp.tileSize;
@@ -52,6 +55,8 @@ public class AssetSetter {
         gp.obj[6].worldX = 17 * gp.tileSize;    //coordinate dell'oggetto creato
         gp.obj[6].worldY = 17 * gp.tileSize;
 
+        
+
     }
 
     public void setNpc(){   //crea npc e li posiziona
@@ -59,6 +64,14 @@ public class AssetSetter {
         gp.npc[0] = new NPC_kolo(gp);   //creazione oggetto
         gp.npc[0].worldX = 23 * gp.tileSize;    // coordinata x dell'npc
         gp.npc[0].worldY = 10 * gp.tileSize;    // coordinata y dell'npc
+
+    }
+
+    public void setEnemy(){     //crea i nemici e li posiziona
+
+        gp.enemy[0] = new MON_Spider(gp);
+        gp.enemy[0].worldX = 20 * gp.tileSize;
+        gp.enemy[0].worldY = 20 * gp.tileSize;
 
     }
 

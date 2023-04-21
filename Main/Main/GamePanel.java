@@ -50,6 +50,7 @@ public class GamePanel extends JPanel implements Runnable{
     public Player player = new Player(this, keyH);  //player
     public SuperObject obj[] = new SuperObject[50]; //array di oggetti
     public Entity npc[] = new Entity[50];   //array di npc
+    public Entity enemy[] = new Entity[50];     //array di nemici
 
     //GAME STATE
     public int gameState;   //stato del gioco
@@ -72,6 +73,7 @@ public class GamePanel extends JPanel implements Runnable{
     public void setUpGame(){        //setup di vari componenti
         aSetter.setObject();    //crea gli npc
         aSetter.setNpc();       //crea gli oggetti
+        aSetter.setEnemy();     //crea i nemici
         gameState = titleState;  //stato iniziale del gioco su in azione
         playMusic(6);   //musica del menu iniziale
 
@@ -127,11 +129,17 @@ public class GamePanel extends JPanel implements Runnable{
 
             for (int i = 0; i < npc.length; i++) {
                 if(npc[i]!=null){
-                    
-                    npc[i].update();
-                    
+                    npc[i].update(); 
                 }
             }
+
+            //ENEMY UPDATE
+            for (int i = 0; i < enemy.length; i++) {
+                if(enemy[i]!=null){
+                    enemy[i].update(); 
+                }
+            }
+
         }
 
         if(gameState == pauseState){
@@ -160,6 +168,10 @@ public class GamePanel extends JPanel implements Runnable{
             //NPC
             for (int i = 0; i < npc.length; i++) {
                 if(npc[i] != null){npc[i].draw(g2);}
+            }
+            //ENEMY
+            for (int i = 0; i < enemy.length; i++) {
+                if(enemy[i] != null){enemy[i].draw(g2);}
             }
             //PLAYER
             player.draw(g2);
