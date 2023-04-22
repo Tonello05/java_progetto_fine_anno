@@ -1,5 +1,8 @@
 /*
  * Classe Padre di tutte le entita (NPC, Player, Nemici)
+ * 
+ * Per info sulla creazione di un NPC guarda la classe NPC_kolo
+ * Per info sulla creazione di un nemico guarda la classe MON_Spider
  */
 
 package entity;
@@ -9,42 +12,57 @@ import java.awt.image.BufferedImage;
 import Main.GamePanel;
 
 import java.awt.AlphaComposite;
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 public class Entity {
     
     public int worldX, worldY;  //posizione entità nella mapa
-    public int speed;   //velocità
-
+    //Game Panel
     GamePanel gp;
+
+    //CHARACTER STATUS
+    public int maxLife;     //vita massima
+    public int life;    //vita attuale
+    public boolean invincible = false;  //invicibilità attiva
+    public int invincibleCounter = 0;   //contatore tempo invincibilità
+    public int speed;   //velocità
+    public String name;     //nome dell'entita
+    public int type;    // 0 = player; 1 = npc; 2 = enemy
+    public boolean alive = true;
+    public boolean dying = false;
+    public boolean hpBarOn = false;
+    int hpBArCounter = 0;
+
+    //Variabili per le immagini
     public BufferedImage up1,up2,up3,up4,left1,left2,left3,left4,right1,right2,right3,right4,down1,down2,down3,down4;  //sprites dell'entita
     public BufferedImage attackUp, attackDown, attackLeft, attackRight;
     public String direction;    //direzione corrente dell'entita
     public int spriteCounter = 0;   //contatore per gli sprite (server nel metodo draw )
     public int spriteNum = 1;   //frame number
+    public int dyingCounter = 0;
+
+    //variabili HITBOX
     public Rectangle solidArea = new Rectangle(0,0,48,48);  //HitBox dell'entità
     public Rectangle attackArea = new Rectangle(0,0,0,0);  //HitBox dell'attacco
     public int solidAreaDefaultX, solidAreaDefaultY;    //altre variabili per le hitbox
     public boolean collisionIsOn = false;   //true se l'entità è in collisione con qualcosa
-    public int actionLockCounter = 0;      //contatore per far eseguire a un npc un azione
+    
+    //ALTRO
     public boolean noMovement = false;  //se messa a true l'entità non eseguira azioni
     public String dialogues[] = new String[20]; //array dei dialoghi dell'npc
     public int dialogueIndex = 0;   //contatore dei dialoghi
-    public String name;     //nome dell'npc
-    public int type;    // 0 = player; 1 = npc; 2 = enemy
     public boolean attacking = false;   //indica se l'entita sta attaccando
-
-    //CHARACTER STATUS
-    public int maxLife;
-    public int life;
-    public boolean invincible = false;
-    public int invincibleCounter = 0;
+    public int actionLockCounter = 0;      //contatore per far eseguire a un npc un azione
 
     public Entity(GamePanel gp){
         this.gp=gp;
     }
+
+    public void killed(){}      //metodo che gestirà la morte dei nemici
     public void setAction(){}   //servirà negli oggetti npc per impostare le suo azioni predefinite
+    public void damageReaction(){} //reazione dei nemic al danno
 
     public void update(){   //calcola posizione e eventuali collisioni dell'npc
 
@@ -52,11 +70,13 @@ public class Entity {
 
             setAction();
 
+            //controlla le collisioni varie
             collisionIsOn = false;
-            gp.cChecker.checkTile(this);
-            gp.cChecker.checkObject(this, false);
-            gp.cChecker.checEntity(this, gp.npc);
-            gp.cChecker.checEntity(this, gp.enemy);
+            gp.cChecker.checkTile(this);    //tiles
+            gp.cChecker.checkObject(this, false);   //oggetti
+            gp.cChecker.checEntity(this, gp.npc);   //npc
+            gp.cChecker.checEntity(this, gp.enemy); //nemici
+            gp.cChecker.checkPalyer(this);  //player
 
             if (collisionIsOn == false ) {
 
@@ -163,8 +183,33 @@ public class Entity {
                         break;
                 }
 
+                //disegna la barra della vita
+                if(type == 2 && hpBarOn && !dying){
+
+                    double oneScale = (double)gp.tileSize/maxLife;
+                    double hpBarValue = oneScale * life;
+
+                    g2.setColor(new Color(35,35,35));
+                    g2.fillRect(screenX-1, screenY-16, gp.tileSize+2, 12);
+                    g2.setColor(new Color(255,0,30));
+                    g2.fillRect(screenX, screenY-15, (int)hpBarValue, 10);
+
+                    hpBArCounter ++;
+                    if( hpBArCounter > 600){
+                        hpBArCounter = 0;
+                        hpBarOn = false;
+                    }
+                }
+
+
                 if(invincible && invincibleCounter % 2 == 0){
-                    g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.4f));
+                    changeAlpha(g2, 0.2f);
+                    hpBarOn = true;
+                    hpBArCounter = 0;
+                }
+
+                if(dying == true){
+                    dyingAnimation(g2);
                 }
 
                 g2.drawImage(image, screenX, screenY,  gp.tileSize, gp.tileSize, null);
@@ -173,6 +218,31 @@ public class Entity {
             }
 
 
+    }
+
+    public void dyingAnimation(Graphics2D g2){
+
+        dyingCounter++;
+
+        int i = 5;
+        if(dyingCounter <= i){changeAlpha(g2, 0);}
+        if(dyingCounter > i && dyingCounter <= i*2){changeAlpha(g2, 1);}
+        if(dyingCounter > i*2 && dyingCounter <= i*3){changeAlpha(g2, 0);}
+        if(dyingCounter > i*3 && dyingCounter <= i*4){changeAlpha(g2, 1);}
+        if(dyingCounter > i*4 && dyingCounter <= i*5){changeAlpha(g2, 0);}
+        if(dyingCounter > i*5 && dyingCounter <= i*6){changeAlpha(g2, 1);}
+        if(dyingCounter > i*6 && dyingCounter <= i*7){changeAlpha(g2, 0);}
+        if(dyingCounter > i*7 && dyingCounter <= i*8){changeAlpha(g2, 1);}
+
+        if(dyingCounter > i*8){
+            dying = false;
+            alive = false;
+            killed();
+        }
+    }
+
+    public void changeAlpha(Graphics2D g2, float alphaValue){
+        g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alphaValue));
     }
 
     public void speak(){    //metodo che serve per i dialoghi

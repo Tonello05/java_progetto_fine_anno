@@ -214,15 +214,21 @@ public class Player extends Entity{
 
         if(index != 999){
 
+            //nemico danneggiato
             if(gp.enemy[index].invincible == false){
                 gp.enemy[index].life --;
                 gp.enemy[index].invincible = true;
+                gp.enemy[index].damageReaction();
+                gp.playSE(8);
             }
 
+            //nemico ucciso
             if(gp.enemy[index].life <= 0){
-                gp.enemy[index] = null;
+                gp.enemy[index].dying = true;
             }
 
+        }else{
+            //if you miss
         }
 
         
@@ -382,13 +388,15 @@ public class Player extends Entity{
                 break;
         }
 
+        //effetto visivo invincibilità
         if(invincible && invincibleCounter % 2 == 0){
             g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));
         }
 
+        //se non sta attaccando disegna il movimento normale
         if(attacking == false){g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);}
         
-
+        //disegna il player quando attacca
         if(attacking){
 
             if(direction == "down"){

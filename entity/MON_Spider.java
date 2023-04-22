@@ -1,6 +1,4 @@
 
-// TODO: finire la classe spider (primo nemico)
-
 package entity;
 
 import java.util.Random;
@@ -11,19 +9,28 @@ import Main.GamePanel;
 
 public class MON_Spider extends Entity{
     
+    //DROP del nemico
+    int coin;
+
     public MON_Spider(GamePanel gp){
         super(gp);
-        direction = "up";
-        name = "spider";
-        speed = 1;
-        maxLife = 4;
-        life = maxLife;
+
+        //Specifiche del nemico
+        direction = "up";   //direzione iniziale
+        name = "spider";    //nome del nemico
+        speed = 1;      //velocità del nemico
+        maxLife = 4;    //vita massima del nemico
+        life = maxLife; //vita attuale del nemico
+        coin = 4;   //monete del drop del nemico
+        //HITBOX
         solidArea.x = 3;
         solidArea.y = 18;
         solidArea.width = 42;
         solidArea.height = 30;
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;
+
+        //ALTRO
         type = 2;   //tipo dell'entity (2 = enemy)
         getImage();
 
@@ -57,7 +64,7 @@ public class MON_Spider extends Entity{
 
     }
 
-    public void setAction(){
+    public void setAction(){    //azione del nemico
 
         actionLockCounter ++;   //aumenta di 1 ogni frame
 
@@ -79,6 +86,22 @@ public class MON_Spider extends Entity{
             actionLockCounter = 0;
 
         } 
+    }
+
+    //codice eseguito quando il nemico è morto
+    public void killed(){
+
+        gp.player.coins += coin;
+        gp.ui.showMessage("ottenute " + coin + " monete ");
+
+    }
+
+    @Override
+    public void damageReaction(){
+
+        actionLockCounter = 0;
+        direction = gp.player.direction;
+
     }
 
 }
