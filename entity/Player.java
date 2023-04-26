@@ -13,6 +13,8 @@ import java.awt.Rectangle;
 
 import Main.GamePanel;
 import Main.KeyHadler;
+import object.OBJ_Shield_wood;
+import object.OBJ_Sword_normal;
 
 public class Player extends Entity{
     
@@ -59,6 +61,20 @@ public class Player extends Entity{
         maxLife = 6;
         life = maxLife;
         type = 0;
+        strenght = 1;
+        dexterity = 1;
+        currentWeapon = new OBJ_Sword_normal();
+        currentShield = new OBJ_Shield_wood();
+        damage = getAttack();
+        defence = getDefence();
+
+
+    }
+    public int getAttack(){
+        return currentWeapon.attackAttribute * strenght;
+    }
+    public int getDefence(){
+        return currentShield.defenceAttribute * dexterity;
     }
 
     public void getPlayerImage(){       //legge le immagini del player
@@ -216,7 +232,7 @@ public class Player extends Entity{
 
             //nemico danneggiato
             if(gp.enemy[index].invincible == false){
-                gp.enemy[index].life --;
+                gp.enemy[index].life -= this.damage;
                 gp.enemy[index].invincible = true;
                 gp.enemy[index].damageReaction();
                 gp.playSE(8);
@@ -240,7 +256,7 @@ public class Player extends Entity{
         if(index != 999){
 
             if(invincible == false){
-                life -=1;
+                life -= gp.enemy[index].damage - defence;
                 invincible = true;
                 gp.playSE(7);
             }

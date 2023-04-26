@@ -21,6 +21,8 @@ public class SuperObject {
     public int worldX, worldY;          //posizione dell'oggetto
     public Rectangle solidArea = new Rectangle(0,0,48,48);  //hitbox dell'oggetto
     public int solidAreaDefaultX = 0 , solidAreaDefaultY = 0;       //altre variabili per l'hitbox
+    public int attackAttribute;     //attacco dell'oggetto (se un arma)
+    public int defenceAttribute;    //difesa dell'oggetto (se uno scudo)
 
     public void draw(Graphics2D g2, GamePanel gp){  //disegna l'oggetto sullo schermo
 

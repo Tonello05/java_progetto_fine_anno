@@ -122,22 +122,6 @@ public class UI {
         
                 }
         
-                /*  DISEGNA TEMPO, CHIAVI E MONETE (DEPRECATO)
-                g2.setFont(g2.getFont().deriveFont(35F));
-                g2.setColor(Color.white);
-                g2.drawImage(keyImage, gp.tileSize/2, gp.tileSize/2, gp.tileSize, gp.tileSize, null);
-                g2.drawString("x " + gp.player.hasKey, 100, 75);
-
-                g2.setFont(g2.getFont().deriveFont(35F));
-                g2.setColor(Color.white);
-                g2.drawImage(coinImage, gp.tileSize/2, gp.tileSize * 2 -20, gp.tileSize, gp.tileSize, null);
-                g2.drawString("x " + gp.player.coins, 100, 150);
-        
-                //TIME
-                playtime += (double)1/60;
-                g2.drawString("playtime: " + dFormat.format(playtime), gp.tileSize*11, 65);
-                */
-
                 //MESSAGE
                 if(messageOn){
         
@@ -169,9 +153,87 @@ public class UI {
             case GamePanel.titleState:
                 drawTitleScreen();
                 break;
+            case GamePanel.characterState:
+                drawCharacterScreen();
+                break;
         }
-
     }
+
+    public void drawCharacterScreen(){
+
+        //FRAME
+        final int frameX = gp.tileSize * 2;
+        final int frameY = gp.tileSize;
+        final int frameWidht = gp.tileSize * 5;
+        final int drameHeight = gp.tileSize * 10;
+        drawSubWindow(frameX, frameY, frameWidht, drameHeight);
+
+        //TESTO
+        g2.setColor(Color.white);
+        g2.setFont(g2.getFont().deriveFont(32F));
+
+        int textX = frameX + 20;
+        int textY = frameY + gp.tileSize;
+        final int lineHeight = 48;
+
+        //NOMI STATISTICHE
+        g2.drawString("vita", textX, textY);
+        textY += lineHeight;
+        g2.drawString("attacco", textX, textY);
+        textY += lineHeight;
+        g2.drawString("difesa", textX, textY);
+        textY += lineHeight;
+        g2.drawString("forza", textX, textY);
+        textY += lineHeight;
+        g2.drawString("destrezza", textX, textY);
+        textY += lineHeight;
+        g2.drawString("monete", textX, textY);
+        textY += lineHeight;
+        g2.drawString("chiavi", textX, textY);
+        textY += lineHeight * 2;
+        g2.drawString("arma", textX, textY);
+        textY += lineHeight * 1.5;
+        g2.drawString("scudo", textX, textY);
+
+        //VALORI STATISTICHE
+        int tailX = (frameX + frameWidht) - 30;
+        //reset y del testo
+        textY = frameY + gp.tileSize;
+        String value;
+        value = String.valueOf(gp.player.life + "/" + gp.player.maxLife);
+        textX = getXForRightText(value, tailX);
+        g2.drawString(value, textX, textY);
+        textY += lineHeight;
+        value = String.valueOf(gp.player.damage);
+        textX = getXForRightText(value, tailX);
+        g2.drawString(value, textX, textY);
+        textY += lineHeight;
+        value = String.valueOf(gp.player.defence);
+        textX = getXForRightText(value, tailX);
+        g2.drawString(value, textX, textY);
+        textY += lineHeight;
+        value = String.valueOf(gp.player.strenght);
+        textX = getXForRightText(value, tailX);
+        g2.drawString(value, textX, textY);
+        textY += lineHeight;
+        value = String.valueOf(gp.player.dexterity);
+        textX = getXForRightText(value, tailX);
+        g2.drawString(value, textX, textY);
+        textY += lineHeight;
+        value = String.valueOf(gp.player.coins);
+        textX = getXForRightText(value, tailX);
+        g2.drawString(value, textX, textY);
+        textY += lineHeight;
+        value = String.valueOf(gp.player.hasKey);
+        textX = getXForRightText(value, tailX);
+        g2.drawString(value, textX, textY);
+        textY += lineHeight;
+
+        g2.drawImage(gp.player.currentWeapon.image, tailX - gp.tileSize, textY, gp.tileSize, gp.tileSize, null);
+        textY += lineHeight * 1.5;
+        g2.drawImage(gp.player.currentShield.image, tailX - gp.tileSize, textY, gp.tileSize, gp.tileSize, null);
+    }
+
     public void drawPlayerLife(){
 
         int x = gp.tileSize/2;
@@ -320,6 +382,12 @@ public class UI {
     public int getXForCenteredText(String text){
         int lenght = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
         int x = gp.screenWhidth/2 - lenght /2;
+        return x;
+    }
+
+    public int getXForRightText(String text, int tailX){
+        int lenght = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+        int x = tailX -lenght;
         return x;
     }
 

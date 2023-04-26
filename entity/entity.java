@@ -10,6 +10,7 @@ package entity;
 import java.awt.image.BufferedImage;
 
 import Main.GamePanel;
+import object.SuperObject;
 
 import java.awt.AlphaComposite;
 import java.awt.Color;
@@ -34,6 +35,12 @@ public class Entity {
     public boolean dying = false;
     public boolean hpBarOn = false;
     int hpBArCounter = 0;
+    public int damage;  //dannno dell'entità
+    public int defence; //difesa dell'entità
+    public int strenght;    //più ne ha più danno fa
+    public int dexterity;   //più ne ha meno danno riceve
+    public SuperObject currentWeapon;
+    public SuperObject currentShield;
 
     //Variabili per le immagini
     public BufferedImage up1,up2,up3,up4,left1,left2,left3,left4,right1,right2,right3,right4,down1,down2,down3,down4;  //sprites dell'entita

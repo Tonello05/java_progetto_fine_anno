@@ -58,6 +58,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final static int pauseState = 2;    //gioco in pause
     public final static int dialogueState = 3;     //sta avvendendo un dialogo
     public final static int titleState = 4;    //schermata iniziale
+    public final static int characterState = 5;     //statistiche del player
 
     public GamePanel(){     //crea il pannello di gioco
 

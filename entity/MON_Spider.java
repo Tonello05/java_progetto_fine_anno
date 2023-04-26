@@ -22,6 +22,7 @@ public class MON_Spider extends Entity{
         maxLife = 4;    //vita massima del nemico
         life = maxLife; //vita attuale del nemico
         coin = 4;   //monete del drop del nemico
+        damage = 2; //danno del nemico (il player inizia di base con difesa = 1)
         //HITBOX
         solidArea.x = 3;
         solidArea.y = 18;
