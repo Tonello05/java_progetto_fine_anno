@@ -24,6 +24,10 @@ public class SuperObject {
     public int attackAttribute;     //attacco dell'oggetto (se un arma)
     public int defenceAttribute;    //difesa dell'oggetto (se uno scudo)
 
+    public void showMessage(){};
+    public boolean checkRequirements(){return false;};
+    public String getMessagge(){return "";};
+
     public void draw(Graphics2D g2, GamePanel gp){  //disegna l'oggetto sullo schermo
 
         int screenX = worldX - gp.player.worldX + gp.player.screenX;

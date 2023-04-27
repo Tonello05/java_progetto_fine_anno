@@ -13,6 +13,7 @@ public class NPC_kolo extends Entity{
 
         direction = "down"; //direzione iniziale dell'npc
         speed = 1;      //velocità dell'npc
+        noMovement = true;
         getPlayerImage();   
         setDialogue();
         name = "kolosiuk";
@@ -69,11 +70,10 @@ public class NPC_kolo extends Entity{
 
     public void setDialogue(){      //dialoghi dell'npc
 
-        dialogues[0] = "Sono kolosiuk!";
-        dialogues[1] = "Benvenuto nell'isola 4F";
-        dialogues[2] = "se ni mondo ci fosse u poco di bene\ne ognuno si considerasse suo\nfratello...";
-        dialogues[3] = "Scoprili Tutti";
-        dialogues[4] = "Tieni una mela";
+        dialogues[0] = "Grazie per aver fatto fuori quel \nfastidoiso ragno!";
+        dialogues[1] = "prendi questa chiave";
+        dialogues[2] = "serve per aprire la mia stanza del tesoro\nio delle cose all'interno non \nme ne faccio niente";
+        dialogues[3] = "a te saranno sicuramente più utili";
     }
 
     public void speak(){    //dialogo con l'npc

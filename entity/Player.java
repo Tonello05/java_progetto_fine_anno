@@ -286,6 +286,29 @@ public class Player extends Entity{
             String objectName = gp.obj[index].name;
 
             switch (objectName) {
+
+                case "special_door":
+                    
+                    if(gp.obj[index].checkRequirements()){
+                        gp.playSE(3);
+                        gp.ui.showMessage("you opened a door!");
+                        try {
+                            gp.obj[index].image = ImageIO.read(getClass().getResourceAsStream("/res/objects/openedDoor.png"));
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        gp.obj[index].collision=false;
+                    }else{
+                        gp.ui.showMessage(gp.obj[index].getMessagge());
+                    }
+
+                    break;
+                case "messagge":
+                        
+                        gp.obj[index].showMessage();
+                        gp.gameState = GamePanel.dialogueState;
+                        gp.obj[index] = null;
+                    break;
                 case "key":
                         hasKey ++;
                         gp.obj[index] = null;
