@@ -111,11 +111,15 @@ public class MON_Spider extends Entity{
         if(!onPath && tileDistance <5){
             int i = new Random().nextInt(100)+1;
             if(i>50){onPath = true;}
+            hpBarOn = true;
+            hpBArCounter = 0;
         }
 
         //sel il nemico è lontano dal player non è più aggrato
         if(onPath && tileDistance > 20){
             onPath = false;
+            hpBarOn = false;
+            hpBArCounter = 0;
         }
     }
 
