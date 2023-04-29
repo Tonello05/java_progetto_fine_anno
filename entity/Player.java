@@ -288,20 +288,20 @@ public class Player extends Entity{
             switch (objectName) {
 
                 case "special_door":
-                    
-                    if(gp.obj[index].checkRequirements()){
-                        gp.playSE(3);
-                        gp.ui.showMessage("you opened a door!");
-                        try {
-                            gp.obj[index].image = ImageIO.read(getClass().getResourceAsStream("/res/objects/openedDoor.png"));
-                        } catch (Exception e) {
-                            e.printStackTrace();
+                    if(gp.obj[index].collision){
+                        if(gp.obj[index].checkRequirements()){
+                            gp.playSE(3);
+                            gp.ui.showMessage("you opened a door!");
+                            try {
+                                gp.obj[index].image = ImageIO.read(getClass().getResourceAsStream("/res/objects/openedDoor.png"));
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            gp.obj[index].collision=false;
+                        }else{
+                            gp.ui.showMessage(gp.obj[index].getMessagge());
                         }
-                        gp.obj[index].collision=false;
-                    }else{
-                        gp.ui.showMessage(gp.obj[index].getMessagge());
                     }
-
                     break;
                 case "messagge":
                         

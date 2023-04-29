@@ -67,26 +67,56 @@ public class MON_Spider extends Entity{
 
     public void setAction(){    //azione del nemico
 
-        actionLockCounter ++;   //aumenta di 1 ogni frame
+ 
+        if(onPath){     //se aggrato segue il player
+            
+            int goalCol = (gp.player.worldX + gp.player.solidArea.x)/gp.tileSize;
+            int goalRow = (gp.player.worldY + gp.player.solidArea.y)/gp.tileSize;
+            searchPath(goalCol, goalRow);
 
-        if(actionLockCounter == 120){   //ogni 120 frame cambia la direzione in cui sta camminando
+        }else if (!noMovement){ //se non è aggrato si muove a random
+            actionLockCounter ++;   //aumenta di 1 ogni frame
 
-            Random random = new Random();   
-            int i = random.nextInt(100)+1; //numero a caso tra 1 a 100
-
-            if( i <= 25 ){  //seleziona una direzione a caso
-                direction = "up";
-            }else if( i > 25 && i <=50 ){
-                direction = "down";
-            }else if( i > 50 && i <=75 ){
-                direction = "right";
-            }else if(i > 75){
-                direction = "left";
+            if(actionLockCounter == 120){   //ogni 120 frame cambia la direzione in cui sta camminando
+    
+                Random random = new Random();   
+                int i = random.nextInt(100)+1; //numero a caso tra 1 a 100
+    
+                if( i <= 25 ){  //seleziona una direzione a caso
+                    direction = "up";
+                }else if( i > 25 && i <=50 ){
+                    direction = "down";
+                }else if( i > 50 && i <=75 ){
+                    direction = "right";
+                }else if(i > 75){
+                    direction = "left";
+                }
+    
+                actionLockCounter = 0;
+    
             }
+        }
+    }
 
-            actionLockCounter = 0;
+    @Override
+    public void update(){
 
-        } 
+        super.update();
+         
+        //se il nemico è vicino al player potrebbe aggrarsi
+
+        int xDistance = Math.abs(worldX - gp.player.worldX);
+        int yDistance = Math.abs(worldY - gp.player.worldY);
+        int tileDistance = (xDistance + yDistance)/gp.tileSize;
+        if(!onPath && tileDistance <5){
+            int i = new Random().nextInt(100)+1;
+            if(i>50){onPath = true;}
+        }
+
+        //sel il nemico è lontano dal player non è più aggrato
+        if(onPath && tileDistance > 20){
+            onPath = false;
+        }
     }
 
     //codice eseguito quando il nemico è morto
@@ -101,7 +131,7 @@ public class MON_Spider extends Entity{
     public void damageReaction(){
 
         actionLockCounter = 0;
-        direction = gp.player.direction;
+        onPath = true;
 
     }
 

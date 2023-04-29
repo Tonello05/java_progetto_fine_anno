@@ -23,7 +23,6 @@ public class OBJ_special_door extends SuperObject{
             e.printStackTrace();
         }
         collision = true;
-        System.out.println("prova");
 
     }
 

@@ -7,17 +7,18 @@ import javax.imageio.ImageIO;
 import Main.GamePanel;
 
 public class NPC_kolo extends Entity{
-    
+
     public NPC_kolo(GamePanel gp){
         super(gp);
 
         direction = "down"; //direzione iniziale dell'npc
         speed = 1;      //velocità dell'npc
-        noMovement = true;
         getPlayerImage();   
         setDialogue();
         name = "kolosiuk";
         type = 1;   //tipo di entity ( 1 = npc)
+        defaultDirection = "down";
+        noMovement = true;
     }
 
     public void getPlayerImage(){       //legge le immagini del player
@@ -45,27 +46,34 @@ public class NPC_kolo extends Entity{
     
     public void setAction(){    //esegue un azione (per questo npc si limita a  farlo muovere a caso)
 
-        actionLockCounter ++;   //aumenta di 1 ogni frame
+        if(onPath){
+            
+            int goalCol = 15;
+            int goalRow = 5;
+            searchPath(goalCol, goalRow);
 
-        if(actionLockCounter == 120){   //ogni 120 frame cambia la direzione in cui sta camminando
+        }else if (!noMovement){
+            actionLockCounter ++;   //aumenta di 1 ogni frame
 
-            Random random = new Random();   
-            int i = random.nextInt(100)+1; //numero a caso tra 1 a 100
-
-            if( i <= 25 ){  //seleziona una direzione a caso
-                direction = "up";
-            }else if( i > 25 && i <=50 ){
-                direction = "down";
-            }else if( i > 50 && i <=75 ){
-                direction = "right";
-            }else if(i > 75){
-                direction = "left";
+            if(actionLockCounter == 120){   //ogni 120 frame cambia la direzione in cui sta camminando
+    
+                Random random = new Random();   
+                int i = random.nextInt(100)+1; //numero a caso tra 1 a 100
+    
+                if( i <= 25 ){  //seleziona una direzione a caso
+                    direction = "up";
+                }else if( i > 25 && i <=50 ){
+                    direction = "down";
+                }else if( i > 50 && i <=75 ){
+                    direction = "right";
+                }else if(i > 75){
+                    direction = "left";
+                }
+    
+                actionLockCounter = 0;
+    
             }
-
-            actionLockCounter = 0;
-
-        }   
-
+        }
     }
 
     public void setDialogue(){      //dialoghi dell'npc
@@ -83,6 +91,8 @@ public class NPC_kolo extends Entity{
         //DIALOGO
         super.speak();
         
+        onPath = true;
+        noMovement = true;
     }
 
 }

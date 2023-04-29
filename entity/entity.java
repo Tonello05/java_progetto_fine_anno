@@ -62,6 +62,8 @@ public class Entity {
     public int dialogueIndex = 0;   //contatore dei dialoghi
     public boolean attacking = false;   //indica se l'entita sta attaccando
     public int actionLockCounter = 0;      //contatore per far eseguire a un npc un azione
+    public boolean onPath = false;      //se l'entità  sta seguendo un percorso
+    public String defaultDirection;     //direzione di default
 
     public Entity(GamePanel gp){
         this.gp=gp;
@@ -71,48 +73,49 @@ public class Entity {
     public void setAction(){}   //servirà negli oggetti npc per impostare le suo azioni predefinite
     public void damageReaction(){} //reazione dei nemic al danno
 
+    public void checkCollision(){
+        //controlla le collisioni varie
+        collisionIsOn = false;
+        gp.cChecker.checkTile(this);    //tiles
+        gp.cChecker.checkObject(this, false);   //oggetti
+        gp.cChecker.checEntity(this, gp.npc);   //npc
+        gp.cChecker.checEntity(this, gp.enemy); //nemici
+        gp.cChecker.checkPalyer(this);  //player
+    }
+
     public void update(){   //calcola posizione e eventuali collisioni dell'npc
 
-        if(noMovement == false){
+        setAction();
+        checkCollision();
 
-            setAction();
+        if (collisionIsOn == false && (onPath || !noMovement)) {
 
-            //controlla le collisioni varie
-            collisionIsOn = false;
-            gp.cChecker.checkTile(this);    //tiles
-            gp.cChecker.checkObject(this, false);   //oggetti
-            gp.cChecker.checEntity(this, gp.npc);   //npc
-            gp.cChecker.checEntity(this, gp.enemy); //nemici
-            gp.cChecker.checkPalyer(this);  //player
-
-            if (collisionIsOn == false ) {
-
-                switch (direction) {
-                    case "up":
-                        worldY -= speed;spriteCounter++;
-                        break;
-                
-                    case "down":
-                        worldY += speed;spriteCounter++;
-                        break;
-                    case "left":
-                        worldX -= speed;spriteCounter++;
-                        break;
-        
-                    case "right":
-                        worldX += speed;spriteCounter++;
-                        break;
-                }
+            switch (direction) {
+                case "up":
+                    worldY -= speed;spriteCounter++;
+                    break;
+            
+                case "down":
+                    worldY += speed;spriteCounter++;
+                    break;
+                case "left":
+                    worldX -= speed;spriteCounter++;
+                    break;
+    
+                case "right":
+                    worldX += speed;spriteCounter++;
+                    break;
             }
+        }else if (type == 1 && !onPath){   //se un npc è fermo prende una direzione di default
+            direction = defaultDirection;
+        }
 
-            if(spriteCounter>10){
-                if(spriteNum==1){spriteNum=2;}
-                else if(spriteNum==2){spriteNum=3;}
-                else if(spriteNum==3){spriteNum=1;}
-                spriteCounter=0;
-                
-            }
-
+        if(spriteCounter>10){
+            if(spriteNum==1){spriteNum=2;}
+            else if(spriteNum==2){spriteNum=3;}
+            else if(spriteNum==3){spriteNum=1;}
+            spriteCounter=0;
+            
         }
 
         if(invincible){
@@ -277,4 +280,78 @@ public class Entity {
 
     }
     
+    public void searchPath(int goalCol,int GoalRow){
+
+        int startCol = (worldX +solidArea.x)/gp.tileSize;
+        int startRow = (worldY +solidArea.y)/gp.tileSize;
+
+        gp.pFinder.setNodes(startCol, startRow, goalCol, GoalRow);
+
+        
+
+        if(gp.pFinder.search()){
+            int nextX = gp.pFinder.pathList.get(0).col * gp.tileSize;
+            int nextY = gp.pFinder.pathList.get(0).row * gp.tileSize;
+
+            //ENTITY HITBOX
+            int enLeftX = worldX + solidArea.x;
+            int enRightX = worldX + solidArea.x + solidArea.width;
+            int enTopY = worldY + solidArea.y;
+            int enBottomY = worldY + solidArea.y + solidArea.height;
+
+            if(enTopY > nextY && enLeftX >= nextX && enRightX < nextX + gp.tileSize){
+                direction = "up";
+        
+            }
+            else if(enTopY < nextY && enLeftX >= nextX && enRightX < nextX + gp.tileSize){
+                direction = "down";
+            }
+            else if(enTopY > nextY && enBottomY < nextY + gp.tileSize ){    //left o right
+                if(enLeftX > nextX){
+                    direction = "left";
+                }
+                if(enLeftX < nextX){
+                    direction = "right";
+                }
+            }
+            else if(enTopY > nextY && enLeftX > nextX){
+                direction = "up";
+                checkCollision();
+                if(collisionIsOn){
+                    direction = "left";
+                }
+            }
+            else if(enTopY > nextY && enLeftX < nextX){
+                direction = "up";
+                checkCollision();
+                if(collisionIsOn){
+                    direction = "right";
+                }
+            }
+            else if(enTopY < nextY && enLeftX > nextX){
+                direction = "down";
+                checkCollision();
+                if(collisionIsOn){
+                    direction = "left";
+                }
+            }
+            else if(enTopY < nextY && enLeftX < nextX){
+                direction = "down";
+                checkCollision();
+                if(collisionIsOn){
+                    direction = "right";
+                }
+            }
+
+            int nextCol = gp.pFinder.pathList.get(0).col;
+            int nextRow = gp.pFinder.pathList.get(0).row;
+
+            if(nextCol == goalCol && nextRow == GoalRow){
+                onPath = false;
+            }
+
+        }
+
+    }
+
 }
