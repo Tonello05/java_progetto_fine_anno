@@ -114,7 +114,7 @@ public class MON_Spider extends Entity{
             hpBarOn = true;
             hpBArCounter = 0;
         }
-
+        
         //sel il nemico è lontano dal player non è più aggrato
         if(onPath && tileDistance > 20){
             onPath = false;

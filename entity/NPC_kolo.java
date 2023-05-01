@@ -48,8 +48,8 @@ public class NPC_kolo extends Entity{
 
         if(onPath){
             
-            int goalCol = 15;
-            int goalRow = 5;
+            int goalCol = 30;
+            int goalRow = 8;
             searchPath(goalCol, goalRow);
 
         }else if (!noMovement){

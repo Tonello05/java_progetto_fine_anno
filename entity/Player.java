@@ -5,16 +5,19 @@
 package entity;
 
 import javax.imageio.ImageIO;
+import javax.lang.model.util.ElementScanner14;
 
 import java.awt.AlphaComposite;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.util.Vector;
 import java.awt.Rectangle;
 
 import Main.GamePanel;
 import Main.KeyHadler;
 import object.OBJ_Shield_wood;
 import object.OBJ_Sword_normal;
+import object.SuperObject;
 
 public class Player extends Entity{
     
@@ -26,6 +29,8 @@ public class Player extends Entity{
     //GAME ITEMS VARIABLES
     public int hasKey = 0;
     public int coins = 0;
+    public Vector<SuperObject> inventory = new Vector<>();
+    public int inventorySize = 20;
 
     public Player(GamePanel gp, KeyHadler keyH){    //contruttore e setup del player
 
@@ -50,6 +55,7 @@ public class Player extends Entity{
 
         setDefaultValues();
         getPlayerImage();
+        setItems();
     }
 
     public void setDefaultValues(){     //imposta alcuni valori predefiniti
@@ -70,10 +76,18 @@ public class Player extends Entity{
 
 
     }
-    public int getAttack(){
+
+    public void setItems(){     //imposta gli item
+
+        inventory.add(currentWeapon);
+        inventory.add(currentShield);
+
+    }
+
+    public int getAttack(){ //calcola il valore di attacco
         return currentWeapon.attackAttribute * strenght;
     }
-    public int getDefence(){
+    public int getDefence(){    //calcola il valore di difesa
         return currentShield.defenceAttribute * dexterity;
     }
 
@@ -279,6 +293,18 @@ public class Player extends Entity{
 
     }
 
+    public void addObject(int i){   //aggiunge un item all'inventario
+
+    if(inventory.size() < inventorySize){
+        inventory.add(gp.obj[i]);
+        
+        gp.ui.showMessage("ha ottenuto le scarpe " + gp.obj[i].name);
+    }else {
+        gp.ui.showMessage("il tuo inventario è pieno!!");
+    }
+    gp.obj[i] = null;
+    }
+
     public void pickUpObject(int index){    //gestisce le interazioni con gli oggetti
 
         if(index!=999){
@@ -317,7 +343,6 @@ public class Player extends Entity{
                     break;
             
                 case "door":
-
                     if (hasKey > 0 && gp.obj[index].collision) {
                         hasKey--;
                         gp.playSE(3);
@@ -335,12 +360,7 @@ public class Player extends Entity{
                     }
 
                     break;
-                case "shoes":
-                    gp.obj[index] = null;
-                    this.speed +=2;
-                    gp.playSE(2);
-                    gp.ui.showMessage("speed up!");
-                    break;
+
 
                 case "chest":
                     gp.ui.gamefinished = true;
@@ -360,7 +380,11 @@ public class Player extends Entity{
                     gp.playSE(1);
                     coins++;
                     break;
-            }
+
+                default:
+                    addObject(index);
+                    break;
+                }
 
         }
 
@@ -462,6 +486,26 @@ public class Player extends Entity{
         }
 
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
+
+    }
+
+    public void selectItem(){
+        int itemIndex = gp.ui.getItemIndexOnSlot();
+
+        if(itemIndex < gp.player.inventory.size()){
+            SuperObject selectedItem = gp.player.inventory.get(itemIndex);
+            if(selectedItem.type == 1){
+                currentWeapon = selectedItem;
+                damage = getAttack();
+            }else if(selectedItem.type == 2){
+                currentShield = selectedItem;
+                defence = getDefence();
+            }else if(selectedItem.type == 3){
+                selectedItem.use(this);
+                inventory.remove(selectedItem);
+            }
+            
+        }
 
     }
 
