@@ -40,6 +40,38 @@ public class KeyHadler implements KeyListener{
 
         //CHARACTER STATE
         else if(gp.gameState == GamePanel.characterState){characterState(code);}
+
+        //DEATH STATE
+        else if(gp.gameState == GamePanel.gameOverState){deathState(code);}
+    }
+
+    private void deathState(int code){
+
+        if(code == KeyEvent.VK_UP){
+            if(gp.ui.commandNumber == 1){
+                gp.playSE(5);
+                gp.ui.commandNumber = 0;
+            }
+        }
+        if(code == KeyEvent.VK_DOWN){
+            if(gp.ui.commandNumber == 0){
+                gp.playSE(5);
+                gp.ui.commandNumber = 1;
+            }
+        }
+        if(code == KeyEvent.VK_ENTER){
+            switch (gp.ui.commandNumber) {
+                case 1:
+                    System.exit(0);
+                    break;
+                case 0:
+                    gp.player.worldX = gp.player.checkPointX;
+                    gp.player.worldY = gp.player.checkPointY;
+                    gp.player.life = gp.player.maxLife;
+                    gp.gameState = GamePanel.playState;
+                    break;
+            }
+        }
     }
 
     private void titleState(int code){
