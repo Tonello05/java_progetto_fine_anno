@@ -64,7 +64,7 @@ public class AssetSetter {
         gp.obj[7].worldX = 28 * gp.tileSize;
         gp.obj[7].worldY = 24 * gp.tileSize;
 
-        gp.obj[8] = new OBJ_Sword_normal();
+        gp.obj[8] = new OBJ_axe();
         gp.obj[8].worldX = 29 * gp.tileSize;
         gp.obj[8].worldY = 25 * gp.tileSize;
 
@@ -78,7 +78,7 @@ public class AssetSetter {
         
         gp.npc[0] = new NPC_kolo(gp);
         gp.npc[0].worldX = 44 * gp.tileSize;
-        gp.npc[0].worldY = 36 * gp.tileSize;
+        gp.npc[0].worldY = 34 * gp.tileSize;
 
         
     }
@@ -89,6 +89,14 @@ public class AssetSetter {
         gp.enemy[0].worldX = 47 * gp.tileSize;
         gp.enemy[0].worldY = 44 * gp.tileSize;
 
-    }
+        gp.enemy[1] = new MON_Spider(gp);
+        gp.enemy[1].worldX = 46 * gp.tileSize;
+        gp.enemy[1].worldY = 44 * gp.tileSize;
 
+        gp.enemy[2] = new MON_Spider(gp);
+        gp.enemy[2].worldX = 45 * gp.tileSize;
+        gp.enemy[2].worldY = 44 * gp.tileSize;
+        
+
+    }
 }
