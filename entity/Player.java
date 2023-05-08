@@ -26,8 +26,8 @@ public class Player extends Entity{
     public int screenY;
 
     //chechPoint
-    public int checkPointX = gp.tileSize * 10;
-    public int checkPointY = gp.tileSize * 10;
+    public int checkPointX;
+    public int checkPointY;
 
     //GAME ITEMS VARIABLES
     public int hasKey = 0;
@@ -63,8 +63,10 @@ public class Player extends Entity{
 
     public void setDefaultValues(){     //imposta alcuni valori predefiniti
 
-        worldX=gp.tileSize * 10;
-        worldY=gp.tileSize * 10;
+        worldX=gp.tileSize * 19;
+        worldY=gp.tileSize * 15;
+        checkPointX = worldX;
+        checkPointY = worldY;
         speed=4;
         direction="down";
         maxLife = 6;
@@ -305,7 +307,7 @@ public class Player extends Entity{
     if(inventory.size() < inventorySize){
         inventory.add(gp.obj[i]);
         
-        gp.ui.showMessage("ha ottenuto le scarpe " + gp.obj[i].name);
+        gp.ui.showMessage("ha ottenuto " + gp.obj[i].name);
     }else {
         gp.ui.showMessage("il tuo inventario è pieno!!");
     }
