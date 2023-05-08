@@ -5,7 +5,6 @@
 package entity;
 
 import javax.imageio.ImageIO;
-import javax.lang.model.util.ElementScanner14;
 
 import java.awt.AlphaComposite;
 import java.awt.Graphics2D;
@@ -25,6 +24,10 @@ public class Player extends Entity{
 
     public int screenX;
     public int screenY;
+
+    //chechPoint
+    public int checkPointX = gp.tileSize * 10;
+    public int checkPointY = gp.tileSize * 10;
 
     //GAME ITEMS VARIABLES
     public int hasKey = 0;
@@ -191,6 +194,10 @@ public class Player extends Entity{
         if(invincible){
             invincibleCounter++;
             if(invincibleCounter > 60){invincible = false; invincibleCounter = 0;}
+        }
+
+        if(life <= 0){
+            gp.gameState = GamePanel.gameOverState;
         }
 
     }
