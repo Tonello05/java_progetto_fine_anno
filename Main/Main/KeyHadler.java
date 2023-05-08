@@ -7,6 +7,8 @@ package Main;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import javax.swing.JOptionPane;
+
 public class KeyHadler implements KeyListener{
 
     public boolean upPressed, downPressed, leftPressed, rightPressed, shiftPressed, enterPressed;
@@ -94,8 +96,8 @@ public class KeyHadler implements KeyListener{
                     break;
             
                 case 1:
-
-                    break;
+                    JOptionPane.showMessageDialog(null, "pure il salvataggio? mi sermbra un po' troppo, non abbiamo voglia", "ERRORE", JOptionPane.ERROR_MESSAGE);
+                        break;
                 case 2:
                     System.exit(0);
                     break;
