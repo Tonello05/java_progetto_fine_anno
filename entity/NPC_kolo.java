@@ -90,9 +90,6 @@ public class NPC_kolo extends Entity{
         
         //DIALOGO
         super.speak();
-        
-        onPath = true;
-        noMovement = true;
     }
 
 }

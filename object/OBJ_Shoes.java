@@ -3,7 +3,6 @@ package object;
 import javax.imageio.ImageIO;
 
 import entity.Entity;
-import entity.Player;
 
 /**
  * OBJ_Shoes

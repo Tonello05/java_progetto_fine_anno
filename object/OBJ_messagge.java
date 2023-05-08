@@ -31,7 +31,10 @@ public class OBJ_messagge extends SuperObject{
 
     public void setupMessages(){
         
-        messages[0] = "premi ENTER per attaccare";
+        messages[0] = "per raccogliere un oggetto passaci sopra";
+        messages[1] = "una volta raccolto un oggetto premi [C] per\naprire l'inventario";
+        messages[2] = "premi [ENTER] per interagire con un npc";
+        messages[3] = "premi [ENTER] per attaccare";
 
     }
 
