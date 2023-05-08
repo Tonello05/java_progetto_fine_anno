@@ -86,7 +86,7 @@ public class NPC_dio extends Entity{
         //DIALOGO
         super.speak();
 
-        if(dialogueIndex==4){
+        if(dialogueIndex==5){
             gp.npc[1]=null;
         }
     }
