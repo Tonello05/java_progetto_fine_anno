@@ -5,6 +5,7 @@
 package Main;
 
 import entity.MON_Spider;
+import entity.NPC_dio;
 import entity.NPC_jhoncena;
 import entity.NPC_kolo;
 import object.OBJ_Chest;
@@ -79,6 +80,10 @@ public class AssetSetter {
         gp.npc[0] = new NPC_kolo(gp);
         gp.npc[0].worldX = 44 * gp.tileSize;
         gp.npc[0].worldY = 36 * gp.tileSize;
+
+        gp.npc[1] = new NPC_dio(gp);
+        gp.npc[1].worldX = 28 * gp.tileSize;
+        gp.npc[1].worldY = 14 * gp.tileSize;
 
         
     }
