@@ -5,6 +5,7 @@
 package Main;
 
 import entity.MON_Spider;
+import entity.NPC_jhoncena;
 import entity.NPC_kolo;
 import object.OBJ_Chest;
 import object.OBJ_Door;
@@ -75,7 +76,7 @@ public class AssetSetter {
 
     public void setNpc(){   //crea npc e li posiziona
         
-        gp.npc[0] = new NPC_kolo(gp);   //creazione oggetto
+        gp.npc[0] = new NPC_jhoncena(gp);   //creazione oggetto
         gp.npc[0].worldX = 26 * gp.tileSize;    // coordinata x dell'npc
         gp.npc[0].worldY = 9 * gp.tileSize;    // coordinata y dell'npc
         
