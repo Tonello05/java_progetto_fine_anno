@@ -78,10 +78,10 @@ public class NPC_kolo extends Entity{
 
     public void setDialogue(){      //dialoghi dell'npc
 
-        dialogues[0] = "Grazie per aver fatto fuori quel \nfastidoiso ragno!";
-        dialogues[1] = "prendi questa chiave";
-        dialogues[2] = "serve per aprire la mia stanza del tesoro\nio delle cose all'interno non \nme ne faccio niente";
-        dialogues[3] = "a te saranno sicuramente più utili";
+        dialogues[0] = "ciao, benvenuto in casa mia!";
+        dialogues[1] = "puoi aiutarmi ad uccidere i ragni la fuori?";
+        dialogues[2] = "per aiutarti prendi le mie scarpe la dietro";
+        dialogues[3] = "Buona fortuna";
     }
 
     public void speak(){    //dialogo con l'npc
