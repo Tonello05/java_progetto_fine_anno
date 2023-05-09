@@ -9,6 +9,8 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JOptionPane;
 
+import object.OBJ_stampella;
+
 public class KeyHadler implements KeyListener{
 
     public boolean upPressed, downPressed, leftPressed, rightPressed, shiftPressed, enterPressed;
@@ -71,6 +73,7 @@ public class KeyHadler implements KeyListener{
                     gp.player.worldY = gp.player.checkPointY;
                     gp.player.life = gp.player.maxLife;
                     gp.gameState = GamePanel.playState;
+                    gp.player.inventory.add(new OBJ_stampella(gp));
                     break;
             }
         }
