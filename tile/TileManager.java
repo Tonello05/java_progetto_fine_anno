@@ -89,12 +89,11 @@ public class TileManager {
     public void setuptile(int i, String fileName, boolean collision){   //legge i dati delle tiles
 
         UtilityTool ut = new UtilityTool();
-
         try {
             
             tiles[i] = new Tile();
             tiles[i].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/" + fileName));
-
+            
 
             tiles[0].image = ut.scaleImage(tiles[0].image, gp.tileSize, gp.tileSize);
 

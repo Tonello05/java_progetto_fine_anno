@@ -49,6 +49,8 @@ public class Entity {
     public int spriteCounter = 0;   //contatore per gli sprite (server nel metodo draw )
     public int spriteNum = 1;   //frame number
     public int dyingCounter = 0;
+    public BufferedImage currentAnim;
+    public boolean animationOn;
 
     //variabili HITBOX
     public Rectangle solidArea = new Rectangle(0,0,48,48);  //HitBox dell'entità
@@ -106,7 +108,7 @@ public class Entity {
                     worldX += speed;spriteCounter++;
                     break;
             }
-        }else if (type == 1 && !onPath){   //se un npc è fermo prende una direzione di default
+        }else if (type == 1 && !onPath && !noMovement){   //se un npc è fermo prende una direzione di default
             direction = defaultDirection;
         }
 
@@ -136,6 +138,9 @@ public class Entity {
             worldX - gp.tileSize < gp.player.worldX + gp.player.screenX &&
             worldY + gp.tileSize > gp.player.worldY - gp.player.screenY &&
             worldY - gp.tileSize < gp.player.worldY + gp.player.screenY){
+
+                
+
 
                 switch (direction) {
                     case "up":
@@ -222,6 +227,10 @@ public class Entity {
                     dyingAnimation(g2);
                 }
 
+                if(this.animationOn){
+                    image = currentAnim;
+                }
+
                 g2.drawImage(image, screenX, screenY,  gp.tileSize, gp.tileSize, null);
 
                 g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
@@ -263,6 +272,7 @@ public class Entity {
         gp.ui.currentDialogue =  name + ": " + dialogues[dialogueIndex];
         
         dialogueIndex++;
+
         switch (gp.player.direction) {
             case "up":
                 direction = "down";
@@ -277,7 +287,24 @@ public class Entity {
                 direction = "right";
                 break;
         }
+    }
 
+    public void speak(int i){    //metodo che serve per i dialoghi
+        gp.ui.currentDialogue =  name + ": " + dialogues[i];
+        switch (gp.player.direction) {
+            case "up":
+                direction = "down";
+                break;
+            case "down":
+                direction = "up";
+                break;
+            case "right":
+                direction = "left";
+                break;
+            case "left":
+                direction = "right";
+                break;
+        }
     }
     
     public void searchPath(int goalCol,int GoalRow){

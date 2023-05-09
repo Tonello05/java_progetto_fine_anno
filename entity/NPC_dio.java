@@ -1,12 +1,17 @@
 package entity;
 
 import java.util.Random;
-
+import java.util.Vector;
+import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 
 import Main.GamePanel;
 
 public class NPC_dio extends Entity{
+
+    BufferedImage anim1,anim2,anim3,anim4;
+    int animationCounter;
+
 
     public NPC_dio(GamePanel gp){
         super(gp);
@@ -29,12 +34,42 @@ public class NPC_dio extends Entity{
             down1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/dio/diop0.png"));
             left1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/dio/diop3.png"));
             right1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/dio/diop1.png"));
+            anim1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/dio/dio_anim2.png"));
+            anim2 = ImageIO.read(getClass().getResourceAsStream("/res/npc/dio/dio_anim3.png"));
+            anim3 = ImageIO.read(getClass().getResourceAsStream("/res/npc/dio/dio_anim4.png"));
+            anim4 = ImageIO.read(getClass().getResourceAsStream("/res/npc/dio/dio_anim5.png"));
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    @Override
+    public void update(){
+        if(!animationOn){
+            super.update();
+        }else{
+            animationCounter++;
+            if(animationCounter < 30){
+                currentAnim = anim1;
+            }else if(animationCounter < 60){
+                currentAnim = anim2;
+            }else if(animationCounter < 90){
+                currentAnim = anim3;
+            }else if(animationCounter < 120){
+                currentAnim = anim4;
+            }else{
+                currentAnim = anim4;
+                this.worldY--;
+                if(worldY <100){
+                    gp.npc[1] = null;
+                } 
+            }
+
+        }
+        
+
+    }
     
     public void setAction(){    //esegue un azione (per questo npc si limita a  farlo muovere a caso)
 
@@ -81,13 +116,10 @@ public class NPC_dio extends Entity{
 
         //eventuali azioni da fare durante il dialogo (per esempio curare a un certo dialogo)
         
-
-
         //DIALOGO
         super.speak();
-
         if(dialogueIndex==5){
-            gp.npc[1]=null;
+            animationOn = true;
         }
     }
 

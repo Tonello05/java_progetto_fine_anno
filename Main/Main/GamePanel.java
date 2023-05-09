@@ -31,8 +31,8 @@ public class GamePanel extends JPanel implements Runnable{
     public final String title = "4F ADVENTURE !!";    //titolo del gioco
 
     //WORLD SETTINGS    (dimensioni mappa)
-    public final int maxWorldCol = 50;  
-    public final int maxWorldRow = 50;
+    public final int maxWorldCol = 100;  
+    public final int maxWorldRow = 100;
 
     //FPS   (frame per second) (modificabili)
     int FPS = 60;

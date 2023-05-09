@@ -63,11 +63,11 @@ public class Player extends Entity{
 
     public void setDefaultValues(){     //imposta alcuni valori predefiniti
 
-        worldX=gp.tileSize * 19;
-        worldY=gp.tileSize * 15;
+        worldX=gp.tileSize * 6;
+        worldY=gp.tileSize * 16;
         checkPointX = worldX;
         checkPointY = worldY;
-        speed=4;
+        speed=20;
         direction="down";
         maxLife = 6;
         life = maxLife;

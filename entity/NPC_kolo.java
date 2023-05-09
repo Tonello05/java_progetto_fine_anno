@@ -5,6 +5,8 @@ import java.util.Random;
 import javax.imageio.ImageIO;
 
 import Main.GamePanel;
+import object.OBJ_focaccia;
+import object.OBJ_mela;
 
 public class NPC_kolo extends Entity{
 
@@ -44,7 +46,7 @@ public class NPC_kolo extends Entity{
     }
 
     
-    public void setAction(){    //esegue un azione (per questo npc si limita a  farlo muovere a caso)
+    public void setAction(){    //esegue un azione
 
         if(onPath){
             
@@ -78,16 +80,29 @@ public class NPC_kolo extends Entity{
 
     public void setDialogue(){      //dialoghi dell'npc
 
-        dialogues[0] = "ciao, benvenuto in casa mia!";
-        dialogues[1] = "puoi aiutarmi ad uccidere i ragni la fuori?";
-        dialogues[2] = "per aiutarti prendi le mie scarpe la dietro";
-        dialogues[3] = "Buona fortuna";
+        dialogues[0] = "Vuoi Mela?";
+        dialogues[1] = "Focaccia olive?";
+        dialogues[2] = "Tieni";
     }
 
     public void speak(){    //dialogo con l'npc
 
         //eventuali azioni da fare durante il dialogo (per esempio curare a un certo dialogo)
         
+        if(dialogueIndex == 2){
+            int i = new Random().nextInt(100);
+            if(i > 95){
+                if(gp.player.inventory.size() < 20){
+                    gp.player.inventory.add(new OBJ_focaccia(gp));
+                }
+
+            }else{
+                if(gp.player.inventory.size() < 20){
+                    gp.player.inventory.add(new OBJ_mela(gp));
+                }
+            }
+        }
+
         //DIALOGO
         super.speak();
     }

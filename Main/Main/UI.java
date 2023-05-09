@@ -496,6 +496,34 @@ public class UI {
             
         }
 
+        //FRAME sotto descrizione
+
+        dframeX = frameX;
+        dframeY = (frameY*4) + frameHeight;
+        dframeWidht = frameWidht;
+        dframeHeight = gp.tileSize * 2;
+
+        
+
+        //scrittura sotto descrizione
+        textX = dframeX + gp.tileSize;
+        textY = dframeY + gp.tileSize;
+        g2.setFont(g2.getFont().deriveFont(40F));
+        
+        itemIndex = getItemIndexOnSlot();
+        if(itemIndex < gp.player.inventory.size()){
+            if(gp.player.inventory.get(itemIndex).type == 1){
+                drawSubWindow(dframeX, dframeY, dframeWidht, dframeHeight);
+                g2.drawString(("DMG: " + gp.player.inventory.get(itemIndex).attackAttribute), textX, textY);
+            }else if (gp.player.inventory.get(itemIndex).type == 2){
+                drawSubWindow(dframeX, dframeY, dframeWidht, dframeHeight);
+                g2.drawString(("DEF: " + gp.player.inventory.get(itemIndex).defenceAttribute), textX, textY);
+            }
+            
+        }
+
+
+
     }
 
     public int getItemIndexOnSlot(){    //ottiene l'indice dell'oggetto selezionato

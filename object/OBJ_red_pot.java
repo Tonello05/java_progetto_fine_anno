@@ -1,12 +1,13 @@
 package object;
 
+import java.util.Vector;
+
 import javax.imageio.ImageIO;
 
 import Main.GamePanel;
 import entity.Entity;
 
 public class OBJ_red_pot extends SuperObject{
-    
     
     public int value = 5; 
     GamePanel gp;
