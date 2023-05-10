@@ -1,7 +1,4 @@
 package object;
-
-import java.util.Vector;
-
 import javax.imageio.ImageIO;
 
 import Main.GamePanel;

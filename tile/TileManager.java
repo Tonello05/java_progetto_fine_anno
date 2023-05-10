@@ -177,6 +177,7 @@ public class TileManager {
                     int num = Integer.parseInt(numbers[col]);
                     tileMapNum[col][row] = num;
                     col++;
+                    System.out.println("colonna: " + col + " riga: " + row);
                 }
 
                 if(col == gp.maxWorldCol){
