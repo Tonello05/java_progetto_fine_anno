@@ -15,7 +15,7 @@ public class NPC_slotmachine extends Entity{
         speed = 1;      //velocità dell'npc
         getPlayerImage();   
         setDialogue();
-        name = "slotmachine";
+        name = "slot machine";
         type = 1;   //tipo di entity ( 1 = npc)
         defaultDirection = "right";
         noMovement = true;
@@ -70,24 +70,39 @@ public class NPC_slotmachine extends Entity{
 
     public void setDialogue(){      //dialoghi dell'npc
 
-        dialogues[0] = "Ciao gamer\nsono dio";
-        dialogues[1] = "Benvenuto in 4F adventure";
-        dialogues[2] = "Spero che questo gioco sia di suo gradimento";
-        dialogues[3] = "Sappi che anche se ogni tanto\nassocia il mio nome ad animali\nio le voglio lo stesso bene";
-        dialogues[4] = "è ora di andare\nho una partita a boccie con gli apostoli\naddio";
+        dialogues[0] = "\nslot machine\ncosto 4 coins";
+        dialogues[1] = "metti la monetina\ne tira la leva";
+        dialogues[2] = "ritenta, sarai più fortunato";
+        dialogues[3] = "";
     }
 
     public void speak(){    //dialogo con l'npc
 
         //eventuali azioni da fare durante il dialogo (per esempio curare a un certo dialogo)
         
+        int ris1,ris2,ris3;
 
+        ris1 =(int) Math.random()*5;
+        ris2 =(int) Math.random()*5;
+        ris3 =(int) Math.random()*5;
+
+        if(dialogueIndex == 2){
+
+            dialogues[2] = "risultati: " + ris1 + " " + ris2 + " " + ris3 + "ritenta, sarai più fortunato";
+
+            if(ris1 == ris2 && ris1 == ris3 && ris2 == ris3){
+
+                dialogueIndex=3;
+                dialogues[3] = "risultati: " + ris1 + " " + ris2 + " " + ris3 + "\nHAI VINTO!!!";
+
+            }
+        }
 
         //DIALOGO
-        super.speak();
-
-        if(dialogueIndex==5){
-            gp.npc[1]=null;
+        super.speak(dialogueIndex);
+        dialogueIndex++;
+        if(dialogueIndex == 3 || dialogueIndex ==4){
+            dialogueIndex=0;
         }
     }
 

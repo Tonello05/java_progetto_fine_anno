@@ -155,9 +155,9 @@ public class TileManager {
                     
                     String[] numbers = line.split(" ");
                     int num = Integer.parseInt(numbers[col]);
-                    System.out.println(Integer.parseInt(numbers[col]) + " : " + num);
                     tileMapNum[col][row] = num;
                     col++;
+                    System.out.println("colonna: " + col + " riga: " + row);
                 }
 
                 if(col == gp.maxWorldCol){
