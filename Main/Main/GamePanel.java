@@ -36,6 +36,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     //FPS   (frame per second) (modificabili)
     int FPS = 60;
+    public int fps_counter = 0;
 
     //SYSTEM    (vari oggetti che gestiscono il gioco)
     Sound music = new Sound();  
@@ -125,6 +126,11 @@ public class GamePanel extends JPanel implements Runnable{
         
 
         if(gameState == playState){
+
+            fps_counter ++;
+            if(fps_counter == 120){
+                fps_counter = 0;
+            }
 
             //player update
             player.update();

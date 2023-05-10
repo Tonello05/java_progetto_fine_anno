@@ -126,7 +126,27 @@ public class TileManager {
                     g2.drawImage(tiles[mapTileNum].image, scrrenX, scrrenY, gp.tileSize, gp.tileSize, null);
                 }
 
-            g2.drawImage(tiles[mapTileNum].image, scrrenX, scrrenY, gp.tileSize, gp.tileSize, null);
+
+            if(mapTileNum == 19 || mapTileNum == 20 || mapTileNum == 21){
+                if(gp.fps_counter < 40){
+                    g2.drawImage(tiles[19].image, scrrenX, scrrenY, gp.tileSize, gp.tileSize, null);
+                }else if (gp.fps_counter < 80){
+                    g2.drawImage(tiles[20].image, scrrenX, scrrenY, gp.tileSize, gp.tileSize, null);
+                }else{
+                    g2.drawImage(tiles[21].image, scrrenX, scrrenY, gp.tileSize, gp.tileSize, null);
+                }
+
+            }else if(mapTileNum == 129 || mapTileNum == 118){
+                if(gp.fps_counter < 60){
+                    g2.drawImage(tiles[118].image, scrrenX, scrrenY, gp.tileSize, gp.tileSize, null);
+                }else{
+                    g2.drawImage(tiles[129].image, scrrenX, scrrenY, gp.tileSize, gp.tileSize, null);
+                }
+
+            }else{
+                g2.drawImage(tiles[mapTileNum].image, scrrenX, scrrenY, gp.tileSize, gp.tileSize, null);
+            }
+            
             worldCol++;
 
             if(worldCol==gp.maxWorldCol){

@@ -67,7 +67,7 @@ public class Player extends Entity{
         worldY=gp.tileSize * 16;
         checkPointX = worldX;
         checkPointY = worldY;
-        speed=20;
+        speed=6;
         direction="down";
         maxLife = 6;
         life = maxLife;
