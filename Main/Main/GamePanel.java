@@ -51,7 +51,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     //ENTITY AND OBJECT
     public Player player = new Player(this, keyH);  //player
-    public SuperObject obj[] = new SuperObject[50]; //array di oggetti
+    public SuperObject obj[] = new SuperObject[200]; //array di oggetti
     public Entity npc[] = new Entity[50];   //array di npc
     public Entity enemy[] = new Entity[50];     //array di nemici
 

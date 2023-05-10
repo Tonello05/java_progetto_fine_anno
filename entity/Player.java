@@ -67,7 +67,7 @@ public class Player extends Entity{
         worldY=gp.tileSize * 16;
         checkPointX = worldX;
         checkPointY = worldY;
-        speed=3;
+        speed=20;
         direction="down";
         maxLife = 6;
         life = maxLife;
@@ -164,6 +164,8 @@ public class Player extends Entity{
             //check NPCs collision
             int npcIndex = gp.cChecker.checEntity(this, gp.npc);
             intercatNPC(npcIndex);
+
+            
 
             //check enemy collision
             int enemyIndex = gp.cChecker.checEntity(this, gp.enemy);
@@ -398,7 +400,9 @@ public class Player extends Entity{
                     gp.playSE(1);
                     coins++;
                     break;
+                case "decoration":
 
+                    break;
                 default:
                     addObject(index);
                     break;
