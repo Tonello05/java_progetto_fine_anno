@@ -1,7 +1,6 @@
 package entity;
 
 import java.util.Random;
-import java.util.Vector;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 
@@ -61,8 +60,8 @@ public class NPC_dio extends Entity{
             }else{
                 currentAnim = anim4;
                 this.worldY--;
-                if(worldY <100){
-                    gp.npc[1] = null;
+                if(worldY < 1){
+                    gp.npc[0] = null;
                 } 
             }
 
@@ -108,8 +107,7 @@ public class NPC_dio extends Entity{
         dialogues[0] = "Ciao gamer\nsono dio";
         dialogues[1] = "Benvenuto in 4F adventure";
         dialogues[2] = "Spero che questo gioco sia di suo gradimento";
-        dialogues[3] = "Sappi che anche se ogni tanto\nassocia il mio nome ad animali\nio le voglio lo stesso bene";
-        dialogues[4] = "è ora di andare\nho una partita a boccie con gli apostoli\naddio";
+        dialogues[3] = "è ora di andare\nho una partita a boccie con gli apostoli\naddio";
     }
 
     public void speak(){    //dialogo con l'npc
@@ -118,7 +116,7 @@ public class NPC_dio extends Entity{
         
         //DIALOGO
         super.speak();
-        if(dialogueIndex==5){
+        if(dialogueIndex==4){
             animationOn = true;
         }
     }

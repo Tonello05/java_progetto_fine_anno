@@ -25,6 +25,8 @@ public class SuperObject {
     public int solidAreaDefaultX = 0 , solidAreaDefaultY = 0;       //altre variabili per l'hitbox
     public int attackAttribute;     //attacco dell'oggetto (se un arma)
     public int defenceAttribute;    //difesa dell'oggetto (se uno scudo)
+    public double speedAttribute;      //velocità dell'oggetto (item speciali)
+    public boolean haveSpeedAttribute = false;
     public int type = 0;    //tipo di oggetto (1 = arma, 2 = scudo, 3 = consumabile, 0 se altro)
 
     public void showMessage(){};

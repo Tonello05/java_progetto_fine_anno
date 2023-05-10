@@ -14,7 +14,8 @@ public class OBJ_stampella extends SuperObject{
         name = "stampella";
         description = "[" + name + "]" + "\nabbiamo visto che sei morto\nforse questa ti\npuo' servire";
         attackAttribute = 6;
-        
+        speedAttribute = 0.5;
+        haveSpeedAttribute = true;
 		try {
             image = ImageIO.read(getClass().getResourceAsStream("/res/objects/stampella.png"));
         } catch (Exception e) {

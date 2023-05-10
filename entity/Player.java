@@ -67,7 +67,7 @@ public class Player extends Entity{
         worldY=gp.tileSize * 16;
         checkPointX = worldX;
         checkPointY = worldY;
-        speed=6;
+        speed=3;
         direction="down";
         maxLife = 6;
         life = maxLife;
@@ -94,6 +94,13 @@ public class Player extends Entity{
     }
     public int getDefence(){    //calcola il valore di difesa
         return currentShield.defenceAttribute * dexterity;
+    }
+    public int getSpeed(){
+        if(currentWeapon.haveSpeedAttribute){
+            return (int)(speed * currentWeapon.speedAttribute);
+        }else{
+            return (int)(speed * currentShield.speedAttribute);
+        }
     }
 
     public void getPlayerImage(){       //legge le immagini del player
@@ -292,8 +299,10 @@ public class Player extends Entity{
         if(keyH.enterPressed){
 
             if(index != 999){
+                if(!gp.npc[index].animationOn){
                     gp.gameState = GamePanel.dialogueState;
                     gp.npc[index].speak();
+                }
             }else if (keyH.enterPressed){
                 attacking = true;
             }
@@ -512,6 +521,10 @@ public class Player extends Entity{
             }else if(selectedItem.type == 3){
                 selectedItem.use(this);
                 inventory.remove(selectedItem);
+            }
+
+            if(currentShield.haveSpeedAttribute || currentWeapon.haveSpeedAttribute){
+                speed = getSpeed();
             }
             
         }

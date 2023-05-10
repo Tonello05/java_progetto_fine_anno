@@ -29,6 +29,7 @@ public class Entity {
     public boolean invincible = false;  //invicibilità attiva
     public int invincibleCounter = 0;   //contatore tempo invincibilità
     public int speed;   //velocità
+    public int baseSpeed;   //velocità di base
     public String name;     //nome dell'entita
     public int type;    // 0 = player; 1 = npc; 2 = enemy
     public boolean alive = true;
