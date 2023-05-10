@@ -155,6 +155,7 @@ public class TileManager {
                     
                     String[] numbers = line.split(" ");
                     int num = Integer.parseInt(numbers[col]);
+                    System.out.println(Integer.parseInt(numbers[col]) + " : " + num);
                     tileMapNum[col][row] = num;
                     col++;
                 }
