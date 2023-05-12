@@ -25,10 +25,10 @@ public class NPC_slotmachine extends Entity{
 
         try {
             
-            up1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/dio/diop2.png"));
-            down1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/dio/diop0.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/dio/diop3.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/dio/diop1.png"));
+            up1 = ImageIO.read(getClass().getResourceAsStream("/res/objects/slotmachine.png"));
+            down1 = ImageIO.read(getClass().getResourceAsStream("/res/objects/slotmachine.png"));
+            left1 = ImageIO.read(getClass().getResourceAsStream("/res/objects/slotmachine.png"));
+            right1 = ImageIO.read(getClass().getResourceAsStream("/res/objects/slotmachine.png"));
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -70,7 +70,7 @@ public class NPC_slotmachine extends Entity{
 
     public void setDialogue(){      //dialoghi dell'npc
 
-        dialogues[0] = "\nslot machine\ncosto 4 coins";
+        dialogues[0] = "\n\ncosto 4 coins";
         dialogues[1] = "metti la monetina\ne tira la leva";
         dialogues[2] = "ritenta, sarai più fortunato";
         dialogues[3] = "";
@@ -82,13 +82,15 @@ public class NPC_slotmachine extends Entity{
         
         int ris1,ris2,ris3;
 
-        ris1 =(int) Math.random()*5;
-        ris2 =(int) Math.random()*5;
-        ris3 =(int) Math.random()*5;
+        ris1 =(int) (Math.random() * 5);
+        ris2 =(int) (Math.random() * 5);
+        ris3 =(int) (Math.random() * 5);
 
         if(dialogueIndex == 2){
 
-            dialogues[2] = "risultati: " + ris1 + " " + ris2 + " " + ris3 + "ritenta, sarai più fortunato";
+            gp.player.coins = gp.player.coins - 4;
+
+            dialogues[2] = "risultati: " + ris1 + " " + ris2 + " " + ris3 + "\nritenta, sarai più fortunato";
 
             if(ris1 == ris2 && ris1 == ris3 && ris2 == ris3){
 
@@ -101,7 +103,7 @@ public class NPC_slotmachine extends Entity{
         //DIALOGO
         super.speak(dialogueIndex);
         dialogueIndex++;
-        if(dialogueIndex == 3 || dialogueIndex ==4){
+        if(dialogueIndex == 3 || dialogueIndex ==4 || gp.player.coins < 4){
             dialogueIndex=0;
         }
     }

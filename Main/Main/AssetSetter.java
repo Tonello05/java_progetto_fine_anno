@@ -8,12 +8,15 @@ import decorations.DEC_armadio;
 import decorations.DEC_bed;
 import decorations.DEC_carpet;
 import decorations.DEC_lilypad;
+import decorations.DEC_sgabello;
 import decorations.DEC_water_rock;
 import entity.MON_Spider;
+import entity.NPC_abu;
 import entity.NPC_doganiere;
 import entity.NPC_dio;
 import entity.NPC_jhoncena;
 import entity.NPC_kolo;
+import entity.NPC_slotmachine;
 import object.OBJ_Chest;
 import object.OBJ_Door;
 import object.OBJ_Key;
@@ -229,6 +232,21 @@ public class AssetSetter {
         gp.obj[144].worldX = 86 * gp.tileSize;
         gp.obj[144].worldY = 28 * gp.tileSize;
 
+        gp.obj[145] = new DEC_sgabello(gp);
+        gp.obj[145].worldX = 91 * gp.tileSize;
+        gp.obj[145].worldY = 66 * gp.tileSize;
+
+        gp.obj[146] = new DEC_sgabello(gp);
+        gp.obj[146].worldX = 91 * gp.tileSize;
+        gp.obj[146].worldY = 67 * gp.tileSize;
+
+        gp.obj[147] = new DEC_sgabello(gp);
+        gp.obj[147].worldX = 91 * gp.tileSize;
+        gp.obj[147].worldY = 68 * gp.tileSize;
+
+        gp.obj[148] = new DEC_sgabello(gp);
+        gp.obj[148].worldX = 91 * gp.tileSize;
+        gp.obj[148].worldY = 69 * gp.tileSize;
 
     }
 
@@ -237,6 +255,42 @@ public class AssetSetter {
         gp.npc[0] = new NPC_dio(gp);
         gp.npc[0].worldX = 13 * gp.tileSize;
         gp.npc[0].worldY = 16 * gp.tileSize;
+
+        gp.npc[1] = new NPC_slotmachine(gp);
+        gp.npc[1].worldX = 90 * gp.tileSize;
+        gp.npc[1].worldY = 66 * gp.tileSize;
+
+        gp.npc[2] = new NPC_slotmachine(gp);
+        gp.npc[2].worldX = 90 * gp.tileSize;
+        gp.npc[2].worldY = 67 * gp.tileSize;
+
+        gp.npc[3] = new NPC_slotmachine(gp);
+        gp.npc[3].worldX = 90 * gp.tileSize;
+        gp.npc[3].worldY = 68 * gp.tileSize;
+
+        gp.npc[4] = new NPC_slotmachine(gp);
+        gp.npc[4].worldX = 90 * gp.tileSize;
+        gp.npc[4].worldY = 69 * gp.tileSize;
+
+        gp.npc[5] = new NPC_slotmachine(gp);
+        gp.npc[5].worldX = 96 * gp.tileSize;
+        gp.npc[5].worldY = 68 * gp.tileSize;
+
+        gp.npc[6] = new NPC_slotmachine(gp);
+        gp.npc[6].worldX = 96 * gp.tileSize;
+        gp.npc[6].worldY = 69 * gp.tileSize;
+
+        gp.npc[7] = new NPC_slotmachine(gp);
+        gp.npc[7].worldX = 96 * gp.tileSize;
+        gp.npc[7].worldY = 70 * gp.tileSize;
+
+        gp.npc[8] = new NPC_kolo(gp);
+        gp.npc[8].worldX = 80 * gp.tileSize;
+        gp.npc[8].worldY = 33 * gp.tileSize;
+
+        gp.npc[8] = new NPC_abu(gp);
+        gp.npc[8].worldX = 91 * gp.tileSize;
+        gp.npc[8].worldY = 66 * gp.tileSize;
 
         
     }
