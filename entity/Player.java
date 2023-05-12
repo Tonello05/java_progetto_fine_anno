@@ -138,7 +138,7 @@ public class Player extends Entity{
         if(attacking){
             attacking();
         }else{
-
+            
             if(keyH.upPressed == true){
                 direction="up";
             }

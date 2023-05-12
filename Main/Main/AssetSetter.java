@@ -4,6 +4,7 @@
 
 package Main;
 
+import decorations.DEC_armadio;
 import decorations.DEC_bed;
 import decorations.DEC_carpet;
 import decorations.DEC_lilypad;
@@ -215,6 +216,18 @@ public class AssetSetter {
         gp.obj[141] = new DEC_carpet(gp, 0);
         gp.obj[141].worldX = 83 * gp.tileSize;
         gp.obj[141].worldY = 91 * gp.tileSize;
+
+        gp.obj[142] = new DEC_armadio(gp);
+        gp.obj[142].worldX = 86 * gp.tileSize;
+        gp.obj[142].worldY = 28 * gp.tileSize;
+
+        gp.obj[143] = new DEC_armadio(gp);
+        gp.obj[143].worldX = 86 * gp.tileSize;
+        gp.obj[143].worldY = 28 * gp.tileSize;
+
+        gp.obj[144] = new DEC_armadio(gp);
+        gp.obj[144].worldX = 86 * gp.tileSize;
+        gp.obj[144].worldY = 28 * gp.tileSize;
 
 
     }
