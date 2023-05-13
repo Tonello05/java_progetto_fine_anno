@@ -15,6 +15,7 @@ import decorations.DEC_sgabello;
 import decorations.DEC_tavolino;
 import decorations.DEC_water_rock;
 import entity.MON_Spider;
+import entity.MON_wasp;
 import entity.NPC_abu;
 import entity.NPC_doganiere;
 import entity.NPC_dio;
@@ -439,7 +440,7 @@ public class AssetSetter {
 
     public void setEnemy(){     //crea i nemici e li posiziona
 
-        gp.enemy[0] = new MON_Spider(gp);
+        gp.enemy[0] = new MON_wasp(gp);
         gp.enemy[0].worldX = 20*gp.tileSize;
         gp.enemy[0].worldY = 20*gp.tileSize;
 
