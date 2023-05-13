@@ -23,14 +23,9 @@ import entity.NPC_doganiere;
 import entity.NPC_dio;
 import entity.NPC_jhoncena;
 import entity.NPC_kolo;
-<<<<<<< HEAD
 import entity.NPC_miotto;
 import entity.NPC_slotmachine_left;
 import entity.NPC_slotmachine_right;
-=======
-import entity.NPC_slotmachine;
-import entity.NPC_wen;
->>>>>>> c8e7e8996aa815e8449cf58cd6b2cdac5e1227d8
 import object.OBJ_Chest;
 import object.OBJ_Door;
 import object.OBJ_Key;
@@ -430,7 +425,6 @@ public class AssetSetter {
         gp.npc[7].worldX = 96 * gp.tileSize;
         gp.npc[7].worldY = 69 * gp.tileSize;
 
-<<<<<<< HEAD
         gp.npc[8] = new NPC_slotmachine_left(gp);
         gp.npc[8].worldX = 96 * gp.tileSize;
         gp.npc[8].worldY = 70 * gp.tileSize;
@@ -454,19 +448,6 @@ public class AssetSetter {
         gp.npc[13] = new NPC_cuconato(gp);
         gp.npc[13].worldX = 91 * gp.tileSize;
         gp.npc[13].worldY = 69 * gp.tileSize;
-=======
-        gp.npc[8] = new NPC_kolo(gp);
-        gp.npc[8].worldX = 84 * gp.tileSize;
-        gp.npc[8].worldY = 31 * gp.tileSize;
-
-        gp.npc[9] = new NPC_abu(gp);
-        gp.npc[9].worldX = 91 * gp.tileSize;
-        gp.npc[9].worldY = 66 * gp.tileSize;
-
-        gp.npc[10] = new NPC_wen(gp);
-        gp.npc[10].worldX = 95 * gp.tileSize;
-        gp.npc[10].worldY = 29 * gp.tileSize;
->>>>>>> c8e7e8996aa815e8449cf58cd6b2cdac5e1227d8
 
         
 

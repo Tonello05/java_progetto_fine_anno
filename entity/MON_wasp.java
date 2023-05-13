@@ -8,9 +8,6 @@ import javax.imageio.ImageIO;
 import Main.GamePanel;
 
 public class MON_wasp extends Entity{
-    
-    //TODO: cambiare animazione per rendere sensanto il volare
-
     //DROP del nemico
     int coin;
 
@@ -25,6 +22,7 @@ public class MON_wasp extends Entity{
         life = maxLife; //vita attuale del nemico
         coin = 4;   //monete del drop del nemico
         damage = 3; //danno del nemico (il player inizia di base con difesa = 1)
+        fly = true; //se l nemico è volante le animazioni sono diverse
         //HITBOX
         solidArea.x = 3;
         solidArea.y = 18;
@@ -123,6 +121,16 @@ public class MON_wasp extends Entity{
             hpBarOn = false;
             hpBArCounter = 0;
         }
+
+        if(spriteCounter < 10){
+            spriteNum = 2;
+        }else if(spriteCounter < 20){
+            spriteNum = 1;
+        }else{
+            spriteCounter = 0;
+        }
+
+
     }
 
     //codice eseguito quando il nemico è morto

@@ -53,6 +53,7 @@ public class Entity {
     public int dyingCounter = 0;
     public BufferedImage currentAnim;
     public boolean animationOn;
+    public boolean fly = false;
 
     //variabili HITBOX
     public Rectangle solidArea = new Rectangle(0,0,48,48);  //HitBox dell'entità
@@ -114,7 +115,7 @@ public class Entity {
             direction = defaultDirection;
         }
 
-        if(spriteCounter>10){
+        if(spriteCounter>10 && !fly){
             if(spriteNum==1){spriteNum=2;}
             else if(spriteNum==2){spriteNum=3;}
             else if(spriteNum==3){spriteNum=1;}
