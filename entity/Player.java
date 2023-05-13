@@ -67,7 +67,7 @@ public class Player extends Entity{
         worldY=gp.tileSize * 16;
         checkPointX = worldX;
         checkPointY = worldY;
-        speed=20;
+        defaultSpeed=20;
         direction="down";
         maxLife = 6;
         life = maxLife;
@@ -78,6 +78,7 @@ public class Player extends Entity{
         currentShield = new OBJ_Shield_wood();
         damage = getAttack();
         defence = getDefence();
+        speed = defaultSpeed;
 
 
     }
@@ -97,9 +98,9 @@ public class Player extends Entity{
     }
     public int getSpeed(){
         if(currentWeapon.haveSpeedAttribute){
-            return (int)(speed * currentWeapon.speedAttribute);
+            return (int)(defaultSpeed * currentWeapon.speedAttribute);
         }else{
-            return (int)(speed * currentShield.speedAttribute);
+            return (int)(defaultSpeed * currentShield.speedAttribute);
         }
     }
 
@@ -192,12 +193,16 @@ public class Player extends Entity{
                 }
             }
 
-            if(spriteCounter>10){
-                if(spriteNum==1){spriteNum=2;}
-                else if(spriteNum==2){spriteNum=3;}
-                else if(spriteNum==3){spriteNum=1;}
-                spriteCounter=0;
-                
+            if(spriteCounter < 15){
+                spriteNum = 1;
+            }else if ( spriteCounter < 30){
+                spriteNum = 2;
+            }else if ( spriteCounter < 45){
+                spriteNum = 3;
+            }else if (spriteCounter < 60){
+                spriteNum = 2;
+            }else{
+                spriteCounter = 0;
             }
 
         }
@@ -529,6 +534,8 @@ public class Player extends Entity{
 
             if(currentShield.haveSpeedAttribute || currentWeapon.haveSpeedAttribute){
                 speed = getSpeed();
+            }else{
+                speed = defaultSpeed;
             }
             
         }

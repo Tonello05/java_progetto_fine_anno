@@ -164,7 +164,68 @@ public class UI {
             case GamePanel.gameOverState:
                 drawDeathScreen();
                 break;
+            case GamePanel.commandState:
+                drawCommandScreen();
+                break;
         }
+    }
+
+    public void drawCommandScreen(){
+
+        gp.setBackground(new Color(0, 0, 0));
+
+        int x;
+        int y;
+        String text;
+
+        text = "premi [esc] per tornare al menu di pausa";
+        g2.setColor(Color.white);
+        x = getXForCenteredText(text);
+        y = gp.tileSize*1;
+        g2.drawString(text, x, y);
+
+        text = "[W][A][S][D] = MOVIMENTO";
+        g2.setColor(Color.white);
+        x = gp.tileSize;
+        y = gp.tileSize*3;
+        g2.drawString(text, x, y);
+
+        text = "[ENTER] = ATTACCO";
+        g2.setColor(Color.white);
+        x = gp.tileSize * 8;
+        y = gp.tileSize*3;
+        g2.drawString(text, x, y);
+
+        text = "[C] = INVENTARIO";
+        g2.setColor(Color.white);
+        x = gp.tileSize;
+        y = gp.tileSize*5;
+        g2.drawString(text, x, y);
+
+        text = "[ESC] = PAUSA";
+        g2.setColor(Color.white);
+        x = gp.tileSize * 8;
+        y = gp.tileSize*5;
+        g2.drawString(text, x, y);
+
+        text = "COMANDI INVENTARIO:";
+        g2.setColor(Color.white);
+        x = gp.tileSize;
+        y = gp.tileSize*7;
+        g2.drawString(text, x, y);
+
+        text = "usa le freccette per navigare l'inventario";
+        g2.setColor(Color.white);
+        x = gp.tileSize;
+        y = gp.tileSize*8;
+        g2.drawString(text, x, y);
+
+        text = "[ENTER] = EQUIPAGGIA/USA UN OGGETTO";
+        g2.setColor(Color.white);
+        x = gp.tileSize * 8;
+        y = gp.tileSize*8;
+        g2.drawString(text, x, y);
+
     }
 
     public void drawDeathScreen(){
@@ -416,13 +477,56 @@ public class UI {
 
     public void drawPauseScreen(){
 
-        String text = "PAUSED";
-        int x = gp.screenWhidth/2;
-        int y = gp.screenHeight/2;
-        int length = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
-        x = gp.screenWhidth/2 - length/2;
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 96F));
+        int x = getXForCenteredText("PAUSA");
+        int y = gp.tileSize*3;
+        //BackGround
+        gp.setBackground(new Color(70, 120, 180));
 
-        g2.drawString(text, x, y-100);
+        //TEXT SHADOW
+        g2.setColor(Color.black);
+        g2.drawString("PAUSA", x+8, y+8);
+
+        //DISEGNA TITOLO
+        g2.setColor(Color.white);
+        g2.drawString("PAUSA", x, y);
+
+        //DISEGNA LOGO
+        x = gp.screenWhidth /2 - gp.tileSize;
+        y = gp.tileSize * 4;
+        try {
+            BufferedImage tmpImage = ImageIO.read(getClass().getResourceAsStream("/res/game_icon/logoBernocchi.png"));
+            Image logo = new UtilityTool().scaleImage(tmpImage, gp.tileSize, gp.tileSize);
+            g2.drawImage(logo, x, y, gp.tileSize *2 , gp.tileSize *2, null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //MENU
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 48F));
+        String text = "Continue";
+        x = getXForCenteredText(text);
+        y = gp.tileSize * 7;
+        g2.drawString(text, x, y);
+        if(commandNumber == 0){
+            g2.drawString("~>", x-gp.tileSize, y);
+        }
+
+        text = "Comandi";
+        x = getXForCenteredText(text);
+        y = gp.tileSize * 8;
+        g2.drawString(text, x, y);
+        if(commandNumber == 1){
+            g2.drawString("~>", x-gp.tileSize, y);
+        }
+
+        text = "Quit Game";
+        x = getXForCenteredText(text);
+        y = gp.tileSize * 9;
+        g2.drawString(text, x, y);
+        if(commandNumber == 2){
+            g2.drawString("~>", x-gp.tileSize, y);
+        }
 
     }
 
