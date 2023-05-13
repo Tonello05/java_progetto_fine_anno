@@ -47,6 +47,17 @@ public class KeyHadler implements KeyListener{
 
         //DEATH STATE
         else if(gp.gameState == GamePanel.gameOverState){deathState(code);}
+    
+        //COMMAND STATE
+        else if(gp.gameState == GamePanel.commandState){commandState(code);}
+    }
+
+    private void commandState(int code){
+
+        if(code == KeyEvent.VK_ESCAPE){
+            gp.gameState = GamePanel.pauseState;
+        }
+
     }
 
     private void deathState(int code){
@@ -150,9 +161,30 @@ public class KeyHadler implements KeyListener{
     }
 
     private void pauseState(int code){
-        if(code == KeyEvent.VK_ESCAPE){
-            gp.gameState = GamePanel.playState;
-       }
+        if(code == KeyEvent.VK_UP){
+            gp.ui.commandNumber --;
+            if(gp.ui.commandNumber < 0 ){gp.ui.commandNumber = 2;}
+            gp.playSE(5);
+        }
+        if(code == KeyEvent.VK_DOWN){
+            gp.ui.commandNumber ++;
+            if(gp.ui.commandNumber > 2 ){gp.ui.commandNumber = 0;}
+            gp.playSE(5);
+        }
+        if(code == KeyEvent.VK_ENTER){
+            switch (gp.ui.commandNumber) {
+                case 0:
+                    gp.gameState = GamePanel.playState;
+                    break;
+            
+                case 1:
+                    gp.gameState = GamePanel.commandState;
+                        break;
+                case 2:
+                    System.exit(0);
+                    break;
+            }
+        }
     }
 
     private void playState(int code){

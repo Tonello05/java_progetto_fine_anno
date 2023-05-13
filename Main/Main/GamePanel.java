@@ -62,7 +62,8 @@ public class GamePanel extends JPanel implements Runnable{
     public final static int dialogueState = 3;     //sta avvendendo un dialogo
     public final static int titleState = 4;    //schermata iniziale
     public final static int characterState = 5;     //statistiche del player
-    public final static int gameOverState = 6;
+    public final static int gameOverState = 6;  //Stato di game over
+    public final static int commandState = 7;   //comandi di gioco
 
     public GamePanel(){     //crea il pannello di gioco
 
@@ -161,7 +162,7 @@ public class GamePanel extends JPanel implements Runnable{
 
         Graphics2D g2 = (Graphics2D)g;
 
-        if(gameState == titleState){
+        if(gameState == titleState || gameState == pauseState || gameState == commandState){
             ui.draw(g2);
         }else{
 
