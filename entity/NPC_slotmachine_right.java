@@ -6,18 +6,18 @@ import javax.imageio.ImageIO;
 
 import Main.GamePanel;
 
-public class NPC_agazzi extends Entity{
+public class NPC_slotmachine_right extends Entity{
 
-    public NPC_agazzi(GamePanel gp){
+    public NPC_slotmachine_right(GamePanel gp){
         super(gp);
 
-        direction = "left"; //direzione iniziale dell'npc
+        direction = "right"; //direzione iniziale dell'npc
         speed = 1;      //velocità dell'npc
         getPlayerImage();   
         setDialogue();
-        name = "Agazzi";
+        name = "slot machine";
         type = 1;   //tipo di entity ( 1 = npc)
-        defaultDirection = "left";
+        defaultDirection = "right";
         noMovement = true;
     }
 
@@ -25,10 +25,10 @@ public class NPC_agazzi extends Entity{
 
         try {
             
-            up1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/agazzi/agazzi_2.png"));
-            down1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/agazzi/agazzi_0.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/agazzi/agazzi_3.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/agazzi/agazzi_1.png"));
+            up1 = ImageIO.read(getClass().getResourceAsStream("/res/objects/slotmachine_right.png"));
+            down1 = ImageIO.read(getClass().getResourceAsStream("/res/objects/slotmachine_right.png"));
+            left1 = ImageIO.read(getClass().getResourceAsStream("/res/objects/slotmachine_right.png"));
+            right1 = ImageIO.read(getClass().getResourceAsStream("/res/objects/slotmachine_right.png"));
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -70,24 +70,41 @@ public class NPC_agazzi extends Entity{
 
     public void setDialogue(){      //dialoghi dell'npc
 
-        dialogues[0] = "...";
-        dialogues[1] = "...";
-        dialogues[2] = "...";
-        dialogues[3] = "...";
-        dialogues[4] = "...";
+        dialogues[0] = "\n\ncosto 4 coins";
+        dialogues[1] = "metti la monetina\ne tira la leva";
+        dialogues[2] = "ritenta, sarai più fortunato";
+        dialogues[3] = "";
     }
 
     public void speak(){    //dialogo con l'npc
 
         //eventuali azioni da fare durante il dialogo (per esempio curare a un certo dialogo)
         
+        int ris1,ris2,ris3;
 
+        ris1 =(int) (Math.random() * 5);
+        ris2 =(int) (Math.random() * 5);
+        ris3 =(int) (Math.random() * 5);
+
+        if(dialogueIndex == 2){
+
+            gp.player.coins = gp.player.coins - 4;
+
+            dialogues[2] = "risultati: " + ris1 + " " + ris2 + " " + ris3 + "\nritenta, sarai più fortunato";
+
+            if(ris1 == ris2 && ris1 == ris3 && ris2 == ris3){
+
+                dialogueIndex=3;
+                dialogues[3] = "risultati: " + ris1 + " " + ris2 + " " + ris3 + "\nHAI VINTO!!!";
+
+            }
+        }
 
         //DIALOGO
-        super.speak();
-
-        if(dialogueIndex==5){
-            gp.npc[1]=null;
+        super.speak(dialogueIndex);
+        dialogueIndex++;
+        if(dialogueIndex == 3 || dialogueIndex ==4 || gp.player.coins < 4){
+            dialogueIndex=0;
         }
     }
 

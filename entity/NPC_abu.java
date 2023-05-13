@@ -90,5 +90,4 @@ public class NPC_abu extends Entity{
             gp.npc[1]=null;
         }
     }
-
 }

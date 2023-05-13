@@ -11,13 +11,13 @@ public class NPC_miotto extends Entity{
     public NPC_miotto(GamePanel gp){
         super(gp);
 
-        direction = "down"; //direzione iniziale dell'npc
+        direction = "left"; //direzione iniziale dell'npc
         speed = 1;      //velocità dell'npc
         getPlayerImage();   
         setDialogue();
         name = "Miotto";
         type = 1;   //tipo di entity ( 1 = npc)
-        defaultDirection = "down";
+        defaultDirection = "left";
         noMovement = true;
     }
 

@@ -6,18 +6,18 @@ import javax.imageio.ImageIO;
 
 import Main.GamePanel;
 
-public class NPC_slotmachine extends Entity{
+public class NPC_slotmachine_left extends Entity{
 
-    public NPC_slotmachine(GamePanel gp){
+    public NPC_slotmachine_left(GamePanel gp){
         super(gp);
 
-        direction = "right"; //direzione iniziale dell'npc
+        direction = "left"; //direzione iniziale dell'npc
         speed = 1;      //velocità dell'npc
         getPlayerImage();   
         setDialogue();
         name = "slot machine";
         type = 1;   //tipo di entity ( 1 = npc)
-        defaultDirection = "right";
+        defaultDirection = "left";
         noMovement = true;
     }
 
@@ -25,10 +25,10 @@ public class NPC_slotmachine extends Entity{
 
         try {
             
-            up1 = ImageIO.read(getClass().getResourceAsStream("/res/objects/slotmachine.png"));
-            down1 = ImageIO.read(getClass().getResourceAsStream("/res/objects/slotmachine.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/res/objects/slotmachine.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/res/objects/slotmachine.png"));
+            up1 = ImageIO.read(getClass().getResourceAsStream("/res/objects/slotmachine_left.png"));
+            down1 = ImageIO.read(getClass().getResourceAsStream("/res/objects/slotmachine_left.png"));
+            left1 = ImageIO.read(getClass().getResourceAsStream("/res/objects/slotmachine_left.png"));
+            right1 = ImageIO.read(getClass().getResourceAsStream("/res/objects/slotmachine_left.png"));
 
         } catch (Exception e) {
             e.printStackTrace();
