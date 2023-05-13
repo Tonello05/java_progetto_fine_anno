@@ -6,9 +6,13 @@ package Main;
 
 import decorations.DEC_armadio;
 import decorations.DEC_bed;
+import decorations.DEC_bocce;
 import decorations.DEC_carpet;
+import decorations.DEC_flower;
 import decorations.DEC_lilypad;
+import decorations.DEC_painting;
 import decorations.DEC_sgabello;
+import decorations.DEC_tavolino;
 import decorations.DEC_water_rock;
 import entity.MON_Spider;
 import entity.NPC_abu;
@@ -17,6 +21,7 @@ import entity.NPC_dio;
 import entity.NPC_jhoncena;
 import entity.NPC_kolo;
 import entity.NPC_slotmachine;
+import entity.NPC_wen;
 import object.OBJ_Chest;
 import object.OBJ_Door;
 import object.OBJ_Key;
@@ -129,10 +134,6 @@ public class AssetSetter {
         gp.obj[117].worldY = 22 * gp.tileSize;
 
         /* LETTI */
-
-        gp.obj[118] = new DEC_bed(gp, 0);
-        gp.obj[118].worldX = 97 * gp.tileSize;
-        gp.obj[118].worldY = 28 * gp.tileSize;
 
         gp.obj[119] = new DEC_bed(gp, 1);
         gp.obj[119].worldX = 83 * gp.tileSize;
@@ -248,6 +249,142 @@ public class AssetSetter {
         gp.obj[148].worldX = 91 * gp.tileSize;
         gp.obj[148].worldY = 69 * gp.tileSize;
 
+        /* NEGOZIO DI WEN */
+
+        gp.obj[149] = new DEC_tavolino(gp);
+        gp.obj[149].worldX = 94 * gp.tileSize;
+        gp.obj[149].worldY = 29 * gp.tileSize;
+
+        gp.obj[150] = new DEC_tavolino(gp);
+        gp.obj[150].worldX = 96 * gp.tileSize;
+        gp.obj[150].worldY = 29 * gp.tileSize;
+
+        gp.obj[151] = new DEC_tavolino(gp);
+        gp.obj[151].worldX = 97 * gp.tileSize;
+        gp.obj[151].worldY = 29 * gp.tileSize;
+
+        gp.obj[152] = new DEC_armadio(gp);
+        gp.obj[152].worldX = 97 * gp.tileSize;
+        gp.obj[152].worldY = 28 * gp.tileSize;
+
+        gp.obj[153] = new DEC_flower(gp, 0);
+        gp.obj[153].worldX = 96 * gp.tileSize;
+        gp.obj[153].worldY = 29 * gp.tileSize;
+
+        gp.obj[154] = new DEC_flower(gp, 1);
+        gp.obj[154].worldX = 94 * gp.tileSize;
+        gp.obj[154].worldY = 29 * gp.tileSize;
+
+        gp.obj[155] = new DEC_flower(gp, 2);
+        gp.obj[155].worldX = 97 * gp.tileSize;
+        gp.obj[155].worldY = 29 * gp.tileSize;
+
+        gp.obj[156] = new DEC_painting(gp, 0);
+        gp.obj[156].worldX = 96 * gp.tileSize;
+        gp.obj[156].worldY = 27 * gp.tileSize;
+
+        gp.obj[157] = new DEC_tavolino(gp);
+        gp.obj[157].worldX = 86 * gp.tileSize;
+        gp.obj[157].worldY = 30 * gp.tileSize;
+
+        gp.obj[158] = new DEC_sgabello(gp);
+        gp.obj[158].worldX = 86 * gp.tileSize;
+        gp.obj[158].worldY = 31 * gp.tileSize;
+
+        gp.obj[159] = new DEC_sgabello(gp);
+        gp.obj[159].worldX = 86 * gp.tileSize;
+        gp.obj[159].worldY = 29 * gp.tileSize;
+
+        gp.obj[160] = new DEC_tavolino(gp);
+        gp.obj[160].worldX = 80 * gp.tileSize;
+        gp.obj[160].worldY = 42 * gp.tileSize;
+
+        gp.obj[161] = new DEC_sgabello(gp);
+        gp.obj[161].worldX = 80 * gp.tileSize;
+        gp.obj[161].worldY = 43 * gp.tileSize;
+
+        gp.obj[162] = new DEC_sgabello(gp);
+        gp.obj[162].worldX = 80 * gp.tileSize;
+        gp.obj[162].worldY = 41 * gp.tileSize;
+
+        gp.obj[163] = new DEC_tavolino(gp);
+        gp.obj[163].worldX = 94 * gp.tileSize;
+        gp.obj[163].worldY = 40 * gp.tileSize;
+
+        gp.obj[164] = new DEC_sgabello(gp);
+        gp.obj[164].worldX = 93 * gp.tileSize;
+        gp.obj[164].worldY = 40 * gp.tileSize;
+
+        gp.obj[165] = new DEC_sgabello(gp);
+        gp.obj[165].worldX = 95 * gp.tileSize;
+        gp.obj[165].worldY = 40 * gp.tileSize;
+
+        gp.obj[166] = new DEC_tavolino(gp);
+        gp.obj[166].worldX = 81 * gp.tileSize;
+        gp.obj[166].worldY = 69 * gp.tileSize;
+
+        gp.obj[167] = new DEC_sgabello(gp);
+        gp.obj[167].worldX = 80 * gp.tileSize;
+        gp.obj[167].worldY = 69 * gp.tileSize;
+
+        gp.obj[168] = new DEC_sgabello(gp);
+        gp.obj[168].worldX = 82 * gp.tileSize;
+        gp.obj[168].worldY = 69 * gp.tileSize;
+
+        gp.obj[169] = new DEC_tavolino(gp);
+        gp.obj[169].worldX = 74 * gp.tileSize;
+        gp.obj[169].worldY = 57 * gp.tileSize;
+
+        gp.obj[170] = new DEC_sgabello(gp);
+        gp.obj[170].worldX = 75 * gp.tileSize;
+        gp.obj[170].worldY = 57 * gp.tileSize;
+
+        gp.obj[171] = new DEC_sgabello(gp);
+        gp.obj[171].worldX = 73 * gp.tileSize;
+        gp.obj[171].worldY = 57 * gp.tileSize;
+
+        gp.obj[172] = new DEC_tavolino(gp);
+        gp.obj[172].worldX = 11 * gp.tileSize;
+        gp.obj[172].worldY = 86 * gp.tileSize;
+
+        gp.obj[173] = new DEC_tavolino(gp);
+        gp.obj[173].worldX = 11 * gp.tileSize;
+        gp.obj[173].worldY = 87 * gp.tileSize;
+
+        gp.obj[174] = new DEC_sgabello(gp);
+        gp.obj[174].worldX = 10 * gp.tileSize;
+        gp.obj[174].worldY = 86 * gp.tileSize;
+
+        gp.obj[175] = new DEC_sgabello(gp);
+        gp.obj[175].worldX = 10 * gp.tileSize;
+        gp.obj[175].worldY = 87 * gp.tileSize;
+
+        gp.obj[176] = new DEC_sgabello(gp);
+        gp.obj[176].worldX = 12 * gp.tileSize;
+        gp.obj[176].worldY = 86 * gp.tileSize;
+
+        gp.obj[177] = new DEC_sgabello(gp);
+        gp.obj[177].worldX = 12 * gp.tileSize;
+        gp.obj[177].worldY = 87 * gp.tileSize;
+
+        /* BOCCE */
+        
+        gp.obj[178] = new DEC_bocce(gp, 3);
+        gp.obj[178].worldX = 97 * gp.tileSize;
+        gp.obj[178].worldY = 93 * gp.tileSize;
+
+        gp.obj[179] = new DEC_bocce(gp, 1);
+        gp.obj[179].worldX = 95 * gp.tileSize;
+        gp.obj[179].worldY = 93 * gp.tileSize;
+
+        gp.obj[180] = new DEC_bocce(gp, 2);
+        gp.obj[180].worldX = 97 * gp.tileSize;
+        gp.obj[180].worldY = 94 * gp.tileSize;
+
+        gp.obj[181] = new DEC_bocce(gp, 0);
+        gp.obj[181].worldX = 96 * gp.tileSize;
+        gp.obj[181].worldY = 94 * gp.tileSize;
+
     }
 
     public void setNpc(){   //crea npc e li posiziona
@@ -285,14 +422,19 @@ public class AssetSetter {
         gp.npc[7].worldY = 70 * gp.tileSize;
 
         gp.npc[8] = new NPC_kolo(gp);
-        gp.npc[8].worldX = 80 * gp.tileSize;
-        gp.npc[8].worldY = 33 * gp.tileSize;
+        gp.npc[8].worldX = 84 * gp.tileSize;
+        gp.npc[8].worldY = 31 * gp.tileSize;
 
-        gp.npc[8] = new NPC_abu(gp);
-        gp.npc[8].worldX = 91 * gp.tileSize;
-        gp.npc[8].worldY = 66 * gp.tileSize;
+        gp.npc[9] = new NPC_abu(gp);
+        gp.npc[9].worldX = 91 * gp.tileSize;
+        gp.npc[9].worldY = 66 * gp.tileSize;
+
+        gp.npc[10] = new NPC_wen(gp);
+        gp.npc[10].worldX = 95 * gp.tileSize;
+        gp.npc[10].worldY = 29 * gp.tileSize;
 
         
+
     }
 
     public void setEnemy(){     //crea i nemici e li posiziona
