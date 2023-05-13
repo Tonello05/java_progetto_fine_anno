@@ -156,7 +156,7 @@ public class KeyHadler implements KeyListener{
 
     private void dialogueState(int code){
         if(code == KeyEvent.VK_ENTER){
-            gp.gameState = GamePanel.playState;
+            enterPressed = true;
         }
     }
 

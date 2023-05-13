@@ -42,7 +42,7 @@ public class GamePanel extends JPanel implements Runnable{
     Sound music = new Sound();  
     Sound soundEffect = new Sound();
     Thread gameThread;
-    KeyHadler keyH = new KeyHadler(this);
+    public KeyHadler keyH = new KeyHadler(this);
     public TileManager tileManager = new TileManager(this);
     public CollisionChecker cChecker = new CollisionChecker(this);
     public AssetSetter aSetter = new AssetSetter(this);

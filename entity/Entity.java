@@ -293,6 +293,7 @@ public class Entity {
     }
 
     public void speak(int i){    //metodo che serve per i dialoghi
+        
         gp.ui.currentDialogue =  name + ": " + dialogues[i];
         switch (gp.player.direction) {
             case "up":
