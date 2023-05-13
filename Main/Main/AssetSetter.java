@@ -297,6 +297,10 @@ public class AssetSetter {
 
     public void setEnemy(){     //crea i nemici e li posiziona
 
+        gp.enemy[0] = new MON_Spider(gp);
+        gp.enemy[0].worldX = 20*gp.tileSize;
+        gp.enemy[0].worldY = 20*gp.tileSize;
+
     }
 
 }
