@@ -464,20 +464,76 @@ public class AssetSetter {
         /*AREA INIZIALE (TUTORIAL) */
 
         gp.enemy[0] = new MON_wasp(gp);
-        gp.enemy[0].worldX = 20*gp.tileSize;
-        gp.enemy[0].worldY = 20*gp.tileSize;
+        gp.enemy[0].worldX = 65*gp.tileSize;
+        gp.enemy[0].worldY = 11*gp.tileSize;
 
-        gp.enemy[0] = new MON_wasp(gp);
-        gp.enemy[0].worldX = 20*gp.tileSize;
-        gp.enemy[0].worldY = 20*gp.tileSize;
+        gp.enemy[1] = new MON_wasp(gp);
+        gp.enemy[1].worldX = 64*gp.tileSize;
+        gp.enemy[1].worldY = 19*gp.tileSize;
 
-        gp.enemy[0] = new MON_wasp(gp);
-        gp.enemy[0].worldX = 20*gp.tileSize;
-        gp.enemy[0].worldY = 20*gp.tileSize;
+        gp.enemy[2] = new MON_wasp(gp);
+        gp.enemy[2].worldX = 73*gp.tileSize;
+        gp.enemy[2].worldY = 13*gp.tileSize;
 
-        gp.enemy[0] = new MON_wasp(gp);
-        gp.enemy[0].worldX = 20*gp.tileSize;
-        gp.enemy[0].worldY = 20*gp.tileSize;
+        gp.enemy[3] = new MON_wasp(gp);
+        gp.enemy[3].worldX = 73*gp.tileSize;
+        gp.enemy[3].worldY = 19*gp.tileSize;
+
+        /* FORESTA (zona dopo il villaggio) */
+
+        gp.enemy[4] = new MON_wasp(gp);
+        gp.enemy[4].worldX = 57*gp.tileSize;
+        gp.enemy[4].worldY = 34*gp.tileSize;
+
+        gp.enemy[5] = new MON_wasp(gp);
+        gp.enemy[5].worldX = 54*gp.tileSize;
+        gp.enemy[5].worldY = 38*gp.tileSize;
+
+        gp.enemy[6] = new MON_Spider(gp);
+        gp.enemy[6].worldX = 62*gp.tileSize;
+        gp.enemy[6].worldY = 70*gp.tileSize;
+
+        /* ZONA DOPO LA FORESTA (1° parte)*/
+
+        gp.enemy[7] = new MON_wasp(gp);
+        gp.enemy[7].worldX = 26*gp.tileSize;
+        gp.enemy[7].worldY = 55*gp.tileSize;
+
+        gp.enemy[8] = new MON_wasp(gp);
+        gp.enemy[8].worldX = 33*gp.tileSize;
+        gp.enemy[8].worldY = 50*gp.tileSize;
+
+        gp.enemy[9] = new MON_Spider(gp);
+        gp.enemy[9].worldX = 35*gp.tileSize;
+        gp.enemy[9].worldY = 32*gp.tileSize;
+
+        gp.enemy[10] = new MON_Spider(gp);
+        gp.enemy[10].worldX = 21*gp.tileSize;
+        gp.enemy[10].worldY = 35*gp.tileSize;
+
+        /* ZONA DOPO LA FORESTA (2° parte)*/
+
+        gp.enemy[11] = new MON_Spider(gp);
+        gp.enemy[11].worldX = 5*gp.tileSize;
+        gp.enemy[11].worldY = 35*gp.tileSize;
+
+        gp.enemy[12] = new MON_Spider(gp);
+        gp.enemy[12].worldX = 12*gp.tileSize;
+        gp.enemy[12].worldY = 52*gp.tileSize;
+
+        gp.enemy[13] = new MON_scarabeo(gp);
+        gp.enemy[13].worldX = 9*gp.tileSize;
+        gp.enemy[13].worldY = 61*gp.tileSize;
+
+        /* ZONA LAVA (finale) */
+
+        gp.enemy[14] = new MON_scarabeo(gp);
+        gp.enemy[14].worldX = 47*gp.tileSize;
+        gp.enemy[14].worldY = 90*gp.tileSize;
+
+        gp.enemy[15] = new MON_scarabeo(gp);
+        gp.enemy[15].worldX = 54*gp.tileSize;
+        gp.enemy[15].worldY = 84*gp.tileSize;
 
     }
 
