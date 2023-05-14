@@ -21,39 +21,39 @@ public class Entity {
     
     public int worldX, worldY;  //posizione entità nella mapa
     //Game Panel
-    GamePanel gp;
+    protected GamePanel gp;
 
     //CHARACTER STATUS
-    public int defaultSpeed;
+    protected int defaultSpeed; //velocità di base
     public int maxLife;     //vita massima
     public int life;    //vita attuale
     public boolean invincible = false;  //invicibilità attiva
-    public int invincibleCounter = 0;   //contatore tempo invincibilità
+    protected int invincibleCounter = 0;   //contatore tempo invincibilità
     public int speed;   //velocità
-    public int baseSpeed;   //velocità di base
+    protected int baseSpeed;   //velocità di base
     public String name;     //nome dell'entita
-    public int type;    // 0 = player; 1 = npc; 2 = enemy
-    public boolean alive = true;
-    public boolean dying = false;
-    public boolean hpBarOn = false;
-    int hpBArCounter = 0;
+    protected int type;    // 0 = player; 1 = npc; 2 = enemy
+    public boolean alive = true;    //entità viva
+    public boolean dying = false;   //l'entità sta morendo
+    protected boolean hpBarOn = false;  //barra della vita attiva
+    protected int hpBArCounter = 0; //contatore barra della vita
     public int damage;  //dannno dell'entità
     public int defence; //difesa dell'entità
     public int strenght;    //più ne ha più danno fa
     public int dexterity;   //più ne ha meno danno riceve
-    public SuperObject currentWeapon;
-    public SuperObject currentShield;
+    public SuperObject currentWeapon;   //arma equipaggiata
+    public SuperObject currentShield;   //scudo equipaggiato
 
     //Variabili per le immagini
-    public BufferedImage up1,up2,up3,up4,left1,left2,left3,left4,right1,right2,right3,right4,down1,down2,down3,down4;  //sprites dell'entita
-    public BufferedImage attackUp, attackDown, attackLeft, attackRight;
+    protected BufferedImage up1,up2,up3,up4,left1,left2,left3,left4,right1,right2,right3,right4,down1,down2,down3,down4;  //sprites dell'entita
+    protected BufferedImage attackUp, attackDown, attackLeft, attackRight;
     public String direction;    //direzione corrente dell'entita
-    public int spriteCounter = 0;   //contatore per gli sprite (server nel metodo draw )
-    public int spriteNum = 1;   //frame number
-    public int dyingCounter = 0;
-    public BufferedImage currentAnim;
-    public boolean animationOn;
-    public boolean fly = false;
+    protected int spriteCounter = 0;   //contatore per gli sprite (server nel metodo draw )
+    protected int spriteNum = 1;   //frame number
+    protected int dyingCounter = 0; //contatore animazione morte
+    protected BufferedImage currentAnim;    //immagine animazione corrente
+    protected boolean animationOn;  //animazioni attiva
+    protected boolean fly = false;  //se l'entità vola le animazioni cambiano
 
     //variabili HITBOX
     public Rectangle solidArea = new Rectangle(0,0,48,48);  //HitBox dell'entità
@@ -62,13 +62,13 @@ public class Entity {
     public boolean collisionIsOn = false;   //true se l'entità è in collisione con qualcosa
     
     //ALTRO
-    public boolean noMovement = false;  //se messa a true l'entità non eseguira azioni
-    public String dialogues[] = new String[20]; //array dei dialoghi dell'npc
-    public int dialogueIndex = 0;   //contatore dei dialoghi
-    public boolean attacking = false;   //indica se l'entita sta attaccando
-    public int actionLockCounter = 0;      //contatore per far eseguire a un npc un azione
-    public boolean onPath = false;      //se l'entità  sta seguendo un percorso
-    public String defaultDirection;     //direzione di default
+    protected boolean noMovement = false;  //se messa a true l'entità non eseguira azioni
+    protected String dialogues[] = new String[20]; //array dei dialoghi dell'npc
+    protected int dialogueIndex = 0;   //contatore dei dialoghi
+    protected boolean attacking = false;   //indica se l'entita sta attaccando
+    protected int actionLockCounter = 0;      //contatore per far eseguire a un npc un azione
+    protected boolean onPath = false;      //se l'entità  sta seguendo un percorso
+    protected String defaultDirection;     //direzione di default
 
     public Entity(GamePanel gp){
         this.gp=gp;
@@ -78,8 +78,8 @@ public class Entity {
     public void setAction(){}   //servirà negli oggetti npc per impostare le suo azioni predefinite
     public void damageReaction(){} //reazione dei nemic al danno
 
-    public void checkCollision(){
-        //controlla le collisioni varie
+    private void checkCollision(){  //controlla le collisioni varie
+        
         collisionIsOn = false;
         gp.cChecker.checkTile(this);    //tiles
         gp.cChecker.checkObject(this, false);   //oggetti
@@ -242,7 +242,7 @@ public class Entity {
 
     }
 
-    public void dyingAnimation(Graphics2D g2){
+    private void dyingAnimation(Graphics2D g2){
 
         dyingCounter++;
 

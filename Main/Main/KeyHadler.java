@@ -9,12 +9,10 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JOptionPane;
 
-import object.OBJ_stampella;
-
 public class KeyHadler implements KeyListener{
 
     public boolean upPressed, downPressed, leftPressed, rightPressed, shiftPressed, enterPressed;
-    GamePanel gp;
+    private GamePanel gp;
 
     public KeyHadler(GamePanel gp){
         this.gp=gp;
@@ -50,6 +48,9 @@ public class KeyHadler implements KeyListener{
     
         //COMMAND STATE
         else if(gp.gameState == GamePanel.commandState){commandState(code);}
+
+        //END STATE
+        else if(gp.gameState == GamePanel.endState){endState(code);}
     }
 
     private void commandState(int code){
@@ -80,11 +81,7 @@ public class KeyHadler implements KeyListener{
                     System.exit(0);
                     break;
                 case 0:
-                    gp.player.worldX = gp.player.checkPointX;
-                    gp.player.worldY = gp.player.checkPointY;
-                    gp.player.life = gp.player.maxLife;
-                    gp.gameState = GamePanel.playState;
-                    gp.player.inventory.add(new OBJ_stampella(gp));
+                    gp.player.respawn();
                     break;
             }
         }
@@ -212,6 +209,14 @@ public class KeyHadler implements KeyListener{
         if(code == KeyEvent.VK_ENTER){
             enterPressed = true;
         }
+    }
+
+    private void endState(int code){
+
+        if(code == KeyEvent.VK_ESCAPE){
+            System.exit(0);
+        }
+
     }
 
     @Override

@@ -16,6 +16,7 @@ import Main.GamePanel;
 import Main.KeyHadler;
 import object.OBJ_Shield_wood;
 import object.OBJ_Sword_normal;
+import object.OBJ_stampella;
 import object.SuperObject;
 
 public class Player extends Entity{
@@ -26,14 +27,14 @@ public class Player extends Entity{
     public int screenY;
 
     //chechPoint
-    public int checkPointX;
-    public int checkPointY;
+    private int checkPointX;
+    private int checkPointY;
 
     //GAME ITEMS VARIABLES
     public int hasKey = 0;
     public int coins = 0;
     public Vector<SuperObject> inventory = new Vector<>();
-    public int inventorySize = 20;
+    private int inventorySize = 20;
 
     public Player(GamePanel gp, KeyHadler keyH){    //contruttore e setup del player
 
@@ -61,7 +62,7 @@ public class Player extends Entity{
         setItems();
     }
 
-    public void setDefaultValues(){     //imposta alcuni valori predefiniti
+    private void setDefaultValues(){     //imposta alcuni valori predefiniti
 
         worldX=gp.tileSize * 6;
         worldY=gp.tileSize * 16;
@@ -83,20 +84,20 @@ public class Player extends Entity{
 
     }
 
-    public void setItems(){     //imposta gli item
+    private void setItems(){     //imposta gli item
 
         inventory.add(currentWeapon);
         inventory.add(currentShield);
 
     }
 
-    public int getAttack(){ //calcola il valore di attacco
+    private int getAttack(){ //calcola il valore di attacco
         return currentWeapon.attackAttribute * strenght;
     }
-    public int getDefence(){    //calcola il valore di difesa
+    private int getDefence(){    //calcola il valore di difesa
         return currentShield.defenceAttribute * dexterity;
     }
-    public int getSpeed(){
+    private int getSpeed(){ //calcola la velocità del player
         if(currentWeapon.haveSpeedAttribute){
             return (int)(defaultSpeed * currentWeapon.speedAttribute);
         }else{
@@ -104,7 +105,7 @@ public class Player extends Entity{
         }
     }
 
-    public void getPlayerImage(){       //legge le immagini del player
+    private void getPlayerImage(){       //legge le immagini del player
 
         try {
             
@@ -218,7 +219,7 @@ public class Player extends Entity{
 
     }
 
-    public void attacking(){
+    private void attacking(){   //aggiorna lo spirte del player se sta attaccando
 
         spriteCounter ++;
         if(spriteCounter <= 5){
@@ -262,8 +263,8 @@ public class Player extends Entity{
 
 
     }
-    
-    public void damageMonster(int index){
+
+    private void damageMonster(int index){  //gestisce gli attacchi ai nemici
 
         if(index != 999){
 
@@ -288,7 +289,7 @@ public class Player extends Entity{
 
     }
 
-    public void interactEnemy(int index){
+    private void interactEnemy(int index){  //interagisce con un nemico
 
         if(index != 999){
 
@@ -301,7 +302,7 @@ public class Player extends Entity{
 
     }
 
-    public void intercatNPC(int index){
+    private void intercatNPC(int index){    //interazioni con gli npc
 
         if(keyH.enterPressed){
 
@@ -318,7 +319,7 @@ public class Player extends Entity{
 
     }
 
-    public void addObject(int i){   //aggiunge un item all'inventario
+    private void addObject(int i){   //aggiunge un item all'inventario
 
     if(inventory.size() < inventorySize){
         inventory.add(gp.obj[i]);
@@ -330,7 +331,7 @@ public class Player extends Entity{
     gp.obj[i] = null;
     }
 
-    public void pickUpObject(int index){    //gestisce le interazioni con gli oggetti
+    private void pickUpObject(int index){    //gestisce le interazioni con gli oggetti
 
         if(index!=999){
 
@@ -388,7 +389,7 @@ public class Player extends Entity{
 
 
                 case "chest":
-                    gp.ui.gamefinished = true;
+                    gp.gameState = GamePanel.endState;
                     gp.stopMusic();
                     gp.playSE(4);
                     break;
@@ -540,6 +541,14 @@ public class Player extends Entity{
             
         }
 
+    }
+
+    public void respawn(){  //gestisce la rinascità dopo la morte
+        worldX = gp.player.checkPointX;
+        worldY = gp.player.checkPointY;
+        life = gp.player.maxLife;
+        gp.gameState = GamePanel.playState;
+        inventory.add(new OBJ_stampella(gp));
     }
 
 }

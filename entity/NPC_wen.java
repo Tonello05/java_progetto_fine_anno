@@ -21,7 +21,7 @@ public class NPC_wen extends Entity{
         noMovement = true;
     }
 
-    public void getPlayerImage(){       //legge le immagini del player
+    private void getPlayerImage(){       //legge le immagini del player
 
         try {
             down1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/wen/wen_down1.png"));
@@ -63,7 +63,7 @@ public class NPC_wen extends Entity{
         }
     }
 
-    public void setDialogue(){      //dialoghi dell'npc
+    private void setDialogue(){      //dialoghi dell'npc
 
         dialogues[0] = "Benvenuto nel mio Negozio Cinese!";
         dialogues[1] = "mi raccomando non RUBARE!!!";

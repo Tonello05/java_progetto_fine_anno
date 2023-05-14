@@ -10,7 +10,7 @@ import entity.Entity;
 
 public class CollisionChecker {
     
-    GamePanel gp;
+    private GamePanel gp;
 
     public CollisionChecker(GamePanel gp){
         this.gp=gp;
@@ -181,7 +181,7 @@ public class CollisionChecker {
 
     }
 
-    public boolean checkPalyer(Entity entity){
+    public boolean checkPalyer(Entity entity){  //controlla se un entità è in collisione con il player
 
             boolean contactPalyer = false;;
 

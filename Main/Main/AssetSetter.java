@@ -27,6 +27,7 @@ import entity.NPC_kolo;
 import entity.NPC_miotto;
 import entity.NPC_slotmachine_left;
 import entity.NPC_slotmachine_right;
+import entity.NPC_wen;
 import object.OBJ_Chest;
 import object.OBJ_Door;
 import object.OBJ_Key;
@@ -60,7 +61,7 @@ public class AssetSetter {
 
     }
 
-    public void setDecorations(){
+    private void setDecorations(){
 
         /* A PARTIRE DALL'INDICE 100 */
 
@@ -431,8 +432,8 @@ public class AssetSetter {
         gp.npc[8].worldY = 70 * gp.tileSize;
 
         gp.npc[9] = new NPC_kolo(gp);
-        gp.npc[9].worldX = 80 * gp.tileSize;
-        gp.npc[9].worldY = 33 * gp.tileSize;
+        gp.npc[9].worldX = 84 * gp.tileSize;
+        gp.npc[9].worldY = 30 * gp.tileSize;
 
         gp.npc[10] = new NPC_abu(gp);
         gp.npc[10].worldX = 91 * gp.tileSize;
@@ -450,13 +451,31 @@ public class AssetSetter {
         gp.npc[13].worldX = 91 * gp.tileSize;
         gp.npc[13].worldY = 69 * gp.tileSize;
 
+        gp.npc[14] = new NPC_wen(gp);
+        gp.npc[14].worldX = 95 * gp.tileSize;
+        gp.npc[14].worldY = 29 * gp.tileSize;
+
         
 
     }
 
     public void setEnemy(){     //crea i nemici e li posiziona
 
-        gp.enemy[0] = new MON_scarabeo(gp);
+        /*AREA INIZIALE (TUTORIAL) */
+
+        gp.enemy[0] = new MON_wasp(gp);
+        gp.enemy[0].worldX = 20*gp.tileSize;
+        gp.enemy[0].worldY = 20*gp.tileSize;
+
+        gp.enemy[0] = new MON_wasp(gp);
+        gp.enemy[0].worldX = 20*gp.tileSize;
+        gp.enemy[0].worldY = 20*gp.tileSize;
+
+        gp.enemy[0] = new MON_wasp(gp);
+        gp.enemy[0].worldX = 20*gp.tileSize;
+        gp.enemy[0].worldY = 20*gp.tileSize;
+
+        gp.enemy[0] = new MON_wasp(gp);
         gp.enemy[0].worldX = 20*gp.tileSize;
         gp.enemy[0].worldY = 20*gp.tileSize;
 

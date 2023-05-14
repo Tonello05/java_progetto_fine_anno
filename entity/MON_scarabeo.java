@@ -1,4 +1,9 @@
-
+/*  |SCARABEO|
+ *  vita:       12
+ *  velocità:   3
+ *  danno :     7
+ *  drop:       20 coin
+ */
 package entity;
 
 import java.util.Random;
@@ -18,11 +23,11 @@ public class MON_scarabeo extends Entity{
         //Specifiche del nemico
         direction = "up";   //direzione iniziale
         name = "scarabeo";    //nome del nemico
-        speed = 1;      //velocità del nemico
-        maxLife = 4;    //vita massima del nemico
+        speed = 3;      //velocità del nemico
+        maxLife = 12;    //vita massima del nemico
         life = maxLife; //vita attuale del nemico
-        coin = 4;   //monete del drop del nemico
-        damage = 3; //danno del nemico (il player inizia di base con difesa = 1)
+        coin = 20;   //monete del drop del nemico
+        damage = 7; //danno del nemico (il player inizia di base con difesa = 1)
         //HITBOX
         solidArea.x = 3;
         solidArea.y = 18;

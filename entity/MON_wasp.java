@@ -1,3 +1,9 @@
+/*  |VESPA|
+ *  vita:       4
+ *  velocità:   1
+ *  danno :     3
+ *  drop:       4 coin
+ */
 
 package entity;
 
@@ -17,7 +23,7 @@ public class MON_wasp extends Entity{
         //Specifiche del nemico
         direction = "up";   //direzione iniziale
         name = "wasp";    //nome del nemico
-        speed = 2;      //velocità del nemico
+        speed = 3;      //velocità del nemico
         maxLife = 4;    //vita massima del nemico
         life = maxLife; //vita attuale del nemico
         coin = 4;   //monete del drop del nemico

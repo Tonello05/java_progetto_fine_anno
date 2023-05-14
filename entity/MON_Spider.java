@@ -1,3 +1,10 @@
+/*  |RAGNO|
+ *  vita:       8
+ *  velocità:   2
+ *  danno :     5
+ *  drop:       10 coin
+ */
+
 
 package entity;
 
@@ -19,7 +26,7 @@ public class MON_Spider extends Entity{
         direction = "up";   //direzione iniziale
         name = "spider";    //nome del nemico
         speed = 1;      //velocità del nemico
-        maxLife = 4;    //vita massima del nemico
+        maxLife = 8;    //vita massima del nemico
         life = maxLife; //vita attuale del nemico
         coin = 4;   //monete del drop del nemico
         damage = 3; //danno del nemico (il player inizia di base con difesa = 1)
@@ -37,7 +44,7 @@ public class MON_Spider extends Entity{
 
     }
 
-    public void getImage(){     //carica gli sprites del nemico
+    private void getImage(){     //carica gli sprites del nemico
         try {
 
             //sprites movimento

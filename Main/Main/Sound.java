@@ -12,8 +12,8 @@ import javax.sound.sampled.Clip;
 
 public class Sound {
     
-    Clip clip;  //classe che gestisce l'audio
-    URL soundURL[] = new URL[30];   //array di audio
+    private Clip clip;  //classe che gestisce l'audio
+    private URL soundURL[] = new URL[30];   //array di audio
 
     public Sound(){ //inizializzazione degli audio
 

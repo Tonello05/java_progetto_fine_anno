@@ -35,19 +35,21 @@ public class GamePanel extends JPanel implements Runnable{
     public final int maxWorldRow = 100;
 
     //FPS   (frame per second) (modificabili)
-    int FPS = 60;
+    private int FPS = 60;
     public int fps_counter = 0;
 
     //SYSTEM    (vari oggetti che gestiscono il gioco)
-    Sound music = new Sound();  
-    Sound soundEffect = new Sound();
-    Thread gameThread;
-    public KeyHadler keyH = new KeyHadler(this);
-    public TileManager tileManager = new TileManager(this);
-    public CollisionChecker cChecker = new CollisionChecker(this);
-    public AssetSetter aSetter = new AssetSetter(this);
-    public UI ui = new UI(this);
-    public PathFinder pFinder = new PathFinder(this);
+    public Sound music = new Sound();          //gestore delle musiche
+    public Sound soundEffect = new Sound();    //gestore degli effetti sonori
+    private Thread gameThread;  //thread principale del gioco
+    public KeyHadler keyH = new KeyHadler(this);    //gestisce i comandi
+    public TileManager tileManager = new TileManager(this); //si occupa di disegnare la mappa
+    public CollisionChecker cChecker = new CollisionChecker(this);  //controlla le collisioni
+    public AssetSetter aSetter = new AssetSetter(this); //crea e posiziona oggetti/nemici/npc
+    public UI ui = new UI(this);    //disegna la user interface
+    public PathFinder pFinder = new PathFinder(this);   //si occupa del pathfinding
+    public int playtime_s = 0;  //secondi playtime
+    public int playtime_m = 0;  //minuti playtime
 
     //ENTITY AND OBJECT
     public Player player = new Player(this, keyH);  //player
@@ -64,6 +66,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final static int characterState = 5;     //statistiche del player
     public final static int gameOverState = 6;  //Stato di game over
     public final static int commandState = 7;   //comandi di gioco
+    public final static int endState = 8;   //fine del gioco
 
     public GamePanel(){     //crea il pannello di gioco
 
@@ -90,6 +93,10 @@ public class GamePanel extends JPanel implements Runnable{
         gameThread = new Thread(this);
         gameThread.start();
 
+    }
+
+    public void endGameThread(){    //fa terminare il ther del gioco
+        gameThread = null;
     }
 
     @Override
@@ -128,7 +135,17 @@ public class GamePanel extends JPanel implements Runnable{
 
         if(gameState == playState){
 
+            //update fps counter
             fps_counter ++;
+            //update playtime
+            if(fps_counter % 60 == 0){
+                playtime_s += 1;
+            }
+            if(playtime_s == 60){
+                playtime_s = 0;
+                playtime_m++;
+            }
+
             if(fps_counter == 120){
                 fps_counter = 0;
             }
@@ -162,7 +179,7 @@ public class GamePanel extends JPanel implements Runnable{
 
         Graphics2D g2 = (Graphics2D)g;
 
-        if(gameState == titleState || gameState == pauseState || gameState == commandState){
+        if(gameState == titleState || gameState == pauseState || gameState == commandState || gameState == endState){
             ui.draw(g2);
         }else{
 

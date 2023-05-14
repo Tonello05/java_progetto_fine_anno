@@ -11,38 +11,25 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.image.BufferedImage;
 import java.io.InputStream;
-import java.text.DecimalFormat;
 
 import javax.imageio.ImageIO;
 
 import object.OBJ_Heart;
-import object.OBJ_Key;
-import object.OBJ_coin;
 
 public class UI {
     
     GamePanel gp;
 
     //Font di base
-    Font arial_40;
-    Font arial_80B;
-    Font pixel_font;
+    private Font pixel_font;
 
     //IMAGES
-    BufferedImage keyImage;
-    BufferedImage coinImage;
-    BufferedImage heart1, heart2, heart3;
+    private BufferedImage heart1, heart2, heart3;
 
     public boolean messageOn = false;
     public String message = "";
     int messageCounter = 0;
-    Graphics2D g2;
-
-    public boolean gamefinished = false;
-
-    //PLAYTIME
-    double playtime;
-    DecimalFormat dFormat = new DecimalFormat("#0.00");
+    private Graphics2D g2;
 
     //DIALOGUE
     public String currentDialogue = "";
@@ -55,11 +42,7 @@ public class UI {
     int slotRow = 0;
 
     public UI(GamePanel gp){
-        this.gp=gp;
-
-        arial_40 = new Font("arial", 0 ,40);
-        arial_80B = new Font("arial", Font.BOLD ,80);
-        
+        this.gp=gp;        
 
         try {
             InputStream is = getClass().getResourceAsStream("/res/font/pixel_font.ttf");
@@ -67,15 +50,10 @@ public class UI {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        OBJ_Key key = new OBJ_Key();
-        OBJ_coin coin = new OBJ_coin();
         OBJ_Heart hearth = new OBJ_Heart();
         heart1 = hearth.image;
         heart2 = hearth.image2;
         heart3 = hearth.image3;
-        keyImage = key.image;
-        coinImage = coin.image;
 
     }
 
@@ -87,45 +65,6 @@ public class UI {
 
         switch (gp.gameState) {     //in base allo stato di gioco disegna la ui
             case GamePanel.playState:
-                if(gamefinished){   //end of the game
-
-                    g2.setFont(pixel_font);
-                    g2.setColor(Color.white);
-        
-                    String text;
-                    int TextLenght;
-                    int x, y;
-        
-                    text = "you found the treasure !!!";
-                    TextLenght = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
-        
-                    x = gp.screenWhidth/2 - TextLenght /2;
-                    y = gp.screenHeight/2 - (gp.tileSize*3);
-                    g2.drawString(text, x, y);
-        
-        
-                    //display playtime at the end of the game
-                    text = "playtime: " + dFormat.format(playtime) + "!";
-                    TextLenght = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
-        
-                    x = gp.screenWhidth/2 - TextLenght /2;
-                    y = gp.screenHeight/2 + (gp.tileSize*4);
-                    g2.drawString(text, x, y);
-        
-                    g2.setFont(arial_80B);
-                    g2.setColor(Color.YELLOW);
-        
-                    text = "congratulations";
-                    TextLenght = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
-        
-                    x = gp.screenWhidth/2 - TextLenght /2;
-                    y = gp.screenHeight/2 + (gp.tileSize*2);
-                    g2.drawString(text, x, y);
-        
-                    gp.gameThread = null;
-        
-                }
-        
                 //MESSAGE
                 if(messageOn){
         
@@ -167,10 +106,53 @@ public class UI {
             case GamePanel.commandState:
                 drawCommandScreen();
                 break;
+            case GamePanel.endState:
+                drawEndState();
+                break;
         }
     }
 
-    public void drawCommandScreen(){
+    private void drawEndState(){     //disegna schermata di fine gioco
+        gp.setBackground(new Color(0, 0, 0));
+        g2.setColor(Color.white);
+        g2.setFont(g2.getFont().deriveFont(50F));
+
+        String text;
+        int x, y;
+
+        text = "HAI COMPLETATO IL GIOCO!!!";
+
+        x = getXForCenteredText(text);
+        y = gp.screenHeight/2 - (gp.tileSize*3);
+        g2.drawString(text, x, y);
+
+        //display playtime at the end of the game
+        text = "playtime: " + gp.playtime_m + ":" + gp.playtime_s + "!";
+        x = getXForCenteredText(text);
+        y = gp.screenHeight/2 + (gp.tileSize*2);
+        g2.drawString(text, x, y);
+
+        g2.setFont(g2.getFont().deriveFont(100F));
+        g2.setColor(Color.YELLOW);
+
+        text = "CONGRATULAZIONI!!";
+        x = getXForCenteredText(text);
+        y = gp.screenHeight/2;
+        g2.drawString(text, x, y);
+
+        g2.setColor(Color.white);
+        g2.setFont(g2.getFont().deriveFont(30F));
+
+        text = "premi [esc] per uscire dal gioco";
+
+        x = getXForCenteredText(text);
+        y = gp.screenHeight - (gp.tileSize*2);
+        g2.drawString(text, x, y);
+
+        gp.endGameThread();
+    }
+
+    private void drawCommandScreen(){    //disegna la schermata dei comandi
 
         gp.setBackground(new Color(0, 0, 0));
 
@@ -228,7 +210,7 @@ public class UI {
 
     }
 
-    public void drawDeathScreen(){
+    private void drawDeathScreen(){  //disegna la schermata di morte
 
         g2.setColor(new Color(0,0,0, 150));
 
@@ -268,7 +250,7 @@ public class UI {
 
     }
 
-    public void drawCharacterScreen(){
+    private void drawCharacterScreen(){  //disegna la schermata delle statistiche del player
 
         //FRAME
         final int frameX = gp.tileSize * 2;
@@ -349,7 +331,7 @@ public class UI {
         g2.drawImage(gp.player.currentShield.image, tailX - gp.tileSize, textY, gp.tileSize, gp.tileSize, null);
     }
 
-    public void drawPlayerLife(){
+    private void drawPlayerLife(){   //disegna la vita del player
 
         int x = gp.tileSize/2;
         int y = gp.tileSize/2;
@@ -384,7 +366,7 @@ public class UI {
 
     }
 
-    public void drawTitleScreen(){
+    private void drawTitleScreen(){  //disegna la schermata iniziale
 
 
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 96F));
@@ -439,7 +421,7 @@ public class UI {
         }
     }   
 
-    public void drawDialogueScreen(){
+    private void drawDialogueScreen(){   //disegna i dialoghi
 
         //WINDOW
         int x = gp.tileSize*2;
@@ -461,7 +443,7 @@ public class UI {
         }
     }
 
-    public void drawSubWindow(int x, int y, int widht, int height){
+    private void drawSubWindow(int x, int y, int widht, int height){    //disegna una finestra passandogli dimensioni e posizione
 
         Color black = new Color(0, 0, 0, 200);
         Color white = new Color(255, 255, 255);
@@ -475,7 +457,7 @@ public class UI {
 
     }
 
-    public void drawPauseScreen(){
+    private void drawPauseScreen(){  //disegna la schermata di pausa
 
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 96F));
         int x = getXForCenteredText("PAUSA");
@@ -530,7 +512,7 @@ public class UI {
 
     }
 
-    public void drawInventory(){    //disegna l'inventario del player
+    private void drawInventory(){    //disegna l'inventario del player
 
         //FRAME
         int frameX = gp.tileSize*9;
@@ -641,18 +623,16 @@ public class UI {
 
     }
 
-    public int getXForCenteredText(String text){
+    private int getXForCenteredText(String text){
         int lenght = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
         int x = gp.screenWhidth/2 - lenght /2;
         return x;
     }
 
-    public int getXForRightText(String text, int tailX){
+    private int getXForRightText(String text, int tailX){
         int lenght = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
         int x = tailX -lenght;
         return x;
     }
-
-
 
 }
