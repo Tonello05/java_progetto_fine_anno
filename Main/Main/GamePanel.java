@@ -233,4 +233,8 @@ public class GamePanel extends JPanel implements Runnable{
 
     }
 
+    public void endGame(){      //fa finire il gioco
+        gameState = endState;
+    }
+
 }

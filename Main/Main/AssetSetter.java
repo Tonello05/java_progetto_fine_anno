@@ -58,8 +58,6 @@ public class AssetSetter {
 
         /* ITEMS */
 
-        /* TUTORIAL */
-
         gp.obj[0] = new OBJ_messagge(0, gp);
         gp.obj[0].worldX = 16 * gp.tileSize;
         gp.obj[0].worldY = 16 * gp.tileSize;
@@ -89,8 +87,8 @@ public class AssetSetter {
         gp.obj[4].worldY = 14 * gp.tileSize;
 
         gp.obj[5] = new OBJ_Shoes();
-        gp.obj[5].worldX = 17 * gp.tileSize;
-        gp.obj[5].worldY = 18 * gp.tileSize;
+        gp.obj[5].worldX = 13 * gp.tileSize;
+        gp.obj[5].worldY = 29 * gp.tileSize;
 
         gp.obj[6] = new OBJ_axe();
         gp.obj[6].worldX = 35 * gp.tileSize;
@@ -101,16 +99,32 @@ public class AssetSetter {
         gp.obj[7].worldY = 21 * gp.tileSize;
 
         gp.obj[8] = new OBJ_blue_pot(gp);
-        gp.obj[8].worldX = 18 * gp.tileSize;
-        gp.obj[8].worldY = 14 * gp.tileSize;
+        gp.obj[8].worldX = 12 * gp.tileSize;
+        gp.obj[8].worldY = 41 * gp.tileSize;
 
         gp.obj[9] = new OBJ_red_shield();
-        gp.obj[9].worldX = 18 * gp.tileSize;
-        gp.obj[9].worldY = 15 * gp.tileSize;
+        gp.obj[9].worldX = 46 * gp.tileSize;
+        gp.obj[9].worldY = 30 * gp.tileSize;
 
         gp.obj[10] = new OBJ_holy_shield();
-        gp.obj[10].worldX = 18 * gp.tileSize;
-        gp.obj[10].worldY = 16 * gp.tileSize;
+        gp.obj[10].worldX = 2 * gp.tileSize;
+        gp.obj[10].worldY = 28 * gp.tileSize;
+
+        gp.obj[11] = new OBJ_iron_sword();
+        gp.obj[11].worldX = 62 * gp.tileSize;
+        gp.obj[11].worldY = 26 * gp.tileSize;
+
+        gp.obj[12] = new OBJ_fire_sword();
+        gp.obj[12].worldX = 32 * gp.tileSize;
+        gp.obj[12].worldY = 62 * gp.tileSize;
+
+        gp.obj[13] = new OBJ_blue_pot(gp);
+        gp.obj[13].worldX = 44 * gp.tileSize;
+        gp.obj[13].worldY = 59 * gp.tileSize;
+
+        gp.obj[14] = new OBJ_blue_pot(gp);
+        gp.obj[14].worldX = 78 * gp.tileSize;
+        gp.obj[14].worldY = 69 * gp.tileSize;
 
         /* DECORAZIONI */
 
