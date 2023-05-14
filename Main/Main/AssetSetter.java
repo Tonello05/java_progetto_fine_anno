@@ -36,10 +36,12 @@ import object.OBJ_axe;
 import object.OBJ_blue_pot;
 import object.OBJ_blue_shield;
 import object.OBJ_fire_sword;
+import object.OBJ_holy_shield;
 import object.OBJ_inps;
 import object.OBJ_iron_sword;
 import object.OBJ_messagge;
 import object.OBJ_red_pot;
+import object.OBJ_red_shield;
 import object.OBJ_special_door;
 
 public class AssetSetter {
@@ -102,11 +104,11 @@ public class AssetSetter {
         gp.obj[8].worldX = 18 * gp.tileSize;
         gp.obj[8].worldY = 14 * gp.tileSize;
 
-        gp.obj[9] = new OBJ_fire_sword();
+        gp.obj[9] = new OBJ_red_shield();
         gp.obj[9].worldX = 18 * gp.tileSize;
         gp.obj[9].worldY = 15 * gp.tileSize;
 
-        gp.obj[10] = new OBJ_iron_sword();
+        gp.obj[10] = new OBJ_holy_shield();
         gp.obj[10].worldX = 18 * gp.tileSize;
         gp.obj[10].worldY = 16 * gp.tileSize;
 

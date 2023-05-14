@@ -19,7 +19,7 @@ public class OBJ_blue_pot extends SuperObject{
             e.printStackTrace();
         }
     }
-
+  
     @Override
     public void use(Entity entity){
         if(entity.life + value < entity.maxLife){
