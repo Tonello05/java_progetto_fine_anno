@@ -32,11 +32,12 @@ import object.OBJ_Chest;
 import object.OBJ_Door;
 import object.OBJ_Key;
 import object.OBJ_Shoes;
-import object.OBJ_Sword_normal;
 import object.OBJ_axe;
+import object.OBJ_blue_pot;
 import object.OBJ_blue_shield;
-import object.OBJ_coin;
+import object.OBJ_fire_sword;
 import object.OBJ_inps;
+import object.OBJ_iron_sword;
 import object.OBJ_messagge;
 import object.OBJ_red_pot;
 import object.OBJ_special_door;
@@ -53,12 +54,65 @@ public class AssetSetter {
 
     public void setObject(){        //cre gli oggetti e li posiziona
 
+        /* ITEMS */
+
+        /* TUTORIAL */
+
+        gp.obj[0] = new OBJ_messagge(0, gp);
+        gp.obj[0].worldX = 16 * gp.tileSize;
+        gp.obj[0].worldY = 16 * gp.tileSize;
+
+        gp.obj[1] = new OBJ_messagge(1, gp);
+        gp.obj[1].worldX = 29 * gp.tileSize;
+        gp.obj[1].worldY = 19 * gp.tileSize;
+
+        gp.obj[2] = new OBJ_messagge(2, gp);
+        gp.obj[2].worldX = 9 * gp.tileSize;
+        gp.obj[2].worldY = 16 * gp.tileSize;
+
+        gp.obj[3] = new OBJ_messagge(3, gp);
+        gp.obj[3].worldX = 46 * gp.tileSize;
+        gp.obj[3].worldY = 12 * gp.tileSize;
+
+        gp.obj[4] = new OBJ_red_pot(gp);
+        gp.obj[4].worldX = 17 * gp.tileSize;
+        gp.obj[4].worldY = 14 * gp.tileSize;
+
+        gp.obj[5] = new OBJ_Shoes();
+        gp.obj[5].worldX = 17 * gp.tileSize;
+        gp.obj[5].worldY = 18 * gp.tileSize;
+
+        gp.obj[4] = new OBJ_red_pot(gp);
+        gp.obj[4].worldX = 17 * gp.tileSize;
+        gp.obj[4].worldY = 14 * gp.tileSize;
+
+        gp.obj[5] = new OBJ_Shoes();
+        gp.obj[5].worldX = 17 * gp.tileSize;
+        gp.obj[5].worldY = 18 * gp.tileSize;
+
+        gp.obj[6] = new OBJ_axe();
+        gp.obj[6].worldX = 35 * gp.tileSize;
+        gp.obj[6].worldY = 18 * gp.tileSize;
+
+        gp.obj[7] = new OBJ_blue_shield();
+        gp.obj[7].worldX = 35 * gp.tileSize;
+        gp.obj[7].worldY = 21 * gp.tileSize;
+
+        gp.obj[8] = new OBJ_blue_pot(gp);
+        gp.obj[8].worldX = 18 * gp.tileSize;
+        gp.obj[8].worldY = 14 * gp.tileSize;
+
+        gp.obj[9] = new OBJ_fire_sword();
+        gp.obj[9].worldX = 18 * gp.tileSize;
+        gp.obj[9].worldY = 15 * gp.tileSize;
+
+        gp.obj[10] = new OBJ_iron_sword();
+        gp.obj[10].worldX = 18 * gp.tileSize;
+        gp.obj[10].worldY = 16 * gp.tileSize;
+
         /* DECORAZIONI */
 
         setDecorations();
-
-        /* ITEMS */
-
     }
 
     private void setDecorations(){

@@ -4,17 +4,17 @@ import javax.imageio.ImageIO;
 import Main.GamePanel;
 import entity.Entity;
 
-public class OBJ_red_pot extends SuperObject{
+public class OBJ_blue_pot extends SuperObject{
     
-    public int value = 2; 
+    public int value = 4; 
     GamePanel gp;
-    public OBJ_red_pot(GamePanel gp){
+    public OBJ_blue_pot(GamePanel gp){
         type = 3;
         this.gp = gp;
-        name = "red_potion";
+        name = "blue potion";
         description = "[" + name + "]" + "\nuna semplice pozione curativa\nal 100% legale\ncura di " + value + "hp";
         try {
-            image = ImageIO.read(getClass().getResourceAsStream("/res/objects/potion_red.png"));
+            image = ImageIO.read(getClass().getResourceAsStream("/res/objects/blue_pot.png"));
         } catch (Exception e) {
             e.printStackTrace();
         }

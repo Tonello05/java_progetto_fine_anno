@@ -1,7 +1,7 @@
 /*  |SCARABEO|
  *  vita:       12
  *  velocità:   3
- *  danno :     7
+ *  danno :     5
  *  drop:       20 coin
  */
 package entity;
@@ -27,7 +27,7 @@ public class MON_scarabeo extends Entity{
         maxLife = 12;    //vita massima del nemico
         life = maxLife; //vita attuale del nemico
         coin = 20;   //monete del drop del nemico
-        damage = 7; //danno del nemico (il player inizia di base con difesa = 1)
+        damage = 5; //danno del nemico (il player inizia di base con difesa = 1)
         //HITBOX
         solidArea.x = 3;
         solidArea.y = 18;

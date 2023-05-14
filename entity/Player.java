@@ -551,4 +551,10 @@ public class Player extends Entity{
         inventory.add(new OBJ_stampella(gp));
     }
 
+    public void setSpawnPoint(int x, int y){    //imposta lo spawnPoint del player
+
+        checkPointX = x * gp.tileSize;
+        checkPointY = y * gp.tileSize;
+    }
+
 }
