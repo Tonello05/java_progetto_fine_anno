@@ -79,6 +79,7 @@ public class NPC_thenerd extends Entity{
 
         dialogues[0] = "emh...in realtà...vorrei stare da soloh";
         dialogues[1] = "mh? vorresti ottenere da me i progresshi della quest? emh, in realtà... non lo soh...\nva bene dai, ma solo perché mi pari un nerd quanto me";
+}
 
     public void speak(){    //dialogo con l'npc
 

@@ -73,6 +73,7 @@ public class NPC_walterwhite extends Entity{
         dialogues[1] = "Allora Jessie, stai attento nell'aggiungere l'acetone e l'acido Idriodico";
         dialogues[2] = "Metti un po' di fosforo rosso...";
         dialogues[3] = "Jessie, dobbiamo cucinare!";
+}
     public void speak(){    //dialogo con l'npc
 
         //eventuali azioni da fare durante il dialogo (per esempio curare a un certo dialogo)

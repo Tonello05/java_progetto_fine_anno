@@ -75,6 +75,7 @@ public class NPC_crewmate extends Entity{
         dialogues[3] = "Red Impostor!!!";
         dialogues[4] = "Sussy!!";
         dialogues[5] = "Sussy Baka!!";
+}
     public void speak(){    //dialogo con l'npc
 
         //eventuali azioni da fare durante il dialogo (per esempio curare a un certo dialogo)

@@ -73,6 +73,7 @@ public class NPC_jessepinkman extends Entity{
         dialogues[1] = "Mister White quindi è arrivata l'ora di cucinare, finalmente";
         dialogues[2] = "Questa è arte signor White! i miei complimenti";
         dialogues[3] = "Hey signora, qualunque cosa lei venda non mi interasa";
+}
     public void speak(){    //dialogo con l'npc
 
         //eventuali azioni da fare durante il dialogo (per esempio curare a un certo dialogo)
