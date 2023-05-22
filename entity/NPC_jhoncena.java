@@ -73,7 +73,8 @@ public class NPC_jhoncena extends Entity{
         dialogues[0] = "...";
         dialogues[1] = "'ma parla a me?'";
         dialogues[2] = "...?";
-        dialogues[3] = "You can't see me!!";
+        dialogues[3] = "Non faccio autografi ragazzo";
+        dialogues[4] = "E adesso frase ad effetto :\nYou can't see me!";
     }
 
     public void speak(){    //dialogo con l'npc
@@ -83,8 +84,8 @@ public class NPC_jhoncena extends Entity{
         //DIALOGO
         super.speak();
 
-        if(dialogueIndex == 4 || dialogueIndex == 5){
-            dialogueIndex = 3;
+        if(dialogueIndex == 5 || dialogueIndex == 6){
+            dialogueIndex = 4;
         }
 
     }
