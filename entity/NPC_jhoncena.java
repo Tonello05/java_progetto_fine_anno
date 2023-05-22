@@ -74,7 +74,6 @@ public class NPC_jhoncena extends Entity{
         dialogues[1] = "'ma parla a me?'";
         dialogues[2] = "...?";
         dialogues[3] = "You can't see me!!";
-        dialogues[4] = "Bravo che mi hai trovato, e adesso? \nvabbè sei a un passo in meno per trovare tutti i personaggi speciali";
     }
 
     public void speak(){    //dialogo con l'npc
@@ -83,6 +82,10 @@ public class NPC_jhoncena extends Entity{
 
         //DIALOGO
         super.speak();
+
+        if(dialogueIndex == 4 || dialogueIndex == 5){
+            dialogueIndex = 3;
+        }
 
     }
 

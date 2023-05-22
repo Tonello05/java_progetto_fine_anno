@@ -1,8 +1,0 @@
-COSE CHE MANCANO DA FARE
-
-    - creare gli ultimi npc e piazzarli nella mappa
-
-    - checkpoint (attraverso gli npc) per creare un checkpoint il la funzione è
-      gp.player.setSpawnPoint(X, Y);
-    
-    - fine del gioco (basta che un npc alla fine richiami richiami il metodo gp.endGame();)

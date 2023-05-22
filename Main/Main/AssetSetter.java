@@ -19,6 +19,7 @@ import entity.MON_scarabeo;
 import entity.MON_wasp;
 import entity.NPC_abu;
 import entity.NPC_agazzi;
+import entity.NPC_crewmate;
 import entity.NPC_cuconato;
 import entity.NPC_doganiere;
 import entity.NPC_dio;
@@ -29,6 +30,7 @@ import entity.NPC_miotto;
 import entity.NPC_guardia;
 import entity.NPC_slotmachine_left;
 import entity.NPC_slotmachine_right;
+import entity.NPC_thenerd;
 import entity.NPC_wen;
 import object.OBJ_Chest;
 import object.OBJ_Door;
@@ -315,22 +317,6 @@ public class AssetSetter {
         gp.obj[144].worldX = 86 * gp.tileSize;
         gp.obj[144].worldY = 28 * gp.tileSize;
 
-        gp.obj[145] = new DEC_sgabello(gp);
-        gp.obj[145].worldX = 91 * gp.tileSize;
-        gp.obj[145].worldY = 66 * gp.tileSize;
-
-        gp.obj[146] = new DEC_sgabello(gp);
-        gp.obj[146].worldX = 91 * gp.tileSize;
-        gp.obj[146].worldY = 67 * gp.tileSize;
-
-        gp.obj[147] = new DEC_sgabello(gp);
-        gp.obj[147].worldX = 91 * gp.tileSize;
-        gp.obj[147].worldY = 68 * gp.tileSize;
-
-        gp.obj[148] = new DEC_sgabello(gp);
-        gp.obj[148].worldX = 91 * gp.tileSize;
-        gp.obj[148].worldY = 69 * gp.tileSize;
-
         /* NEGOZIO DI WEN */
 
         gp.obj[149] = new DEC_tavolino(gp);
@@ -566,6 +552,18 @@ public class AssetSetter {
         gp.npc[18] = new NPC_dio2(gp);
         gp.npc[18].worldX = 90 * gp.tileSize;
         gp.npc[18].worldY = 93 * gp.tileSize;
+
+        gp.npc[19] = new NPC_crewmate(gp);
+        gp.npc[19].worldX = 31 * gp.tileSize;
+        gp.npc[19].worldY = 66 * gp.tileSize;
+
+        gp.npc[20] = new NPC_thenerd(gp);
+        gp.npc[20].worldX = 20 * gp.tileSize;
+        gp.npc[20].worldY = 4 * gp.tileSize;
+
+        gp.npc[21] = new NPC_jhoncena(gp);
+        gp.npc[21].worldX = 80 * gp.tileSize;
+        gp.npc[21].worldY = 53 * gp.tileSize;
 
     }
 

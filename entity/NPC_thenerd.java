@@ -25,18 +25,10 @@ public class NPC_thenerd extends Entity{
 
         try {
 
-            up1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/TheNerdup1.png"));
-            up2 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/TheNerdup2.png"));
-            up3 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/TheNerdup3.png"));
-            down1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/TheNerddown1.png"));
-            down2 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerdTheNerddown2.png"));
-            down3 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/TheNerddown3.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/TheNerdleft1.png"));
-            left2 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/TheNerdleft2.png"));
-            left3 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/TheNerdleft3.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/TheNerdright1.png"));
-            right2 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/TheNerdright2.png"));
-            right3 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/TheNerdright3.png"));
+            up1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/thenerd0.png"));
+            down1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/thenerd0.png"));
+            left1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/thenerd0.png"));
+            right1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/thenerd0.png"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -78,8 +70,9 @@ public class NPC_thenerd extends Entity{
     public void setDialogue(){      //dialoghi dell'npc
 
         dialogues[0] = "emh...in realtà...vorrei stare da soloh";
-        dialogues[1] = "mh? vorresti ottenere da me i progresshi della quest? emh, in realtà... non lo soh...\nva bene dai, ma solo perché mi pari un nerd quanto me";
-}
+        dialogues[1] = "mh? vorresti ottenere da me\n i progresshi della quest?\n emh, in realtà... non lo soh...\nva bene dai, ma solo perché mi pari un nerd quanto me";
+        dialogues[2] = "no voglio stare da soloh...";
+    }
 
     public void speak(){    //dialogo con l'npc
 
@@ -88,8 +81,9 @@ public class NPC_thenerd extends Entity{
         //DIALOGO
         super.speak();
 
-        onPath = true;
-        noMovement = true;
+        if(dialogueIndex == 3 || dialogueIndex == 4){
+            dialogueIndex = 2;
+        }
     }
 
 }
