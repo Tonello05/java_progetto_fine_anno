@@ -22,6 +22,7 @@ import entity.NPC_agazzi;
 import entity.NPC_cuconato;
 import entity.NPC_doganiere;
 import entity.NPC_dio;
+import entity.NPC_dio2;
 import entity.NPC_jhoncena;
 import entity.NPC_kolo;
 import entity.NPC_miotto;
@@ -561,6 +562,10 @@ public class AssetSetter {
         gp.npc[17] = new NPC_doganiere(gp);
         gp.npc[17].worldX = 71 * gp.tileSize;
         gp.npc[17].worldY = 95 * gp.tileSize;
+
+        gp.npc[18] = new NPC_dio2(gp);
+        gp.npc[18].worldX = 90 * gp.tileSize;
+        gp.npc[18].worldY = 93 * gp.tileSize;
 
     }
 
