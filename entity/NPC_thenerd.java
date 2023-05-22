@@ -69,9 +69,10 @@ public class NPC_thenerd extends Entity{
 
     public void setDialogue(){      //dialoghi dell'npc
 
-        dialogues[0] = "emh...in realtà...vorrei stare da soloh";
-        dialogues[1] = "mh? vorresti ottenere da me\n i progresshi della quest?\n emh, in realtà... non lo soh...\nva bene dai, ma solo perché mi pari un nerd quanto me";
-        dialogues[2] = "no voglio stare da soloh...";
+        dialogues[0] = "Ermm... in realta... non sarei\npredisposto per essere\nun NPC serio";
+        dialogues[1] = "Lo sapevi che...\nIn origine, Crash Bandicoot si doveva\nchiamare Willy the Wombat??\nma l'idea fu scartata per via della presenza di un già esistente 'Willy the Wombat'\nnel cartone di Taz mania.\nproblemi legali";
+        dialogues[2] = "Ermm... Lo sapevi che...\nIl gameboy fù la prima console con\ncui si ha giocato nello spazio\ndall'astronauta 'Aleksandr Serebrov'.\ncon tanto di lettera di ringraziamento.";
+        dialogues[3] = "Ermm... Lo sapevi che...\nColui che mi ha programmato ha\nfinito gli argomenti?\nmamma mia che pigro.";
     }
 
     public void speak(){    //dialogo con l'npc
@@ -81,8 +82,8 @@ public class NPC_thenerd extends Entity{
         //DIALOGO
         super.speak();
 
-        if(dialogueIndex == 3 || dialogueIndex == 4){
-            dialogueIndex = 2;
+        if(dialogueIndex == 4 || dialogueIndex == 5){
+            dialogueIndex = 3;
         }
     }
 
