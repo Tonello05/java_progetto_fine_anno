@@ -35,6 +35,9 @@ public class Player extends Entity{
     public int coins = 0;
     public Vector<SuperObject> inventory = new Vector<>();
     private int inventorySize = 20;
+    public boolean ha_Pagato=false;
+    int dogana_sec=0;
+    int dogana_min=0;
 
     public Player(GamePanel gp, KeyHadler keyH){    //contruttore e setup del player
 
@@ -369,20 +372,25 @@ public class Player extends Entity{
                     break;
             
                 case "door":
-                    if (hasKey > 0 && gp.obj[index].collision) {
-                        hasKey--;
-                        gp.playSE(3);
-                        gp.ui.showMessage("you opened a door!");
-                        try {
-                            gp.obj[index].image = ImageIO.read(getClass().getResourceAsStream("/res/objects/openedDoor.png"));
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        gp.obj[index].collision=false;
-                        
+                    if (!ha_Pagato && gp.obj[index].collision) {
+                        gp.ui.showMessage("parla con il doganiere per passare");  
                     }
-                    if(hasKey < 1 && gp.obj[index].collision){
-                        gp.ui.showMessage("you need a key!");
+                    else if(ha_Pagato && gp.obj[index].collision){
+                        gp.ui.showMessage("puoi passare");
+                        gp.obj[index].collision=false;
+                    }else if(ha_Pagato && gp.obj[index].collision==false){
+                        if(dogana_min==gp.playtime_m){
+                            if(gp.playtime_s-dogana_sec > 30){
+                                gp.obj[index].collision=true;
+                                ha_Pagato=false;
+                            }
+                        }else if(gp.playtime_m-dogana_min > 1){
+                            gp.obj[index].collision=true;
+                            ha_Pagato=false;
+                        }else if(gp.playtime_s + (60 - dogana_sec) > 30){
+                            gp.obj[index].collision=true;
+                            ha_Pagato=false;
+                        }
                     }
 
                     break;
@@ -531,6 +539,7 @@ public class Player extends Entity{
             }else if(selectedItem.type == 3){
                 selectedItem.use(this);
                 inventory.remove(selectedItem);
+                speed = getSpeed();
             }
 
             if(currentShield.haveSpeedAttribute || currentWeapon.haveSpeedAttribute){

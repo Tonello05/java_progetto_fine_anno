@@ -25,6 +25,7 @@ import entity.NPC_dio;
 import entity.NPC_jhoncena;
 import entity.NPC_kolo;
 import entity.NPC_miotto;
+import entity.NPC_guardia;
 import entity.NPC_slotmachine_left;
 import entity.NPC_slotmachine_right;
 import entity.NPC_wen;
@@ -125,6 +126,10 @@ public class AssetSetter {
         gp.obj[14] = new OBJ_blue_pot(gp);
         gp.obj[14].worldX = 78 * gp.tileSize;
         gp.obj[14].worldY = 69 * gp.tileSize;
+
+        gp.obj[15] = new OBJ_Door();
+        gp.obj[15].worldX = 71 * gp.tileSize;
+        gp.obj[15].worldY = 94 * gp.tileSize;
 
         /* DECORAZIONI */
 
@@ -443,23 +448,43 @@ public class AssetSetter {
         gp.obj[177].worldX = 12 * gp.tileSize;
         gp.obj[177].worldY = 87 * gp.tileSize;
 
-        /* BOCCE */
-        
-        gp.obj[178] = new DEC_bocce(gp, 3);
-        gp.obj[178].worldX = 97 * gp.tileSize;
+        gp.obj[178] = new DEC_armadio(gp);
+        gp.obj[178].worldX = 69 * gp.tileSize;
         gp.obj[178].worldY = 93 * gp.tileSize;
 
-        gp.obj[179] = new DEC_bocce(gp, 1);
-        gp.obj[179].worldX = 95 * gp.tileSize;
+        gp.obj[179] = new DEC_tavolino(gp);
+        gp.obj[179].worldX = 71 * gp.tileSize;
         gp.obj[179].worldY = 93 * gp.tileSize;
 
-        gp.obj[180] = new DEC_bocce(gp, 2);
+        /* BOCCE */
+        
+        gp.obj[180] = new DEC_bocce(gp, 3);
         gp.obj[180].worldX = 97 * gp.tileSize;
-        gp.obj[180].worldY = 94 * gp.tileSize;
+        gp.obj[180].worldY = 93 * gp.tileSize;
 
-        gp.obj[181] = new DEC_bocce(gp, 0);
-        gp.obj[181].worldX = 96 * gp.tileSize;
-        gp.obj[181].worldY = 94 * gp.tileSize;
+        gp.obj[181] = new DEC_bocce(gp, 1);
+        gp.obj[181].worldX = 95 * gp.tileSize;
+        gp.obj[181].worldY = 93 * gp.tileSize;
+
+        gp.obj[182] = new DEC_bocce(gp, 2);
+        gp.obj[182].worldX = 97 * gp.tileSize;
+        gp.obj[182].worldY = 94 * gp.tileSize;
+
+        gp.obj[183] = new DEC_bocce(gp, 0);
+        gp.obj[183].worldX = 96 * gp.tileSize;
+        gp.obj[183].worldY = 94 * gp.tileSize;
+
+        gp.obj[184] = new DEC_tavolino(gp);
+        gp.obj[184].worldX = 69 * gp.tileSize;
+        gp.obj[184].worldY = 95 * gp.tileSize;
+
+        gp.obj[185] = new DEC_tavolino(gp);
+        gp.obj[185].worldX = 71 * gp.tileSize;
+        gp.obj[185].worldY = 95 * gp.tileSize;
+
+        gp.obj[186] = new DEC_flower(gp, 2);
+        gp.obj[186].worldX = 71 * gp.tileSize;
+        gp.obj[186].worldY = 95 * gp.tileSize;
 
     }
 
@@ -525,7 +550,17 @@ public class AssetSetter {
         gp.npc[14].worldX = 95 * gp.tileSize;
         gp.npc[14].worldY = 29 * gp.tileSize;
 
-        
+        gp.npc[15] = new NPC_doganiere(gp);
+        gp.npc[15].worldX = 70 * gp.tileSize;
+        gp.npc[15].worldY = 95 * gp.tileSize;
+
+        gp.npc[16] = new NPC_guardia(gp);
+        gp.npc[16].worldX = 70 * gp.tileSize;
+        gp.npc[16].worldY = 93 * gp.tileSize;
+
+        gp.npc[17] = new NPC_doganiere(gp);
+        gp.npc[17].worldX = 71 * gp.tileSize;
+        gp.npc[17].worldY = 95 * gp.tileSize;
 
     }
 

@@ -25,7 +25,7 @@ public class NPC_doganiere extends Entity{
 
         try {
             
-            up1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/1fiorino/1fiorino.png"));
+            up1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/doganiere/doganiere.png"));
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -67,23 +67,21 @@ public class NPC_doganiere extends Entity{
 
     public void setDialogue(){      //dialoghi dell'npc
 
-        dialogues[0] = "chi siete?";
-        dialogues[1] = "cosa fate?";
-        dialogues[2] = "cosa portate?";
-        dialogues[3] = "si ma quanti siete?";
-        dialogues[4] = "1 fiorino";
+        dialogues[0] = "chi siete?\ncosa fate?\ncosa portate?\n1 fiorino";
+
     }
 
     public void speak(){    //dialogo con l'npc
 
         //eventuali azioni da fare durante il dialogo (per esempio curare a un certo dialogo)
         
-        if(dialogueIndex == 4 && gp.player.coins > 0) {
-            
+        if(gp.player.coins>=1){
             gp.player.coins--;
-            gp.npc[2]=null;
-
+            gp.player.ha_Pagato=true;
+            gp.player.dogana_min=gp.playtime_m;
+            gp.player.dogana_sec=gp.playtime_s;
         }
+        
 
         //DIALOGO
         super.speak();

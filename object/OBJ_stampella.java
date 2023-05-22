@@ -11,9 +11,9 @@ public class OBJ_stampella extends SuperObject{
     public OBJ_stampella(GamePanel gp){
         this.gp=gp;
 		type = 1;
-        name = "stampella";
+        name = "stampella di titanio";
         description = "[" + name + "]" + "\nabbiamo visto che sei morto\nforse questa ti\npuo' servire";
-        attackAttribute = 6;
+        attackAttribute = 100;
         speedAttribute = 0.5;
         haveSpeedAttribute = true;
 		try {
