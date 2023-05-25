@@ -185,13 +185,13 @@ public class GamePanel extends JPanel implements Runnable{
 
             //TILE
             tileManager.draw(g2);
-            //NPC
-            for (int i = 0; i < npc.length; i++) {
-                if(npc[i] != null){npc[i].draw(g2);}
-            }
             //OBJECTS
             for (int i = 0; i < obj.length; i++) {
                 if(obj[i] != null){obj[i].draw(g2, this);}
+            }
+            //NPC
+            for (int i = 0; i < npc.length; i++) {
+                if(npc[i] != null){npc[i].draw(g2);}
             }
             //ENEMY
             for (int i = 0; i < enemy.length; i++) {

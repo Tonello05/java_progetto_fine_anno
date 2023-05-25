@@ -6,7 +6,7 @@ public class OBJ_blue_shield extends SuperObject{
     
     public OBJ_blue_shield(){
         type = 2;
-        name = "FOZZA NAPOLIII";
+        name = "blue shield";
         description = "[" + name + "]" + "\nscudo edizione limitata\nversione scudetto napoli 2023";
         defenceAttribute = 2;
         try {

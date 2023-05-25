@@ -6,8 +6,8 @@ public class OBJ_holy_shield extends SuperObject{
     
     public OBJ_holy_shield(){
         type = 2;
-        name = "santino di san gennaro";
-        description = "[" + name + "]" + "\nuno scudo rimasto sacro\nanche dopo le\nbestemmie";
+        name = "holy shield";
+        description = "[" + name + "]" + "\nlo scudo sacro";
         defenceAttribute = 4;
         try {
             image = ImageIO.read(getClass().getResourceAsStream("/res/objects/holy_shield.png"));

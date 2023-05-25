@@ -24,7 +24,7 @@ public class Entity {
     protected GamePanel gp;
 
     //CHARACTER STATUS
-    public int defaultSpeed; //velocità di base
+    protected int defaultSpeed; //velocità di base
     public int maxLife;     //vita massima
     public int life;    //vita attuale
     public boolean invincible = false;  //invicibilità attiva

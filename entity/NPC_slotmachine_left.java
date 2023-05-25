@@ -96,7 +96,6 @@ public class NPC_slotmachine_left extends Entity{
 
                 dialogueIndex=3;
                 dialogues[3] = "risultati: " + ris1 + " " + ris2 + " " + ris3 + "\nHAI VINTO!!!";
-                gp.player.coins+=999;
 
             }
         }

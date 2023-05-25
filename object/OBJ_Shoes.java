@@ -23,7 +23,7 @@ public class OBJ_Shoes extends SuperObject{
 
     @Override
     public void use(Entity entity){
-        entity.defaultSpeed += 20;
+        entity.speed += 2;
     }
 
 }

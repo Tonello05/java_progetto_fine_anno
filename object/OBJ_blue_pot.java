@@ -11,8 +11,8 @@ public class OBJ_blue_pot extends SuperObject{
     public OBJ_blue_pot(GamePanel gp){
         type = 3;
         this.gp = gp;
-        name = "met blu";
-        description = "[" + name + "]" + "\nuna semplice pozione curativa\nBLU al 100% legale\ncura di " + value + "hp";
+        name = "blue potion";
+        description = "[" + name + "]" + "\nuna semplice pozione curativa\nal 100% legale\ncura di " + value + "hp";
         try {
             image = ImageIO.read(getClass().getResourceAsStream("/res/objects/blue_pot.png"));
         } catch (Exception e) {
