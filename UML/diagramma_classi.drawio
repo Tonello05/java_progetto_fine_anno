@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-05-25T18:01:40.002Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 OPR/98.0.0.0" etag="IdOwOIVZF06pMxY-gEN3" version="21.3.4" type="device">
+<mxfile host="app.diagrams.net" modified="2023-05-26T10:49:05.372Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="lhbSRhlaqHVGh5V-qVf6" version="21.3.4" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="928" dy="573" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2027" pageHeight="2169" math="0" shadow="0">
+    <mxGraphModel dx="1434" dy="796" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2027" pageHeight="2169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -41,7 +41,7 @@
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="sjpf2KDpfiBGwPgZcdzE-12" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;AssetSetter&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&amp;nbsp;+ setObject(): void&lt;br&gt;&amp;nbsp;- setDecorations(): void&lt;br&gt;&amp;nbsp;+ setNpc(): void&lt;br&gt;&amp;nbsp;+ setEnemy(): void" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="sjpf2KDpfiBGwPgZcdzE-12" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;AssetSetter&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&amp;nbsp;+ setObject(): void&lt;br&gt;&amp;nbsp;+ setNpc(): void&lt;br&gt;&amp;nbsp;+ setEnemy(): void" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="640" y="80" width="140" height="110" as="geometry" />
         </mxCell>
         <mxCell id="sjpf2KDpfiBGwPgZcdzE-14" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" target="sjpf2KDpfiBGwPgZcdzE-12" edge="1">
@@ -59,7 +59,7 @@
             <mxPoint x="940" y="180" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="sjpf2KDpfiBGwPgZcdzE-18" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;KeyHandler&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&amp;nbsp;+ upPressed: boolean&lt;br&gt;&amp;nbsp;+ downPressed: boolean&lt;br&gt;&amp;nbsp;+ rightPressed: boolean&lt;br&gt;&amp;nbsp;+ leftPressed: boolean&lt;br&gt;&amp;nbsp;+ shiftPressed: boolean&lt;br&gt;&amp;nbsp;+ enterPressed: boolean&lt;hr&gt;&amp;nbsp;+ keyTyped(): void&lt;br&gt;&amp;nbsp;+ keyReleased(): void&lt;br&gt;&amp;nbsp;+ keyPressed(): void&lt;br&gt;&amp;nbsp; - playState(): void&lt;br&gt;&amp;nbsp; - pauseState(): void&lt;br&gt;&amp;nbsp; - dialogueState(): void&lt;br&gt;&amp;nbsp; - titleState(): void&lt;br&gt;&amp;nbsp; - characterState(): void&lt;br&gt;&amp;nbsp; - gameOverState(): void&lt;br&gt;&amp;nbsp; - commandaState(): void&lt;br&gt;&amp;nbsp; - endState(): void" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="sjpf2KDpfiBGwPgZcdzE-18" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;KeyHandler&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&amp;nbsp;+ upPressed: boolean&lt;br&gt;&amp;nbsp;+ downPressed: boolean&lt;br&gt;&amp;nbsp;+ rightPressed: boolean&lt;br&gt;&amp;nbsp;+ leftPressed: boolean&lt;br&gt;&amp;nbsp;+ shiftPressed: boolean&lt;br&gt;&amp;nbsp;+ enterPressed: boolean&lt;hr&gt;&amp;nbsp;+ keyTyped(): void&lt;br&gt;&amp;nbsp;+ keyReleased(): void&lt;br&gt;&amp;nbsp;+ keyPressed(): void" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="640" y="430" width="160" height="370" as="geometry" />
         </mxCell>
         <mxCell id="sjpf2KDpfiBGwPgZcdzE-19" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="sjpf2KDpfiBGwPgZcdzE-18" edge="1">
@@ -67,6 +67,9 @@
             <mxPoint x="630" y="470" as="sourcePoint" />
             <mxPoint x="720" y="330" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="FVBr_ZRkSOxFZDrpTWjj-0" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;UI&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&amp;nbsp;- pixel_font: Font&lt;br&gt;&amp;nbsp;- heart1: BufferedImage&lt;br&gt;&amp;nbsp;- heart2: BufferedImage&lt;br&gt;&amp;nbsp;- heart3: BufferedImage&lt;br&gt;+ messageOn: boolean&lt;br&gt;+ message: String&lt;br&gt;+ messaggeCounter: int&lt;br&gt;+ g2: Graphics2D&lt;br&gt;+ currentDialogue: String&lt;br&gt;+ commandNumber: int&lt;br&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="840" y="430" width="160" height="370" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
