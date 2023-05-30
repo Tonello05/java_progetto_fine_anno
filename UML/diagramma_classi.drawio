@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-05-30T06:24:46.628Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="1o4cqEUWeSD9Bh5-6qYw" version="21.3.5" type="github">
+<mxfile host="app.diagrams.net" modified="2023-05-30T06:31:51.262Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="1wJtfGYu-j0bp7lpl0mq" version="21.3.5" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1434" dy="796" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2027" pageHeight="2169" background="none" math="0" shadow="0">
       <root>
@@ -110,13 +110,13 @@
             <mxPoint x="470" y="750" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="YWYXHstFESj4iFv3OfK1-7" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Class&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;div style=&quot;height:2px;&quot;&gt;&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="500" y="970" width="140" height="60" as="geometry" />
+        <mxCell id="YWYXHstFESj4iFv3OfK1-7" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;MON_spider&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;div&gt;int coin&lt;/div&gt;&lt;div&gt;String direction&lt;/div&gt;&lt;div&gt;String name&lt;/div&gt;&lt;div&gt;int speed&lt;/div&gt;&lt;div&gt;int maxLife&lt;/div&gt;&lt;div&gt;int life&lt;/div&gt;&lt;div&gt;int damage&lt;/div&gt;&lt;div&gt;Rectangle solidArea&lt;/div&gt;&lt;div&gt;int solidAreaDefaultX&lt;/div&gt;&lt;div&gt;int solidAreaDefaultY&lt;/div&gt;&lt;div&gt;int typeON_Spider(GamePanel gp)&lt;/div&gt;&lt;div&gt;private void getImage()&lt;/div&gt;&lt;div&gt;public void setAction()&lt;/div&gt;&lt;div&gt;@Override public void update()&lt;/div&gt;&lt;div&gt;public void killed()&lt;/div&gt;&lt;div&gt;@Override public void damageReaction()&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="500" y="890" width="230" height="270" as="geometry" />
         </mxCell>
         <mxCell id="YWYXHstFESj4iFv3OfK1-8" value="" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="YWYXHstFESj4iFv3OfK1-7" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="850" y="900" as="sourcePoint" />
-            <mxPoint x="390" y="1000" as="targetPoint" />
+            <mxPoint x="380" y="1025" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="z-6VyDmkETw24ebPGws4-0" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Player&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;div&gt;screenX: int&lt;/div&gt;&lt;div&gt;screenY: int&lt;/div&gt;&lt;div&gt;checkPointX: int&lt;/div&gt;&lt;div&gt;checkPointY: int&lt;/div&gt;&lt;div&gt;hasKey: int&lt;/div&gt;&lt;div&gt;coins: int&lt;/div&gt;&lt;div&gt;inventory: Item[]&lt;/div&gt;&lt;div&gt;inventorySize: int&lt;/div&gt;&lt;div&gt;keyHandler: KeyHandler&lt;/div&gt;&lt;hr&gt;&lt;br&gt;&lt;div&gt;Player(GamePanel gp, KeyHadler keyH)&lt;/div&gt;&lt;div&gt;setDefaultValues()&lt;/div&gt;&lt;div&gt;setItems()&lt;/div&gt;&lt;div&gt;getAttack()&lt;/div&gt;&lt;div&gt;getDefence()&lt;/div&gt;&lt;div&gt;getSpeed()&lt;/div&gt;&lt;div&gt;getPlayerImage()&lt;/div&gt;&lt;div&gt;update()&lt;/div&gt;&lt;div&gt;attacking()&lt;/div&gt;&lt;div&gt;damageMonster(int index)&lt;/div&gt;&lt;div&gt;interactEnemy(int index)&lt;/div&gt;&lt;div&gt;intercatNPC(int index)&lt;/div&gt;&lt;div&gt;addObject(int i)&lt;/div&gt;&lt;div&gt;pickUpObject(int index)&lt;/div&gt;&lt;div&gt;draw(Graphics2D g2)&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
@@ -126,6 +126,15 @@
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="930" y="30" as="sourcePoint" />
             <mxPoint x="1350" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="z-6VyDmkETw24ebPGws4-2" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;NPC&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;div&gt;String direction&lt;/div&gt;&lt;div&gt;int speed&lt;/div&gt;&lt;div&gt;BufferedImage down1&lt;/div&gt;&lt;div&gt;String name&lt;/div&gt;&lt;div&gt;int type&lt;/div&gt;&lt;div&gt;String defaultDirection&lt;/div&gt;&lt;div&gt;boolean noMovement&lt;/div&gt;&lt;div&gt;String[] dialogues&lt;/div&gt;&lt;hr&gt;&lt;div&gt;public NPC_wen(GamePanel gp)&lt;/div&gt;&lt;div&gt;private void getPlayerImage()&lt;/div&gt;&lt;div&gt;public void setAction()&lt;/div&gt;&lt;div&gt;private void setDialogue()&lt;/div&gt;&lt;div&gt;public void speak()&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="500" y="1380" width="230" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="z-6VyDmkETw24ebPGws4-3" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" target="z-6VyDmkETw24ebPGws4-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="1430" as="sourcePoint" />
+            <mxPoint x="570" y="1380" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
