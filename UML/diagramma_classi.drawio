@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-05-30T06:31:51.262Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="1wJtfGYu-j0bp7lpl0mq" version="21.3.5" type="github">
+<mxfile host="app.diagrams.net" modified="2023-05-30T06:47:31.839Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="yvXPskdu6NjhtfKaQyYS" version="21.3.5" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1434" dy="796" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2027" pageHeight="2169" background="none" math="0" shadow="0">
       <root>
@@ -106,17 +106,20 @@
         </mxCell>
         <mxCell id="YWYXHstFESj4iFv3OfK1-6" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" target="sjpf2KDpfiBGwPgZcdzE-2" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="385" y="1430" as="sourcePoint" />
+            <mxPoint x="385" y="1240" as="sourcePoint" />
             <mxPoint x="470" y="750" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="385" y="1240" />
+            </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="YWYXHstFESj4iFv3OfK1-7" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;MON_spider&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;div&gt;int coin&lt;/div&gt;&lt;div&gt;String direction&lt;/div&gt;&lt;div&gt;String name&lt;/div&gt;&lt;div&gt;int speed&lt;/div&gt;&lt;div&gt;int maxLife&lt;/div&gt;&lt;div&gt;int life&lt;/div&gt;&lt;div&gt;int damage&lt;/div&gt;&lt;div&gt;Rectangle solidArea&lt;/div&gt;&lt;div&gt;int solidAreaDefaultX&lt;/div&gt;&lt;div&gt;int solidAreaDefaultY&lt;/div&gt;&lt;div&gt;int typeON_Spider(GamePanel gp)&lt;/div&gt;&lt;div&gt;private void getImage()&lt;/div&gt;&lt;div&gt;public void setAction()&lt;/div&gt;&lt;div&gt;@Override public void update()&lt;/div&gt;&lt;div&gt;public void killed()&lt;/div&gt;&lt;div&gt;@Override public void damageReaction()&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="500" y="890" width="230" height="270" as="geometry" />
         </mxCell>
-        <mxCell id="YWYXHstFESj4iFv3OfK1-8" value="" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="YWYXHstFESj4iFv3OfK1-7" edge="1">
+        <mxCell id="YWYXHstFESj4iFv3OfK1-8" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="YWYXHstFESj4iFv3OfK1-7" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="850" y="900" as="sourcePoint" />
-            <mxPoint x="380" y="1025" as="targetPoint" />
+            <mxPoint x="615" y="1240" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="z-6VyDmkETw24ebPGws4-0" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Player&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;div&gt;screenX: int&lt;/div&gt;&lt;div&gt;screenY: int&lt;/div&gt;&lt;div&gt;checkPointX: int&lt;/div&gt;&lt;div&gt;checkPointY: int&lt;/div&gt;&lt;div&gt;hasKey: int&lt;/div&gt;&lt;div&gt;coins: int&lt;/div&gt;&lt;div&gt;inventory: Item[]&lt;/div&gt;&lt;div&gt;inventorySize: int&lt;/div&gt;&lt;div&gt;keyHandler: KeyHandler&lt;/div&gt;&lt;hr&gt;&lt;br&gt;&lt;div&gt;Player(GamePanel gp, KeyHadler keyH)&lt;/div&gt;&lt;div&gt;setDefaultValues()&lt;/div&gt;&lt;div&gt;setItems()&lt;/div&gt;&lt;div&gt;getAttack()&lt;/div&gt;&lt;div&gt;getDefence()&lt;/div&gt;&lt;div&gt;getSpeed()&lt;/div&gt;&lt;div&gt;getPlayerImage()&lt;/div&gt;&lt;div&gt;update()&lt;/div&gt;&lt;div&gt;attacking()&lt;/div&gt;&lt;div&gt;damageMonster(int index)&lt;/div&gt;&lt;div&gt;interactEnemy(int index)&lt;/div&gt;&lt;div&gt;intercatNPC(int index)&lt;/div&gt;&lt;div&gt;addObject(int i)&lt;/div&gt;&lt;div&gt;pickUpObject(int index)&lt;/div&gt;&lt;div&gt;draw(Graphics2D g2)&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
@@ -129,13 +132,64 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="z-6VyDmkETw24ebPGws4-2" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;NPC&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;div&gt;String direction&lt;/div&gt;&lt;div&gt;int speed&lt;/div&gt;&lt;div&gt;BufferedImage down1&lt;/div&gt;&lt;div&gt;String name&lt;/div&gt;&lt;div&gt;int type&lt;/div&gt;&lt;div&gt;String defaultDirection&lt;/div&gt;&lt;div&gt;boolean noMovement&lt;/div&gt;&lt;div&gt;String[] dialogues&lt;/div&gt;&lt;hr&gt;&lt;div&gt;public NPC_wen(GamePanel gp)&lt;/div&gt;&lt;div&gt;private void getPlayerImage()&lt;/div&gt;&lt;div&gt;public void setAction()&lt;/div&gt;&lt;div&gt;private void setDialogue()&lt;/div&gt;&lt;div&gt;public void speak()&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="500" y="1380" width="230" height="250" as="geometry" />
+          <mxGeometry x="850" y="890" width="230" height="250" as="geometry" />
         </mxCell>
-        <mxCell id="z-6VyDmkETw24ebPGws4-3" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" target="z-6VyDmkETw24ebPGws4-2">
+        <mxCell id="z-6VyDmkETw24ebPGws4-3" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="390" y="1430" as="sourcePoint" />
-            <mxPoint x="570" y="1380" as="targetPoint" />
+            <mxPoint x="390" y="1240" as="sourcePoint" />
+            <mxPoint x="1080" y="1240" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="z-6VyDmkETw24ebPGws4-4" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" target="z-6VyDmkETw24ebPGws4-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="965" y="1240" as="sourcePoint" />
+            <mxPoint x="1010" y="1100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="z-6VyDmkETw24ebPGws4-5" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Entity&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;div&gt;public int worldX, worldY&lt;/div&gt;&lt;div&gt;protected GamePanel gp&lt;/div&gt;&lt;div&gt;protected int defaultSpeed&lt;/div&gt;&lt;div&gt;public int maxLife&lt;/div&gt;&lt;div&gt;public int life&lt;/div&gt;&lt;div&gt;public boolean invincible&lt;/div&gt;&lt;div&gt;protected int invincibleCounter&lt;/div&gt;&lt;div&gt;public int speed&lt;/div&gt;&lt;div&gt;protected int baseSpeed&lt;/div&gt;&lt;div&gt;public String name&lt;/div&gt;&lt;div&gt;protected int type&lt;/div&gt;&lt;div&gt;public boolean alive&lt;/div&gt;&lt;div&gt;public boolean dying&lt;/div&gt;&lt;div&gt;protected boolean hpBarOn&lt;/div&gt;&lt;div&gt;protected int hpBArCounter&lt;/div&gt;&lt;div&gt;public int damage&lt;/div&gt;&lt;div&gt;public int defence&lt;/div&gt;&lt;div&gt;public int strenght&lt;/div&gt;&lt;div&gt;public int dexterity&lt;/div&gt;&lt;div&gt;public SuperObject currentWeapon&lt;/div&gt;&lt;div&gt;public SuperObject currentShield&lt;/div&gt;&lt;div&gt;protected BufferedImage up1, up2, up3, up4, left1, left2, left3, left4, right1, right2, right3, right4, down1, down2, down3, down4&lt;/div&gt;&lt;div&gt;protected BufferedImage attackUp, attackDown, attackLeft, attackRight&lt;/div&gt;&lt;div&gt;public String direction&lt;/div&gt;&lt;div&gt;protected int spriteCounter&lt;/div&gt;&lt;div&gt;protected int spriteNum&lt;/div&gt;&lt;div&gt;protected int dyingCounter&lt;/div&gt;&lt;div&gt;protected BufferedImage currentAnim&lt;/div&gt;&lt;div&gt;protected boolean animationOn&lt;/div&gt;&lt;div&gt;protected boolean fly&lt;/div&gt;&lt;div&gt;public Rectangle solidArea&lt;/div&gt;&lt;div&gt;public Rectangle attackArea&lt;/div&gt;&lt;div&gt;public int solidAreaDefaultX&lt;/div&gt;&lt;div&gt;public int solidAreaDefaultY&lt;/div&gt;&lt;div&gt;public boolean collisionIsOn&lt;/div&gt;&lt;div&gt;protected boolean noMovement&lt;/div&gt;&lt;div&gt;protected String[] dialogues&lt;/div&gt;&lt;div&gt;protected int dialogueIndex&lt;/div&gt;&lt;div&gt;protected boolean attacking&lt;/div&gt;&lt;div&gt;protected int actionLockCounter&lt;/div&gt;&lt;div&gt;protected boolean onPath&lt;/div&gt;&lt;div&gt;protected String defaultDirection&lt;/div&gt;&lt;hr&gt;&lt;div&gt;killed()&lt;/div&gt;&lt;div&gt;setAction()&lt;/div&gt;&lt;div&gt;damageReaction()&lt;/div&gt;&lt;div&gt;checkCollision()&lt;/div&gt;&lt;div&gt;update()&lt;/div&gt;&lt;div&gt;draw(Graphics2D g2)&lt;/div&gt;&lt;div&gt;dyingAnimation(Graphics2D g2)&lt;/div&gt;&lt;div&gt;changeAlpha(Graphics2D g2, float alphaValue)&lt;/div&gt;&lt;div&gt;speak()&lt;/div&gt;&lt;div&gt;speak(int i)&lt;/div&gt;&lt;div&gt;searchPath(int goalCol, int GoalRow)&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1200" y="1000" width="520" height="830" as="geometry" />
+        </mxCell>
+        <mxCell id="z-6VyDmkETw24ebPGws4-7" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="600" y="860" as="sourcePoint" />
+            <mxPoint x="1200" y="860" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="z-6VyDmkETw24ebPGws4-9" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="YWYXHstFESj4iFv3OfK1-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="960" y="1150" as="sourcePoint" />
+            <mxPoint x="600" y="860" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="z-6VyDmkETw24ebPGws4-10" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" target="z-6VyDmkETw24ebPGws4-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="965" y="860" as="sourcePoint" />
+            <mxPoint x="1010" y="1100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="z-6VyDmkETw24ebPGws4-11" value="Extends" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" target="z-6VyDmkETw24ebPGws4-5">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="1200" y="860" as="sourcePoint" />
+            <mxPoint x="1060" y="1130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="z-6VyDmkETw24ebPGws4-12" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Class&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;div&gt;int value&lt;/div&gt;&lt;div&gt;GamePanel gp&lt;/div&gt;&lt;hr&gt;&lt;div&gt;OBJ_blue_pot(GamePanel gp)&lt;/div&gt;&lt;div&gt;use(Entity entity)&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="500" y="1340" width="180" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="z-6VyDmkETw24ebPGws4-13" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" target="z-6VyDmkETw24ebPGws4-12">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="590" y="1240" as="sourcePoint" />
+            <mxPoint x="1040" y="1360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="z-6VyDmkETw24ebPGws4-14" value="Extends" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="z-6VyDmkETw24ebPGws4-12" target="z-6VyDmkETw24ebPGws4-15">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="940" y="1390" as="sourcePoint" />
+            <mxPoint x="790" y="1420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="z-6VyDmkETw24ebPGws4-15" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;SuperObject&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;div&gt;String description&lt;/div&gt;&lt;div&gt;BufferedImage image&lt;/div&gt;&lt;div&gt;BufferedImage image2&lt;/div&gt;&lt;div&gt;BufferedImage image3&lt;/div&gt;&lt;div&gt;String name&lt;/div&gt;&lt;div&gt;boolean collision&lt;/div&gt;&lt;div&gt;int worldX&lt;/div&gt;&lt;div&gt;int worldY&lt;/div&gt;&lt;div&gt;Rectangle solidArea&lt;/div&gt;&lt;div&gt;int solidAreaDefaultX&lt;/div&gt;&lt;div&gt;int solidAreaDefaultY&lt;/div&gt;&lt;div&gt;int attackAttribute&lt;/div&gt;&lt;div&gt;int defenceAttribute&lt;/div&gt;&lt;div&gt;double speedAttribute&lt;/div&gt;&lt;div&gt;boolean haveSpeedAttribute&lt;/div&gt;&lt;div&gt;int type&lt;/div&gt;&lt;hr&gt;&lt;div&gt;void showMessage()&lt;/div&gt;&lt;div&gt;boolean checkRequirements()&lt;/div&gt;&lt;div&gt;String getMessagge()&lt;/div&gt;&lt;div&gt;void use(Entity entity)&lt;/div&gt;&lt;div&gt;void draw(Graphics2D g2, GamePanel gp)&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="764" y="1390" width="250" height="470" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
