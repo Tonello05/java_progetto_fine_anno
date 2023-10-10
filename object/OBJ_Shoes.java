@@ -11,7 +11,7 @@ public class OBJ_Shoes extends SuperObject{
     
     public OBJ_Shoes(){
         type = 3;
-        name = "shoes";     //nome della classe
+        name = "scarpe da corsa";     //nome della classe
         description = "[" + name + "]" + "\nle scarpe giallo zafferano\npermettono di raggiungere\nvelocità incredibili";
         try {   //ottiene immagine dell'oggetto
             image = ImageIO.read(getClass().getResourceAsStream("/res/objects/Shoes.png")); 
@@ -23,7 +23,7 @@ public class OBJ_Shoes extends SuperObject{
 
     @Override
     public void use(Entity entity){
-        entity.speed += 2;
+        entity.defaultSpeed += 5;
     }
 
 }

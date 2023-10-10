@@ -84,6 +84,10 @@ public class NPC_jhoncena extends Entity{
         //DIALOGO
         super.speak();
 
+        if(dialogueIndex == 5 || dialogueIndex == 6){
+            dialogueIndex = 4;
+        }
+
     }
 
 }

@@ -15,7 +15,7 @@ public class NPC_thenerd extends Entity{
         speed = 1;      //velocità dell'npc
         getPlayerImage();
         setDialogue();
-        name = "Jhon Cena";
+        name = "ThE nErD";
         type = 1;   //tipo di entity ( 1 = npc)
         defaultDirection = "down";
         noMovement = true;
@@ -25,18 +25,10 @@ public class NPC_thenerd extends Entity{
 
         try {
 
-            up1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/TheNerdup1.png"));
-            up2 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/TheNerdup2.png"));
-            up3 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/TheNerdup3.png"));
-            down1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/TheNerddown1.png"));
-            down2 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerdTheNerddown2.png"));
-            down3 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/TheNerddown3.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/TheNerdleft1.png"));
-            left2 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/TheNerdleft2.png"));
-            left3 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/TheNerdleft3.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/TheNerdright1.png"));
-            right2 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/TheNerdright2.png"));
-            right3 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/TheNerdright3.png"));
+            up1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/thenerd0.png"));
+            down1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/thenerd0.png"));
+            left1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/thenerd0.png"));
+            right1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/thenerd/thenerd0.png"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -77,10 +69,10 @@ public class NPC_thenerd extends Entity{
 
     public void setDialogue(){      //dialoghi dell'npc
 
-        dialogues[0] = "Ermm... in realta... non sarei predisposto per essere un NPC serio";
-        dialogues[1] = "Lo sapevi che...\nIn origine, Crash Bandicoot si doveva chiamare Willy the Wombat??\n ma l'idea fu scartata per via della presenza di un già esistente 'Willy the Wombat'\nnel cartone di Taz mania. problemi legali";
-        dialogues[2] = "Ermm... Lo sapevi che...\nIl gameboy fù la prima console con cui si ha giocato nello spazio\ndall'astronauta 'Aleksandr Serebrov'.\ncon tanto di lettera di ringraziamento.";
-        dialogues[3] = "Ermm... Lo sapevi che...\nColui che mi ha programmato ha finito gli argomenti?\n mamma mia che pigro.";
+        dialogues[0] = "Ermm... in realta... non sarei\npredisposto per essere\nun NPC serio";
+        dialogues[1] = "Lo sapevi che...\nIn origine, Crash Bandicoot si doveva\nchiamare Willy the Wombat??\nma l'idea fu scartata per via della presenza di\n un già esistente 'Willy the Wombat'\nnel cartone di Taz mania.\nproblemi legali";
+        dialogues[2] = "Ermm... Lo sapevi che...\nIl gameboy fù la prima console con\ncui si ha giocato nello spazio\ndall'astronauta 'Aleksandr Serebrov'.\ncon tanto di lettera di ringraziamento.";
+        dialogues[3] = "Ermm... Lo sapevi che...\nColui che mi ha programmato ha\nfinito gli argomenti?\nmamma mia che pigro.";
     }
 
     public void speak(){    //dialogo con l'npc
@@ -90,8 +82,9 @@ public class NPC_thenerd extends Entity{
         //DIALOGO
         super.speak();
 
-        onPath = true;
-        noMovement = true;
+        if(dialogueIndex == 4 || dialogueIndex == 5){
+            dialogueIndex = 3;
+        }
     }
 
 }

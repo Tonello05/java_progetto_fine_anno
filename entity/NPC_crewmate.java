@@ -25,10 +25,10 @@ public class NPC_crewmate extends Entity{
 
         try {
 
-            up1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/crewmate/Crewmateup.png"));            
-            down1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/crewmate/Crewmatedown.png"));           
-            left1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/crewmate/Crewmateleft.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/crewmate/Crewmateright.png"));
+            up1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/crewmate/Crewmate2.png"));            
+            down1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/crewmate/Crewmate2.png"));           
+            left1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/crewmate/crewmate0.png"));
+            right1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/crewmate/crewmate1.png"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -83,8 +83,9 @@ public class NPC_crewmate extends Entity{
         //DIALOGO
         super.speak();
 
-        onPath = true;
-        noMovement = true;
+        if(dialogueIndex == 6){
+            direction="up";
+        }
     }
 
 }

@@ -25,7 +25,7 @@ public class NPC_doganiere extends Entity{
 
         try {
             
-            up1 = ImageIO.read(getClass().getResourceAsStream("res/npc/doganiere/doganiere.png"));
+            up1 = ImageIO.read(getClass().getResourceAsStream("/res/npc/doganiere/doganiere.png"));
 
         } catch (Exception e) {
             e.printStackTrace();
